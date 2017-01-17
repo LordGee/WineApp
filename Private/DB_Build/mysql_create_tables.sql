@@ -32,7 +32,8 @@ CREATE TABLE address (
 
 CREATE TABLE wish_list (
   wish_list_id INTEGER PRIMARY KEY AUTO-INCREMENT,
-  watch TINYINT NOT NULL
+  watch TINYINT NOT NULL,
+  last_modified DATE
 );
 
 CREATE TABLE stock_hold (
@@ -66,6 +67,8 @@ CREATE TABLE customer_order (
 CREATE TABLE customer_order_line (
   customer_order_line_id INTEGER PRIMARY KEY AUTO-INCREMENT,
   line_value DOUBLE (10, 2) NOT NULL
+  quantity INTEGER (10),
+  container VARCHAR (255)
 );
 
 CREATE TABLE payment (
