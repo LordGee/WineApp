@@ -1,0 +1,51 @@
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.mainArea {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.topArea {
+    width: 100%;
+    height: 200px;
+    background-color: antiquewhite;
+}
+
+h1#headTitle {
+    font-size: 72px;
+    color: aquamarine;
+    float: right;
+}
+
+.navArea {
+    width: 100%;
+    height: 50px;
+    background-color: blueviolet;
+}
+
+#navUl {
+    list-style-type: none;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+navLi {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18;
+    color: pink;
+    float: left;
+}
+
