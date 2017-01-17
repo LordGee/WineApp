@@ -17,10 +17,16 @@
             </ul>
         </nav>
         <div class="contentArea">
+            <h1>H1 Tag</h1>
+            <h2>H2 Tag</h2>
+            <h3>H3 Tag</h3>
+            <p>Paragraph tag</p>
+            <li>List Item Tags</li>
+            <a>Ancor Tag</a>
             
         </div>
         <footer class="bottomArea">
-        
+
         </footer>
     </div>
 </body>
