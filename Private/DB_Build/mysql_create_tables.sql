@@ -24,7 +24,7 @@ CREATE TABLE customer (
 CREATE TABLE address (
   address_id INTEGER PRIMARY KEY AUTO-INCREMENT,
   door_number_name VARCHAR (25) NOT NULL,
-  street _name VARCHAR (255),
+  street_name VARCHAR (255),
   city VARCHAR (255),
   county VARCHAR (255),
   post_code VARCHAR (10)
