@@ -1,7 +1,7 @@
 ALTER TABLE wine
 ADD COLUMN category_id_fk INT NOT NULL;
 ALTER TABLE wine
-ADD FORIEGN KEY fk_category_id (category_id_fk) REFERENCES category (category_id);
+ADD FOREIGN KEY fk_category_id (category_id_fk) REFERENCES category (category_id);
 
 ALTER TABLE customer
 ADD COLUMN address_id_fk INT NOT NULL;
@@ -53,9 +53,9 @@ ADD COLUMN navigation_id_fk INT NOT NULL;
 ALTER TABLE stock_content
 ADD FOREIGN KEY fk_navigation_id (navigation_id_fk) REFERENCES navigation (navigation_id);
 
-ALTER TABLE stock_hold
+ALTER TABLE static_content
 ADD COLUMN wine_id_fk INT NOT NULL;
-ALTER TABLE stock_hold
+ALTER TABLE static_content
 ADD FOREIGN KEY fk_wine_id (wine_id_fk) REFERENCES wine (wine_id);
 
 ALTER TABLE campaign_line
