@@ -5,7 +5,7 @@
     }
     
     class CampaignLine {
-        private campaign_line_id;
+        private $campaign_line_id;
         private $start_date;
         private $finish_date;
     }
