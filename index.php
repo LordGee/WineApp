@@ -8,8 +8,10 @@
     <div class="mainArea">
         <header class="topArea">
           <div id="logo">
-            <img src="image/10GBlogo.png" height="200px"/>
+            <img src="image/wines.png" width="100%"/>
+          </div>
         </header>
+        <div class="navArea">
         <nav class="navArea">
             <ul id="navUl">
                 <li id="navLi"><a href="index.php">Home</a></li>
@@ -17,6 +19,8 @@
                 <li id="navLi"><a href="wine.php">Wine</a></li>
             </ul>
         </nav>
+      </div>
+      
         <div id="contentArea">
             <h1>H1 Tag</h1>
             <h2>H2 Tag</h2>
