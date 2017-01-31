@@ -8,19 +8,19 @@
     <div class="mainArea">
         <header class="topArea">
           <div id="logo">
-            <img src="image/wines.png" width="100%"/>
+            <img src="image/wines.png" width="100%" height="200px;"/>
           </div>
         </header>
         <div class="navArea">
-        <nav class="navArea">
-            <ul id="navUl">
-                <li id="navLi"><a href="index.php">Home</a></li>
-                <li id="navLi"><a href="about.php">About Us</a></li>
-                <li id="navLi"><a href="wine.php">Wine</a></li>
+        <nav >
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="about.php">About Us</a></li>
+                <li><a href="wine.php">Wine</a></li>
             </ul>
         </nav>
       </div>
-      
+
         <div id="contentArea">
             <h1>H1 Tag</h1>
             <h2>H2 Tag</h2>
