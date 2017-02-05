@@ -1,0 +1,18 @@
+.wine_rows {
+    width: 80%;
+}
+
+.details {
+    width: 70%;
+}
+
+.wineImg {
+    width: 30%;
+    float: left;
+
+}
+.wine_name {
+    text-align: center;
+}
+
+

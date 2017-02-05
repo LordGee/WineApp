@@ -7,9 +7,13 @@
         private $price_per_bottle;
         private $bottles_per_case;
         private $asset_link;
-        
-        function __construct() {
-            
+
+        function __get($name) {
+            return $this->$name;
+        }
+
+        function __set($name,$value) {
+            $this->$name = $value;
         }
     }
 
