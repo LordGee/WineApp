@@ -26,11 +26,13 @@ a {
 }
 
 .mainArea {
-    background-color: #113207;
-    background-image: -moz-linear-gradient (#E8C8BD, #113207);
-    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%. from(#113207), to(#E8C8BD));
-    background-image: -webkit-linear-gradient(#E8C8BD, #113207);
-    background-image: -o-linear-gradient(#E8C8BD, #113207);
+
+    background-color: #E8C8BD;
+    background-image: -moz-linear-gradient (#113207, #E8C8BD);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%. from(#E8C8BD), to (#113207));
+    background-image: -webkit-linear-gradient(#113207, #E8C8BD);
+    background-image: -o-linear-gradient(#113207, #E8C8BD);
+
     height: 150px;
     width: 100%;
     margin-left: auto;
@@ -60,7 +62,7 @@ h1#headTitle {
 .navArea nav{
     width: 100%;
     height: 40px;
-    background-color: darkgreen;
+    background-color: 113207;
     margin: 5px;
     position: relative;
     bottom: 17px;
