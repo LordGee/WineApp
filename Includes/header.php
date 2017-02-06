@@ -3,6 +3,7 @@
 <head>
     <title>Ten Green Bottles</title>
     <link rel="stylesheet" href="Style/main.css" type="text/css" />
+    <link rel="stylesheet" href="Style/element.css" type="text/css" />
 </head>
 <body>
 <div class="mainArea">
@@ -17,7 +18,11 @@
   </div>
     <header class="topArea">
         <div id="logo">
+<<<<<<< Updated upstream
             <img src="image/10GreenBottles.png"/>
+=======
+            <img src="image/wines.png" width="100%"/>
+>>>>>>> Stashed changes
         </div>
     </header>
     <div id="contentArea">

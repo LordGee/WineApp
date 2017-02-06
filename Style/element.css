@@ -1,15 +1,28 @@
 .wine_rows {
     width: 80%;
+    height:auto;
+    border: 2px solid darkolivegreen;
+    border-radius: 2px;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+}
+
+.wine_img_pos img {
+    border: 1px dashed black;
+    height: 120px;
+    float: left;
+    margin: 15px;
 }
 
 .details {
     width: 70%;
+    display: inline;
 }
 
-.wineImg {
-    width: 30%;
-    float: left;
-
+.wine_img {
+    width: 100px;
 }
 .wine_name {
     text-align: center;

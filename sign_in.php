@@ -7,6 +7,4 @@
     <li>List Item Tags</li>
     <a>Ancor Tag</a>
 
-    <img src="image/2glass.jpg" alt="Enjoy a little sparkle" title="Click here to explore more." />
-
 <?php require_once ("Includes/footer.php"); ?>

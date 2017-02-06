@@ -5,15 +5,14 @@
 
         <?php foreach ($accessWines as $thisWine): ?>
             <div class="wine_rows">
+                <div class="wine_img_pos">
+                    <img src="<?= $thisWine->asset_link ?>" alt="<?= $thisWine->wine_name ?>" />
+                </div>
                 <div class="details">
                     <h3 class="wine_name"><?= $thisWine->wine_name ?></h3>
                     <h4><?= $thisWine->country ?></h4>
                     <p><?= $thisWine->description ?></p>
                 </div>
-                <div class="wineImg">
-                    <img src="<?= $thisWine->asset_link ?>" alt="<?= $thisWine->wine_name ?>" />
-                </div>
-
             </div>
         <?php endforeach; ?>
 
