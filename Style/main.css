@@ -28,7 +28,7 @@ a {
 .mainArea {
     background-color: #113207;
     background-image: -moz-linear-gradient (#E8C8BD, #113207);
-    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%. from(#113207), to (#E8C8BD));
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%. from(#113207), to(#E8C8BD));
     background-image: -webkit-linear-gradient(#E8C8BD, #113207);
     background-image: -o-linear-gradient(#E8C8BD, #113207);
     height: 150px;
@@ -81,10 +81,19 @@ h1#headTitle {
 a {
     text-decoration: none;
     font-weight: bold;
-    font-size: 18;
+    font-size: 18px;
     color: white;
     float: left;
     margin-left: 20px;
     margin-right: 20px;
     margin-top: 15px;
+}
+
+#rightNav {
+    float: right;
+    display: inline;
+}
+
+#leftNav {
+    float: left;
 }
