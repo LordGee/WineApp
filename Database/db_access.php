@@ -3,6 +3,7 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
+    // Connection Variables
     $db_host = "localhost";
     $db_user = "wine_user";
     $db_name = "wine_app";
