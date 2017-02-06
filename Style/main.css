@@ -3,27 +3,36 @@ body {
     height: 100%;
     margin: 0px;
     padding: 0px;
-
 }
 
 h1 {
   font-size: 32px;
 }
+
 h2 {
   font-size: 24px;
 }
+
 h3 {
   font-size: 18px;
 }
+
 p, li, a {
   font-size: 14px;
 }
+
 a {
   text-decoration: none;
 }
 
 .mainArea {
-    width: 90%;
+    background-color: #113207;
+    background-image: -moz-linear-gradient (#E8C8BD, #113207);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%. from(#113207), to (#E8C8BD));
+    background-image: -webkit-linear-gradient(#E8C8BD, #113207);
+    background-image: -o-linear-gradient(#E8C8BD, #113207);
+    height: 150px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -31,12 +40,11 @@ a {
 .topArea {
     width: 100%;
     height: 200px;
-    background-color: antiquewhite;
 }
 
 
-.topArea logo img{
-float:left;
+.topArea logo img {
+  float: left;
 }
 
 #contentArea {
@@ -51,25 +59,23 @@ h1#headTitle {
 
 .navArea nav{
     width: 100%;
-    height:40px;
-    background-color: darkred;
-    margin:5px;
-    position:relative;
-    bottom:17px;
-    right:5px;
+    height: 40px;
+    background-color: darkgreen;
+    margin: 5px;
+    position: relative;
+    bottom: 17px;
+    right: 5px;
 }
 
 #navUl {
     list-style-type: none;
     width: 100%;
-    margin-left: auto;;
+    margin-left: auto;
     margin-right: auto;
 }
 
-.navArea nav ul li{
-display:inline;
-
-
+.navArea nav ul li {
+  display:inline;
 }
 
 a {
