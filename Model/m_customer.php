@@ -6,6 +6,14 @@
         private $phone_number;
         private $email_address;
         private $password;
+
+        function __get($name) {
+            return $this->$name;
+        }
+
+        function __set($name,$value) {
+            $this->$name = $value;
+        }
     }
 
     class Payment {
@@ -23,6 +31,29 @@
         private $city;
         private $county;
         private $post_code;
+    }
+
+    function getUserByEmailAndPassword($_email, $_pass) {
+        $_pass = encryption($_email, $_pass);
+        $success = loginUser($_email, $_pass);
+
+        if ($success) {
+
+        }
+    }
+
+    function encryption($_email, $_pass) {
+        $count = strlen($_email);
+        $use = ($count / 2) + 2;
+        $s1 = substr($_email, 0, $use);
+        $s2 = substr($_email, -$use);
+        $s1encrypt = hash(sha256, $s1, false);
+        $s2encrypt = hash(sha256, $s2, false);
+        $paSalt = $s2encrypt . $_pass . $s1encrypt;
+        for ($i = 0; $i < $count; $i++) {
+            $paSalt = hash(sha256, $paSalt, false);
+        }
+        return $paSalt;
     }
 ?>
 

@@ -1,10 +1,22 @@
 <?php require_once ("Includes/header.php"); ?>
 
-    <h1>This is the About Page</h1>
-    <h2>H2 Tag</h2>
-    <h3>H3 Tag</h3>
-    <p>Paragraph tag</p>
-    <li>List Item Tags</li>
-    <a>Ancor Tag</a>
+    <h1>Login Page</h1>
+    <p>Text goes here: </p>
+    <span id="error"><?= $error ?></span>
+    <form method="post">
+        <div>
+            <label>Email Address : </label>
+            <input type="email" name="email" placeholder="Enter email address here" />
+        </div>
+        <div>
+            <label>Password : </label>
+            <input type="password" name="pass" placeholder="Enter password here" />
+        </div>
+        <div>
+            <input type="hidden" name="iCode" value="login" />
+            <input type="submit" value="Login" />
+        </div>
+    </form>
+
 
 <?php require_once ("Includes/footer.php"); ?>

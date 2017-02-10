@@ -11,11 +11,6 @@
 
     $pdo = new PDO("mysql:host=$db_host;dbname=$db_name",$db_user,$db_pass);
 
-    function getAllWines() {
-        global $pdo;
-        $statement = $pdo->prepare('SELECT * FROM wine');
-        $statement->execute();
-        $result = $statement->fetchAll(PDO::FETCH_CLASS, 'Wine');
-        return $result;
-    }
+    require_once ("Database/db_queries.php");
+
 ?>
