@@ -6,6 +6,7 @@
         private $phone_number;
         private $email_address;
         private $password;
+        private $address_id_fk;
 
         function __get($name) {
             return $this->$name;
@@ -37,9 +38,7 @@
         $_pass = encryption($_email, $_pass);
         $success = loginUser($_email, $_pass);
 
-        if ($success) {
-
-        }
+       return $success;
     }
 
     function encryption($_email, $_pass) {
@@ -47,11 +46,12 @@
         $use = ($count / 2) + 2;
         $s1 = substr($_email, 0, $use);
         $s2 = substr($_email, -$use);
-        $s1encrypt = hash(sha256, $s1, false);
-        $s2encrypt = hash(sha256, $s2, false);
+        $s1encrypt = hash('sha256', $s1, false);
+        $s2encrypt = hash('sha256', $s2, false);
+        $_pass = hash('sha256', $_pass, false);
         $paSalt = $s2encrypt . $_pass . $s1encrypt;
         for ($i = 0; $i < $count; $i++) {
-            $paSalt = hash(sha256, $paSalt, false);
+            $paSalt = hash('sha256', $paSalt, false);
         }
         return $paSalt;
     }

@@ -12,5 +12,6 @@
     $pdo = new PDO("mysql:host=$db_host;dbname=$db_name",$db_user,$db_pass);
 
     require_once ("Database/db_queries.php");
+    require_once ("Database/db_insert.php");
 
 ?>

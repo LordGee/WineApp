@@ -1,6 +1,6 @@
 <?php require_once ("Includes/header.php"); ?>
-
-            <h1>H1 Tag</h1>
+<?php require_once("Includes/session.php"); ?>
+    <h1>Welcome <?= $_SESSION["loggedInUser"]->first_name ?></h1>
             <h2>H2 Tag</h2>
             <h3>H3 Tag</h3>
             <p>Paragraph tag</p>
