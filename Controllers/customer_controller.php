@@ -7,7 +7,7 @@ if (!isset($error)) {
     $error = "";
 }
 
-if (isset($_SESSION["activeUser"])) {
+if (isset($_SESSION["User"])) {
     header('Location: index.php');
     die();
 } else if (isset($_POST["iCode"]) && $_POST["iCode"] == "login") {
@@ -16,8 +16,9 @@ if (isset($_SESSION["activeUser"])) {
     $user = getUserByEmailAndPassword($email,$pass);
     if ($user) {
         $_SESSION["User"] = $user;
+        $_SESSION["blah"] = "Blah, Blah, Blah!";
         header('Location: index.php');
-        // die();
+        die();
     } else {
         $error = "The login details supplied do not match any valid user.";
     }
@@ -29,7 +30,7 @@ if (isset($_SESSION["activeUser"])) {
         $passEncrypt = encryption($_POST['email_address'], $_POST['password']);
         $customerId = insertCustomer($_POST, $passEncrypt, $addressId);
         if ($customerId) {
-            $_SESSION["loggedInUser"] = $customerId;
+            $_SESSION["UserId"] = $customerId;
             header('Location: sign_in.php');
             die();
         } else {
