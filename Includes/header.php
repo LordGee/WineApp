@@ -22,7 +22,7 @@
   </div>
     <header class="topArea">
         <div id="logo">
-            <img src="image/10GreenBottles.png"/>
+            <img src="image/10GreenBottles.png" style = "position: relative; bottom: 50px;"/>
         </div>
     </header>
     <div id="contentArea">

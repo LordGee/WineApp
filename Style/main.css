@@ -46,7 +46,9 @@ a {
 
 
 .topArea logo img {
-  float: left;
+  float:left;
+  position:relative;
+  bottom:100px;
 }
 
 #contentArea {
@@ -98,4 +100,15 @@ a {
 
 #leftNav {
     float: left;
+}
+
+input[type = button]{
+ margin: 10
+}
+
+.signup {
+  border:1px solid;
+  border-color:black;
+  background:linear-gradient(green,gray,white);
+  padding:10px;
 }
