@@ -10,7 +10,6 @@
             <a>Ancor Tag</a>
     <?php foreach ($_SESSION["User"] as $thisUser): ?>
         <p><?= $thisUser->first_name ?></p>
-        <p><?= $balls ?></p>
     <?php endforeach; ?>
 
             <img src="image/2glass.jpg" alt="Enjoy a little sparkle" title="Click here to explore more." />
