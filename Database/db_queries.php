@@ -15,6 +15,14 @@
         return $result;
     }
 
+function getAllWinesByCategory($_id) {
+    global $pdo;
+    $statement = $pdo->prepare('SELECT * FROM wine WHERE category_id_fk = ?');
+    $statement->execute([$_id]);
+    $result = $statement->fetchAll(PDO::FETCH_CLASS, 'Category');
+    return $result;
+}
+
     function loginUser($_email, $_pass) {
         global $pdo;
         $statement = $pdo->prepare('SELECT customer_id FROM customer WHERE email_address = ? AND password = ? LIMIT 1');

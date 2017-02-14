@@ -2,15 +2,27 @@
 <?php require_once ("Controllers/wine_controller.php"); ?>
 
 <?php
-    echo '<pre>';
-    var_dump($accessCat);
-    echo '</pre>';
+//    echo '<pre>';
+//    var_dump($accessCat);
+//    echo '</pre>';
 ?>
-        <select>
+    <form method="get" action="wine.php">
+        <select name="wine_type">
+            <option name="wine_type" value="all">All Wines</option>
             <?php foreach ($accessCat as $cat): ?>
-            <option name="wine_type" value="<?= $cat->category_id ?>"><?php $cat->wine_type ?></option>
+                <?php
+                    if ($cat->wine_colour == null){
+                        $type = $cat->wine_type;
+                    } else {
+                        $type = $cat->wine_colour . " " . $cat->wine_type;
+                    }
+                ?>
+            <option name="wine_type" value="<?= $cat->category_id ?>"><?= $type ?></option>
             <?php endforeach; ?>
         </select>
+        <input type="hidden" name="iCode" value="filter"/>
+        <input type="submit" value="Filter"/>
+    </form>
         <?php foreach ($accessWines as $thisWine): ?>
             <div class="wine_rows">
                 <div class="wine_img_pos">
