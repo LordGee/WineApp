@@ -5,4 +5,7 @@
 
     $accessWines = [];
     $accessWines = getAllWines();
+    $accessCat = [];
+    $accessCat = getAllCategories();
+
 ?>

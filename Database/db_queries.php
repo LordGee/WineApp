@@ -1,9 +1,17 @@
 <?php
     function getAllWines() {
         global $pdo;
-        $statement = $pdo->prepare('SELECT * FROM wine');
+        $statement = $pdo->prepare('SELECT * FROM wine, category WHERE wine.category_id_fk = category.category_id');
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_CLASS, 'Wine');
+        return $result;
+    }
+
+    function getAllCategories() {
+        global $pdo;
+        $statement = $pdo->prepare('SELECT * FROM category');
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_CLASS, 'Category');
         return $result;
     }
 

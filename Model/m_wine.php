@@ -7,6 +7,10 @@
         private $price_per_bottle;
         private $bottles_per_case;
         private $asset_link;
+        private $category_id_fk;
+        private $category_id;
+        private $wine_colour;
+        private $wine_type;
 
         function __get($name) {
             return $this->$name;
@@ -21,6 +25,14 @@
         private $category_id;
         private $wine_colour;
         private $wine_type;
+
+        function __get($name) {
+            return $this->$name;
+        }
+
+        function __set($name,$value) {
+            $this->$name = $value;
+        }
     }
 
     class StockHold {

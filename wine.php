@@ -1,8 +1,16 @@
 <?php require_once ("Includes/header.php"); ?>
 <?php require_once ("Controllers/wine_controller.php"); ?>
 
-
-
+<?php
+    echo '<pre>';
+    var_dump($accessCat);
+    echo '</pre>';
+?>
+        <select>
+            <?php foreach ($accessCat as $cat): ?>
+            <option name="wine_type" value="<?= $cat->category_id ?>"><?php $cat->wine_type ?></option>
+            <?php endforeach; ?>
+        </select>
         <?php foreach ($accessWines as $thisWine): ?>
             <div class="wine_rows">
                 <div class="wine_img_pos">
