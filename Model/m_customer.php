@@ -1,5 +1,5 @@
 <?php
-    class Customer {
+    class Customer implements JsonSerializable { //
         private $customer_id;
         private $first_name;
         private $last_name;
@@ -8,12 +8,24 @@
         private $password;
         private $address_id_fk;
 
-        function __get($name) {
+        public function __get($name) {
             return $this->$name;
         }
 
-        function __set($name,$value) {
+        public function __set($name, $value) {
             $this->$name = $value;
+        }
+
+        public function jsonSerialize()
+        {
+            return [
+                "customer_id" => $this->customer_id,
+                "first_name" => $this->first_name,
+                "last_name" => $this->last_name,
+                "phone_number" => $this->phone_number,
+                "email_address" => $this->email_address,
+                "address_id_fk" => $this->address_id_fk,
+            ];
         }
     }
 

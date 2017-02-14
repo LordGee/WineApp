@@ -1,3 +1,4 @@
+<?php require_once("Controllers/main_controller.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +17,11 @@
           </ul>
           <ul id="rightNav">
               <li><a href="sign_up.php">Register Now</a></li>
+              <?php if(isset($_SESSION["Customer"])): ?>
+              <li><a href="sign_out.php">LOGOUT</a></li>
+              <?php else: ?>
               <li><a href="sign_in.php">LOGIN</a></li>
+              <?php endif; ?>
           </ul>
       </nav>
   </div>

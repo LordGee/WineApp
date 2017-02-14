@@ -1,13 +1,13 @@
 <?php
-require_once ("Database/db_access.php");
-require_once ("Model/m_customer.php");
 require_once ("Includes/session.php");
+require_once ("Model/m_customer.php");
+require_once ("Database/db_access.php");
 
 if (!isset($error)) {
     $error = "";
 }
 
-if (isset($_SESSION["User"])) {
+if (isset($_SESSION["Customer"])) {
     header('Location: index.php');
     die();
 } else if (isset($_POST["iCode"]) && $_POST["iCode"] == "login") {
@@ -15,8 +15,7 @@ if (isset($_SESSION["User"])) {
     $pass = $_POST["pass"];
     $user = getUserByEmailAndPassword($email,$pass);
     if ($user) {
-        $_SESSION["User"] = $user;
-        $_SESSION["blah"] = "Blah, Blah, Blah!";
+        $_SESSION["Customer"] = $user[0]->customer_id;
         header('Location: index.php');
         die();
     } else {
@@ -30,7 +29,7 @@ if (isset($_SESSION["User"])) {
         $passEncrypt = encryption($_POST['email_address'], $_POST['password']);
         $customerId = insertCustomer($_POST, $passEncrypt, $addressId);
         if ($customerId) {
-            $_SESSION["UserId"] = $customerId;
+            $_SESSION["Us"] = $customerId;
             header('Location: sign_in.php');
             die();
         } else {
