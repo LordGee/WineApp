@@ -26,14 +26,7 @@ a {
 }
 
 .mainArea {
-
-    background-color: #E8C8BD;
-    /*background-image: -moz-linear-gradient (#113207, #E8C8BD);*/
-    /*background-image: -webkit-gradient(linear, 0% 0%, 0% 100%. from(#E8C8BD), to (#113207));*/
-    background-image: -webkit-linear-gradient(#113207, #E8C8BD);
-    background-image: -o-linear-gradient(#113207, #E8C8BD);
-
-    height: 150px;
+    height: 100%;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -42,13 +35,14 @@ a {
 .topArea {
     width: 100%;
     height: 200px;
+    text-align: center;
+    clear: both;
 }
 
 
-.topArea logo img {
-  float:left;
-  position:relative;
-  bottom:100px;
+#logo img {
+
+    border: 1px solid chocolate;
 }
 
 #contentArea {
@@ -58,17 +52,13 @@ a {
 h1#headTitle {
     font-size: 72px;
     color: darkgreen;
-    float: right;
 }
 
 .navArea nav{
     width: 100%;
-    height: 40px;
+    height: 50px;
     background-color: #113207;
-    margin: 5px;
     position: relative;
-    bottom: 17px;
-    right: 5px;
 }
 
 #navUl {
@@ -79,36 +69,46 @@ h1#headTitle {
 }
 
 .navArea nav ul li {
-  display:inline;
+    display:inline;
 }
 
-a {
+.navArea a {
     text-decoration: none;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
     color: white;
     float: left;
-    margin-left: 20px;
+    margin-left: 10px;
     margin-right: 20px;
-    margin-top: 15px;
+    top: 0;
+    padding: 10px 20px;
+}
+
+.navArea a:hover {
+    border: solid 1px black ;
+    border-radius: 20px;
+    color: #000;
+    background-color: lightgreen;
 }
 
 #rightNav {
     float: right;
     display: inline;
+    margin: 5px;
 }
 
 #leftNav {
     float: left;
+    margin: 5px;
 }
 
 input[type = button]{
- margin: 10px;
+    margin: 10px;
 }
 
 .signup {
-  border:1px solid;
-  border-color:black;
-  background:linear-gradient(green,gray,white);
-  padding:10px;
+    border: 1px solid;
+    border-color: black;
+    background:linear-gradient(green,gray,white);
+    padding:10px;
 }

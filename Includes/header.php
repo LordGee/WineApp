@@ -9,12 +9,13 @@
 <body>
 <div class="mainArea">
   <div class="navArea">
-      <nav >
+      <nav>
           <ul id="leftNav">
               <li><a href="index.php">Home</a></li>
               <li><a href="about.php">About Us</a></li>
               <li><a href="wine.php">All Wines</a></li>
           </ul>
+
           <ul id="rightNav">
               <li><a href="sign_up.php">Register Now</a></li>
               <?php if(isset($_SESSION["Customer"])): ?>
@@ -25,9 +26,16 @@
           </ul>
       </nav>
   </div>
+    <div id="userInfo">
+        <?php if(isset($_SESSION["Customer"])): ?>
+            <p>Welcome, <?= $currentUser[0]->first_name ?></p>
+        <?php endif; ?>
+    </div>
     <header class="topArea">
         <div id="logo">
-            <img src="image/10GreenBottles.png" style = "position: relative; bottom: 50px;"/>
+            <img src="image/10GreenBottles.png" />
         </div>
     </header>
+    <!-- TODO Add a search box here -->
     <div id="contentArea">
+

@@ -15,7 +15,7 @@
 //}
 ?>
 
-    <h1>Welcome <?= $currentUser[0]->first_name ?></h1>
+    <h1>Welcome to Ten Green Bottles</h1>
 
             <h1>H1 Tag</h1>
             <h2>H2 Tag</h2>

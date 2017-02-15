@@ -1,3 +1,10 @@
+#userInfo {
+    float: right;
+    Padding: 10px;
+    font-size: 14px;
+    border: 1px solid black;
+}
+
 .wine_rows {
     width: 80%;
     height:auto;
