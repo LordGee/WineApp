@@ -13,5 +13,6 @@
 
     require_once ("Database/db_queries.php");
     require_once ("Database/db_insert.php");
+    require_once ("Database/db_delete.php");
 
 ?>

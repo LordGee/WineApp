@@ -29,6 +29,7 @@
     <div id="userInfo">
         <?php if(isset($_SESSION["Customer"])): ?>
             <p>Welcome, <?= $currentUser[0]->first_name ?></p>
+        <a href="wine.php?wine_type=showWish&iCode=filter"><p>Wish-List ( <?= count($userWishList) ?> )</p></a>
         <?php endif; ?>
     </div>
     <header class="topArea">

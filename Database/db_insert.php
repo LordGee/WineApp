@@ -29,4 +29,11 @@
             return false;
         }
     }
+
+    function addWineToWishList($_wId, $_cId) {
+        global $pdo;
+        $statement = $pdo->prepare("INSERT INTO wish_list (watch, last_modified, customer_id_fk, wine_id_fk) VALUES (1, CURRENT_DATE(), ?, ? )");
+        $result = $statement->execute([$_cId, $_wId]);
+        return $result;
+    }
 ?>
