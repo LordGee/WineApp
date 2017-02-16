@@ -17,11 +17,11 @@
           </ul>
 
           <ul id="rightNav">
-              <li><a href="sign_up.php">Register Now</a></li>
               <?php if(isset($_SESSION["Customer"])): ?>
-              <li><a href="sign_out.php">LOGOUT</a></li>
+                  <li><a href="sign_out.php">LOGOUT</a></li>
               <?php else: ?>
-              <li><a href="sign_in.php">LOGIN</a></li>
+                  <li><a href="sign_up.php">Register Now</a></li>
+                  <li><a href="sign_in.php">LOGIN</a></li>
               <?php endif; ?>
           </ul>
       </nav>

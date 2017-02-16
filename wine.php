@@ -3,7 +3,7 @@
 
 <?php
 //    echo '<pre>';
-//    var_dump($accessCat);
+//    var_dump($_SESSION["basket"]);
 //    echo '</pre>';
 ?>
     <form method="get" action="wine.php">
@@ -19,7 +19,9 @@
                 ?>
             <option name="wine_type" value="<?= $cat->category_id ?>"><?= $type ?></option>
             <?php endforeach; ?>
-            <option name="wine_type" value="showWish">Wish-List</option>
+            <?php if (isset($_SESSION["Customer"])): ?>
+                <option name="wine_type" value="showWish">Wish-List</option>
+            <?php endif; ?>
         </select>
         <input type="hidden" name="iCode" value="filter"/>
         <input type="submit" value="Filter"/>
@@ -35,29 +37,49 @@
                     <p><?= $thisWine->description ?></p>
                 </div>
                 <?php if (isset($_SESSION["Customer"])): ?>
+                    <form method="post" action="wine.php">
+                        <input type="hidden" name="wId" value="<?= $thisWine->wine_id ?>"/>
+                        <?php $already = false; ?>
+                        <?php foreach ($userWishList as $wl): ?>
+                            <?php
+                                if ($wl->wine_id_fk == $thisWine->wine_id) {
+                                    $already = true;
+                                }
+                            ?>
+                        <?php endforeach; ?>
+                            <?php if ($already): ?>
+                                <input type="hidden" name="iCode" value="removeWish"/>
+                                <input type="submit" value="Remove from Wish List"/>
+                            <?php else: ?>
+                                <input type="hidden" name="iCode" value="wish"/>
+                                <input type="submit" value="Add to Wish List"/>
+                            <?php endif; ?>
+                    </form>
+                    <?php if (isset($_POST["wId"]) && $_POST["wId"] == $thisWine->wine_id): ?>
+                        <span class="message"><?= $message ?></span>
+                        <span class="error"><?= $error ?></span>
+                    <?php endif; ?>
+                <?php endif; ?>
                 <form method="post" action="wine.php">
                     <input type="hidden" name="wId" value="<?= $thisWine->wine_id ?>"/>
-                    <?php $already = false; ?>
-                    <?php foreach ($userWishList as $wl): ?>
-                        <?php
-                            if ($wl->wine_id_fk == $thisWine->wine_id) {
-                                $already = true;
-                            }
-                        ?>
-                    <?php endforeach; ?>
-                        <?php if ($already): ?>
-                            <input type="hidden" name="iCode" value="removeWish"/>
-                            <input type="submit" value="Remove from Wish List"/>
-                        <?php else: ?>
-                            <input type="hidden" name="iCode" value="wish"/>
-                            <input type="submit" value="Add to Wish List"/>
-                        <?php endif; ?>
+                    <?php  $inBasket = false; ?>
+                    <?php if (isset($_SESSION["basket"])): ?>
+                        <?php foreach ($_SESSION["basket"] as $index => $basketItem): ?>
+                            <?php
+                                if ($basketItem == $thisWine->wine_id){
+                                    $inBasket = true;
+                                }
+                            ?>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                    <?php if ($inBasket): ?>
+                        <input type="hidden" name="iCode" value="removeBasket"/>
+                        <input type="submit" value="Remove" />
+                    <?php else: ?>
+                        <input type="hidden" name="iCode" value="addBasket"/>
+                        <input type="submit" value="BUY" />
+                    <?php endif; ?>
                 </form>
-                <?php if (isset($_POST["wId"]) && $_POST["wId"] == $thisWine->wine_id): ?>
-                <span class="message"><?= $message ?></span>
-                <span class="error"><?= $error ?></span>
-                <?php endif; ?>
-                <?php endif; ?>
             </div>
         <?php endforeach; ?>
 

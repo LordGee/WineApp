@@ -36,6 +36,17 @@
             } else {
                 $error = "There was a problem removing this item from your Wish-List, please try again later";
             }
+        } elseif ($_POST['iCode'] == "addBasket") {
+            if (!isset($_SESSION["basket"])) {
+                $_SESSION["basket"] = array();
+            }
+            array_push($_SESSION["basket"], $_POST['wId']);
+        } elseif ($_POST['iCode'] == "removeBasket") {
+            foreach ($_SESSION["basket"] as $key => $value) {
+                if ($value == $_POST['wId']) {
+                    unset($_SESSION["basket"][$key]);
+                }
+            }
         }
     }
 ?>
