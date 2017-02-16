@@ -76,6 +76,8 @@
                         <input type="hidden" name="iCode" value="removeBasket"/>
                         <input type="submit" value="Remove" />
                     <?php else: ?>
+                        <label for="qty">Quantity</label>
+                        <input type="number" name="qty" max="100" />
                         <input type="hidden" name="iCode" value="addBasket"/>
                         <input type="submit" value="BUY" />
                     <?php endif; ?>

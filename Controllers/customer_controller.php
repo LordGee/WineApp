@@ -7,6 +7,10 @@ if (!isset($error)) {
     $error = "";
 }
 
+if (isset($_GET["cart"])){
+    $error = "To continue with your order, you are required to login to your account";
+}
+
 if (isset($_SESSION["Customer"])) {
     header('Location: index.php');
     die();

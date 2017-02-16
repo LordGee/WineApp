@@ -39,4 +39,39 @@
         private $stock_hold_id;
         private $quantity;
     }
+
+    function addBasket($_id, $_qty) {
+        if (!isset($_SESSION["basket"])) {
+            $_SESSION["basket"] = array();
+            $_SESSION['basketQty'] = array();
+        }
+        array_push($_SESSION["basket"], $_id);
+        $_SESSION["basketQty"][$_id] = $_qty;
+    }
+
+    function removeBasket($_id) {
+        foreach ($_SESSION["basket"] as $key => $value) {
+            if ($value == $_id) {
+                unset($_SESSION["basketQty"][$value]);
+                unset($_SESSION["basket"][$key]);
+            }
+        }
+    }
+
+    function updateBasket($_id, $_qty) {
+        $_SESSION["basketQty"][$_id] = $_qty;
+    }
+
+    function getTotalValue() {
+        $result = 0.00;
+        foreach ($_SESSION["basket"] as $key => $value) {
+            $wineList = getWineById($value);
+            foreach ($_SESSION["basketQty"] as $qKey => $qValue) {
+                if ($value == $qKey) {
+                    $result += ($wineList[0]->price_per_bottle * $qValue);
+                }
+            }
+        }
+        return $result;
+    }
 ?>

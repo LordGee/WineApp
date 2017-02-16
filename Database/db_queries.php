@@ -23,6 +23,14 @@
         return $result;
     }
 
+    function getWineById($_id) {
+        global $pdo;
+        $statement = $pdo->prepare('SELECT * FROM wine WHERE wine_id = ? LIMIT 1');
+        $statement->execute([$_id]);
+        $result = $statement->fetchAll(PDO::FETCH_CLASS, 'Wine');
+        return $result;
+    }
+
     function getAllWishListById($_id) {
         global $pdo;
         $statement = $pdo->prepare('SELECT * FROM wish_list WHERE customer_id_fk = ?');
@@ -60,9 +68,25 @@
 
     function getUserById($_id) {
         global $pdo;
-        $statement = $pdo->prepare('SELECT first_name FROM customer WHERE customer_id = ? LIMIT 1');
+        $statement = $pdo->prepare('SELECT * FROM customer WHERE customer_id = ? LIMIT 1');
         $statement->execute([$_id]);
         $result = $statement->fetchAll(PDO::FETCH_CLASS, 'Customer');
+        return $result;
+    }
+
+    function getAddressById($_aId) {
+        global $pdo;
+        $statement = $pdo->prepare('SELECT * FROM address WHERE address_id = ? LIMIT 1');
+        $statement->execute([$_aId]);
+        $result = $statement->fetchAll(PDO::FETCH_CLASS, 'Address');
+        return $result;
+    }
+
+    function getPaymentsById($_id) {
+        global $pdo;
+        $statement = $pdo->prepare('SELECT * FROM payment WHERE customer_id_fk = ?');
+        $statement->execute([$_id]);
+        $result = $statement->fetchAll(PDO::FETCH_CLASS, 'Payment');
         return $result;
     }
 ?>

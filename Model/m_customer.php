@@ -35,6 +35,14 @@
         private $card_name;
         private $card_number;
         private $expiry_date;
+
+        public function __get($name) {
+            return $this->$name;
+        }
+
+        public function __set($name, $value) {
+            $this->$name = $value;
+        }
     }
 
     class Address {
@@ -44,6 +52,14 @@
         private $city;
         private $county;
         private $post_code;
+
+        public function __get($name) {
+            return $this->$name;
+        }
+
+        public function __set($name, $value) {
+            $this->$name = $value;
+        }
     }
 
     function getUserByEmailAndPassword($_email, $_pass) {
@@ -66,6 +82,11 @@
             $paSalt = hash('sha256', $paSalt, false);
         }
         return $paSalt;
+    }
+
+    function payConvert($_pCard) {
+        $sub = substr($_pCard, -4);
+        return $result = "**** **** **** " . $sub;
     }
 ?>
 

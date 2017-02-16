@@ -17,6 +17,9 @@
             <input type="hidden" name="iCode" value="login" />
             <input type="submit" value="Login" />
         </div>
+        <div>
+            <p>Not got an account? Register <a href="sign_up.php">HERE</a> </p>
+        </div>
     </form>
 
 
