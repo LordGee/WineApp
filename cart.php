@@ -17,6 +17,7 @@
         <p><?= $userAddress[0]->post_code ?></p>
     </div>
     <form method="post" action="address.php">
+        <input type="hidden" name="iCode" value="addAdress" />
         <input type="hidden" name="current" value="<?= $userAddress[0]->address_id ?>" />
         <input type="submit" value="Change Delivery Address">
     </form>
