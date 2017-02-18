@@ -11,8 +11,9 @@
 
     $pdo = new PDO("mysql:host=$db_host;dbname=$db_name",$db_user,$db_pass);
 
-    require_once ("Database/db_queries.php");
-    require_once ("Database/db_insert.php");
-    require_once ("Database/db_delete.php");
+    require_once ("Database/db_Create.php");
+    require_once ("Database/db_Read.php");
+    require_once ("Database/db_Update.php");
+    require_once ("Database/db_Delete.php");
 
 ?>

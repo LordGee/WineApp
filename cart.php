@@ -2,9 +2,9 @@
 <?php require_once ("Controllers/cart_controller.php"); ?>
 
 <?php
-    echo '<pre>';
-    var_dump($_SESSION["total"]);
-    echo '</pre>';
+//    echo '<pre>';
+//    var_dump($_SESSION["total"]);
+//    echo '</pre>';
 ?>
 
     <h1>Shopping Cart</h1>
@@ -17,7 +17,7 @@
         <p><?= $userAddress[0]->post_code ?></p>
     </div>
     <form method="post" action="address.php">
-        <input type="hidden" name="iCode" value="addAdress" />
+        <input type="hidden" name="iCode" value="addAddress" />
         <input type="hidden" name="current" value="<?= $userAddress[0]->address_id ?>" />
         <input type="submit" value="Change Delivery Address">
     </form>
@@ -65,6 +65,8 @@
     </table>
     <br/>
     <form method="post" action="order.php">
+        <input type="hidden" name="address" value="<?= $userAddress[0]->address_id ?>" />
+        <input type="hidden" name="iCode" value="order">
         <input type="submit" value="Confirm Order">
     </form>
 

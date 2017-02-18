@@ -1,18 +1,8 @@
 <?php require_once ("Includes/header.php"); ?>
 <?php
-//if (isset($_SESSION)) {
-//    echo '<pre>';
-//    var_dump($_SESSION);
-//    echo '</pre>';
-//    echo '<br/>';
-//    echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
-//    echo '<br/>';
-//    echo '<pre>' . print_r($currentUser, TRUE) . '</pre>';
-//    echo '<br/>';
-//    echo '<pre>';
-//    var_dump($currentUser);
-//    echo '</pre>';
-//}
+    echo '<pre>';
+    var_dump($_SESSION);
+    echo '</pre>';
 ?>
 
     <h1>Welcome to Ten Green Bottles</h1>

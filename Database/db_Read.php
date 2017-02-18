@@ -82,6 +82,23 @@
         return $result;
     }
 
+    function checkAddress($_n, $_pc)
+    {
+        global $pdo;
+        $statement = $pdo->prepare('SELECT * FROM address WHERE door_number_name = ? AND post_code = ? LIMIT 1');
+        $statement->execute([$_n, $_pc]);
+        $result = $statement->fetchAll(PDO::FETCH_CLASS, 'Address');
+        return $result;
+    }
+
+    function getAllUsedAddressesByCustomerId($_cId) {
+        global $pdo;
+        $statement = $pdo->prepare('SELECT * FROM customer_order, address WHERE customer_order.address_id_fk = address.address_id AND customer_order.customer_id_fk = ? GROUP BY address.address_id ORDER BY address.post_code ASC');
+        $statement->execute([$_cId]);
+        $result = $statement->fetchAll(PDO::FETCH_CLASS, 'Address');
+        return $result;
+    }
+
     function getPaymentsById($_id) {
         global $pdo;
         $statement = $pdo->prepare('SELECT * FROM payment WHERE customer_id_fk = ?');
