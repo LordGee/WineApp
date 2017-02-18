@@ -6,6 +6,7 @@
 //    var_dump($_SESSION["basket"]);
 //    echo '</pre>';
 ?>
+<!--TODO: Add wine stock holding to determine if wine is in stock. -->
     <form method="get" action="wine.php">
         <select name="wine_type">
             <option name="wine_type" value="all">All Wines</option>
