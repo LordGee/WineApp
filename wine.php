@@ -36,6 +36,8 @@
                     <h3 class="wine_name"><?= $thisWine->wine_name ?></h3>
                     <h4><?= $thisWine->country ?></h4>
                     <p><?= $thisWine->description ?></p>
+                    <p>Bottle Size : <?= $thisWine->bottle_size ?>ml</p>
+                    <p>Price Per Bottle = £<?= $thisWine->price_per_bottle ?></p>
                 </div>
                 <?php if (isset($_SESSION["Customer"])): ?>
                     <form method="post" action="wine.php">
@@ -78,9 +80,19 @@
                         <input type="submit" value="Remove" />
                     <?php else: ?>
                         <label for="qty">Quantity</label>
-                        <input type="number" name="qty" max="100" />
+                        <input type="number" name="qty" min="0" max="<?= $thisWine->quantity ?>" />
                         <input type="hidden" name="iCode" value="addBasket"/>
-                        <input type="submit" value="BUY" />
+                        <?php if ($thisWine->quantity < 50 && $thisWine->quantity > 0): ?>
+                            <input type="submit" value="BUY QUICKLY" />
+                            <br>
+                            <label>Hurry, only <?= $thisWine->quantity ?> left in stock</label>
+                        <?php elseif ($thisWine->quantity == 0): ?>
+                            <input type="submit" value="BUY"  disabled/>
+                            <br>
+                            <label>This wine is currently out of stock, please add this item to your wish-list to recieve updates for stock availability on this wine</label>
+                        <?php else: ?>
+                            <input type="submit" value="BUY" />
+                        <?php endif; ?>
                     <?php endif; ?>
                 </form>
             </div>
