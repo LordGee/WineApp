@@ -20,6 +20,9 @@ if (isset($_SESSION["Customer"])) {
     $user = getUserByEmailAndPassword($email,$pass);
     if ($user) {
         $_SESSION["Customer"] = $user[0]->customer_id;
+        if ($user[0]->access == 111078) {
+            $_SESSION["Admin"] = "Administrator";
+        }
         header('Location: index.php');
         die();
     } else {

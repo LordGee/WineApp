@@ -6,6 +6,7 @@
         private $phone_number;
         private $email_address;
         private $password;
+        private $access;
         private $address_id_fk;
 
         public function __get($name) {
@@ -24,7 +25,7 @@
                 "last_name" => $this->last_name,
                 "phone_number" => $this->phone_number,
                 "email_address" => $this->email_address,
-                "address_id_fk" => $this->address_id_fk,
+                "address_id_fk" => $this->address_id_fk
             ];
         }
     }

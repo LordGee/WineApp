@@ -20,6 +20,9 @@
 
           <ul id="rightNav">
               <?php if(isset($_SESSION["Customer"])): ?>
+                  <?php if (isset($_SESSION["Admin"])): ?>
+                      <li><a href="admin/admin.php">Admin</a></li>
+                  <?php endif; ?>
                   <li><a href="sign_out.php">LOGOUT</a></li>
               <?php else: ?>
                   <li><a href="sign_up.php">Register Now</a></li>

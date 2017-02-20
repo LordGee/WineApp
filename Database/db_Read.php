@@ -60,7 +60,7 @@
 
     function loginUser($_email, $_pass) {
         global $pdo;
-        $statement = $pdo->prepare('SELECT customer_id FROM customer WHERE email_address = ? AND password = ? LIMIT 1');
+        $statement = $pdo->prepare('SELECT customer_id, access FROM customer WHERE email_address = ? AND password = ? LIMIT 1');
         $statement->execute([$_email, $_pass]);
         $result = $statement->fetchAll(PDO::FETCH_CLASS, 'Customer');
         return $result;
