@@ -6,19 +6,11 @@
 //    var_dump($_SESSION["basket"]);
 //    echo '</pre>';
 ?>
-<!--TODO: Add wine stock holding to determine if wine is in stock. -->
     <form method="get" action="wine.php">
         <select name="wine_type">
             <option name="wine_type" value="all">All Wines</option>
             <?php foreach ($accessCat as $cat): ?>
-                <?php
-                    if ($cat->wine_colour == null){
-                        $type = $cat->wine_type;
-                    } else {
-                        $type = $cat->wine_colour . " " . $cat->wine_type;
-                    }
-                ?>
-            <option name="wine_type" value="<?= $cat->category_id ?>"><?= $type ?></option>
+                <option name="wine_type" value="<?= $cat->category_id ?>"><?= $cat->wine_colour ?> <?= $cat->wine_type ?></option>
             <?php endforeach; ?>
             <?php if (isset($_SESSION["Customer"])): ?>
                 <option name="wine_type" value="showWish">Wish-List</option>

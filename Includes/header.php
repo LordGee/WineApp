@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>Ten Green Bottles</title>
     <link rel="stylesheet" href="Style/main.css" type="text/css" />
     <link rel="stylesheet" href="Style/element.css" type="text/css" />
