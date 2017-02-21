@@ -152,10 +152,8 @@ echo '</pre>';
             <th>Bottle Size</th>
             <th>Price Per Bottle</th>
             <th>Category</th>
-            <th>Modify</th>
             <th>In Stock</th>
-            <th>Add Stock</th>
-            <th>Campaigns</th>
+            <th>Modify</th>
         </tr>
         <?php foreach ($accessWines as $wine): ?>
         <tr>
@@ -164,6 +162,7 @@ echo '</pre>';
             <td><?= $wine->bottle_size ?></td>
             <td><?= $wine->price_per_bottle ?></td>
             <td><?= $wine->wine_colour ?> <?= $wine->wine_type ?></td>
+            <td><?= $wine->quantity ?></td>
             <td>
                 <form method="get" action="aWine.php">
                     <input type="hidden" name="aCode" value="wine_mod">
@@ -171,9 +170,6 @@ echo '</pre>';
                     <input type="submit" value="Modify">
                 </form>
             </td>
-            <td><?= $wine->quantity ?></td>
-            <td><?= $wine->wine_id ?></td>
-            <td><?= $wine->wine_id ?></td>
         </tr>
         <?php endforeach; ?>
     </table>
