@@ -6,14 +6,18 @@ echo '<pre>';
 var_dump($_POST);
 echo '</pre>';
 ?>
-    <form method="post" action="add_wine.php">
+    <span id="message"><?= $message ?></span>
+    <span id="error"><?= $error ?></span>
+
+    <form method="get" action="awine.php">
         <label for="addWine">Add a new wine</label>
-        <input type="submit" name="addWine" value="Add Wine">
+        <input type="hidden" name="aCode" value="add_wine">
+        <input type="submit" value="Add Wine">
     </form>
     <br>
 
     <?php if(isset($_GET["aCode"]) && $_GET["aCode"] == "wine_mod"): ?>
-        <form method="post" action="aWine.php">
+        <form method="post" action="aWine.php" enctype="multipart/form-data">
         <table>
             <tr>
                 <th>Wine Name : </th>
@@ -42,13 +46,14 @@ echo '</pre>';
             <tr>
                 <th>Current Image : </th>
                 <td>
+                    <input type="hidden" name="asset_current" value="<?= $accessWines[0]->asset_link ?>" >
                     <img src="../<?= $accessWines[0]->asset_link ?>" alt="Picture of <?= $accessWines[0]->wine_name ?>" height="50px">
                 </td>
             </tr>
             <tr>
                 <th>Upload New Image : </th>
                 <td>
-                    <input type="file" name="asset_link" enctype="multipart/form-data" >
+                    <input type="file" name="asset_link"  >
                 </td>
             </tr>
             <tr>
@@ -57,18 +62,82 @@ echo '</pre>';
                     <textarea name="description" rows="6" cols="50"><?= $accessWines[0]->description ?></textarea>
                 </td>
             </tr>
+            <tr>
+                <th>Category : </th>
+                <td>
+                    <select name="category">
+                        <?php foreach ($accessCat as $cat): ?>
+                            <option name="category" value="<?= $cat->category_id ?>" <?= ($cat->category_id == $accessWines[0]->category_id_fk) ? "selected" : "" ?> ><?= $cat->wine_colour ?> <?= $cat->wine_type ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </td>
+            </tr>
         </table>
             <input type="hidden" name="aCode" value="update">
             <input type="hidden" name="wine" value="<?= $accessWines[0]->wine_id ?>">
             <input type="submit" name="update" value="Update">
             <input type="submit" name="cancel" value="Cancel">
         </form>
+    <?php elseif (isset($_GET["aCode"]) && $_GET["aCode"] == "add_wine"): ?>
+    <form method="post" action="aWine.php" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <th>Wine Name : </th>
+                <td>
+                    <input type="text" name="wine_name" placeholder="Enter Wine Name" >
+                </td>
+            </tr>
+            <tr>
+                <th>Country : </th>
+                <td>
+                    <input type="text" name="country" placeholder="Enter Country of Origin" >
+                </td>
+            </tr>
+            <tr>
+                <th>Bottle Size : </th>
+                <td>
+                    <input type="text" name="bottle_size" placeholder="Enter Size of Bottle (ml)" >ml
+                </td>
+            </tr>
+            <tr>
+                <th>Price : </th>
+                <td>
+                    £<input type="number" step="any" name="price_per_bottle" placeholder="Enter the Price per bottle" >
+                </td>
+            </tr>
+            <tr>
+                <th>Upload New Image : </th>
+                <td>
+                    <input type="file" name="asset_link"  >
+                </td>
+            </tr>
+            <tr>
+                <th>Description : </th>
+                <td>
+                    <textarea name="description" rows="6" cols="50" placeholder="Enter Description of this Product"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>Category : </th>
+                <td>
+                    <select name="category">
+                        <?php foreach ($accessCat as $cat): ?>
+                            <option name="category" value="<?= $cat->category_id ?>"><?= $cat->wine_colour ?> <?= $cat->wine_type ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <input type="hidden" name="aCode" value="add">
+        <input type="submit" name="add" value="Add Wine">
+        <input type="submit" name="cancel" value="Cancel">
+    </form>
     <?php else: ?>
     <form method="get" action="aWine.php">
         <select name="wine_type">
             <option name="wine_type" value="all">All Wines</option>
             <?php foreach ($accessCat as $cat): ?>
-                <option name="wine_type" value="<?= $cat->category_id ?>"><?= $cat->wine_colour ?> <?= $cat->wine_type ?></option>
+                <option name="wine_type" value="<?= $cat->category_id ?>" <?= (isset($_GET['wine_type']) && $cat->category_id == $_GET['wine_type']) ? "selected" : "" ?>><?= $cat->wine_colour ?> <?= $cat->wine_type ?></option>
             <?php endforeach; ?>
         </select>
         <input type="hidden" name="aCode" value="filter"/>

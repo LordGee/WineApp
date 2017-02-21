@@ -25,7 +25,7 @@ if (isset($_SESSION["Customer"]) && isset($_SESSION["total"]) && isset($_SESSION
                         if (!$result) {
                             $error = "The was an issue placing your order";
                         }
-                        updateStock($bValue, $qValue);
+                        updateStockAfterSale($bValue, $qValue);
                     }
                 }
             }

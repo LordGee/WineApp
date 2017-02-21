@@ -10,10 +10,10 @@
         <select name="wine_type">
             <option name="wine_type" value="all">All Wines</option>
             <?php foreach ($accessCat as $cat): ?>
-                <option name="wine_type" value="<?= $cat->category_id ?>"><?= $cat->wine_colour ?> <?= $cat->wine_type ?></option>
+                <option name="wine_type" value="<?= $cat->category_id ?>" <?= (isset($_GET['wine_type']) && $_GET['wine_type'] != "all" && $_GET['wine_type'] != "showWish" && $cat->category_id == $_GET['wine_type']) ? "selected" : "" ?>><?= $cat->wine_colour ?> <?= $cat->wine_type ?></option>
             <?php endforeach; ?>
             <?php if (isset($_SESSION["Customer"])): ?>
-                <option name="wine_type" value="showWish">Wish-List</option>
+                <option name="wine_type" value="showWish" <?= (isset($_GET['wine_type']) && $_GET['wine_type'] == "showWish") ? "selected" : "" ?>>Wish-List</option>
             <?php endif; ?>
         </select>
         <input type="hidden" name="iCode" value="filter"/>

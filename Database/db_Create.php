@@ -72,4 +72,22 @@
         $result = $statement->execute([$_lVal, $_qty, $_wId, $_oId]);
         return $result;
     }
+
+    function insertWine($_wName, $_wCoun, $_wSize, $_wDesc, $_wPric, $_wLink, $_wCat){
+        global $pdo;
+        $statement = $pdo->prepare("INSERT INTO wine (wine_name, country, bottle_size, description, price_per_bottle, asset_link, category_id_fk) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $result = $statement->execute([$_wName, $_wCoun, $_wSize, $_wDesc, $_wPric, $_wLink, $_wCat]);
+        if ($result) {
+            return $pdo->lastInsertId();
+        } else {
+            return false;
+        }
+    }
+
+    function addStockRelationship($_wId) {
+        global $pdo;
+        $statement = $pdo->prepare("INSERT INTO stock_hold (wine_id_fk) VALUES (?)");
+        $result = $statement->execute([$_wId]);
+        return $result;
+    }
 ?>
