@@ -106,4 +106,20 @@
         $result = $statement->fetchAll(PDO::FETCH_CLASS, 'Payment');
         return $result;
     }
+
+    function getAllUsers() {
+        global $pdo;
+        $statement = $pdo->prepare('SELECT * FROM customer ORDER BY last_name ASC');
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_CLASS, 'Customer');
+        return $result;
+    }
+
+    function searchCustomerByName($_name) {
+        global $pdo;
+        $statement = $pdo->prepare('SELECT * FROM customer WHERE first_name LIKE ? OR last_name LIKE ? ORDER BY last_name ASC');
+        $statement->execute([$_name, $_name]);
+        $result = $statement->fetchAll(PDO::FETCH_CLASS, 'Customer');
+        return $result;
+    }
 ?>
