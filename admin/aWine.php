@@ -2,12 +2,12 @@
 <?php require_once ('Controllers/aWine_controller.php'); ?>
 
 <?php
-echo '<pre>';
-var_dump($_POST);
-echo '</pre>';
+//echo '<pre>';
+//var_dump($_POST);
+//echo '</pre>';
 ?>
-    <span id="message"><?= $message ?></span>
-    <span id="error"><?= $error ?></span>
+    <span class="message"><?= $message ?></span>
+    <span class="error"><?= $error ?></span>
 
     <form method="get" action="awine.php">
         <label for="addWine">Add a new wine</label>

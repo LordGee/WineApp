@@ -37,7 +37,8 @@ if (isset($_POST['aCode'])) {
             }
             $result = updateWine($_POST["wine"], $_POST["wine_name"], $_POST["country"], $_POST["bottle_size"], $_POST["description"], $_POST["price_per_bottle"], $asset, $_POST["category"]);
             if ($result) {
-                $message = "Your product has successfully been updated.";
+                unset($_POST);
+                header("location: aWine.php?message=1");
             } else {
                 $error = "There was an issue updating this product, please try again.";
             }
@@ -51,7 +52,8 @@ if (isset($_POST['aCode'])) {
             if ($result) {
                 $addStock = addStockRelationship($result);
                 if ($addStock != null) {
-                    $message = "Your product has successfully been updated.";
+                    unset($_POST);
+                    header("location: aWine.php?message=2");
                 } else {
                     $error = "There was an issue updating the relationship between the stock control system";
                 }
@@ -60,5 +62,10 @@ if (isset($_POST['aCode'])) {
             }
         }
     }
+}
+if (isset($_GET["message"]) && $_GET['message'] = 1) {
+    $message = "Your product has successfully been updated.";
+} elseif (isset($_GET["message"]) && $_GET['message'] = 2) {
+    $message = "Your product has successfully been updated.";
 }
 ?>
