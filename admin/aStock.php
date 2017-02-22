@@ -2,9 +2,9 @@
 <?php require_once ('Controllers/aStock_controller.php'); ?>
 
 <?php
-echo '<pre>';
-var_dump($_POST);
-echo '</pre>';
+//echo '<pre>';
+//var_dump($_POST);
+//echo '</pre>';
 ?>
 
     <span class="message"><?= $message ?></span>

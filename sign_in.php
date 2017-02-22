@@ -1,5 +1,6 @@
 <?php require_once ("Controllers/customer_controller.php"); ?>
 <?php require_once ("Includes/header.php"); ?>
+<?php require_once ("Includes/info.php"); ?>
 
     <h1>Login Page</h1>
     <p>Text goes here: </p>

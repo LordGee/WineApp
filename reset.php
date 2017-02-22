@@ -1,5 +1,6 @@
 <?php require_once ("/Includes/header.php"); ?>
 <?php require_once ("Controllers/reset_controller.php"); ?>
+<?php require_once ("Includes/info.php"); ?>
 
 
     <h1>Reset your password</h1>

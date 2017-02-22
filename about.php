@@ -1,5 +1,7 @@
 <?php require_once ("Includes/header.php"); ?>
 
+<?php require_once ("Includes/info.php"); ?>
+
     <h1>This is the About Page</h1>
     <h2>H2 Tag</h2>
     <h3>H3 Tag</h3>

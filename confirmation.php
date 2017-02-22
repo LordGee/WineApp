@@ -1,5 +1,6 @@
 <?php require_once ("Includes/header.php"); ?>
 <?php require_once ("Controllers/confirm_controller.php"); ?>
+<?php require_once ("Includes/info.php"); ?>
 
 <h1>Confirmation Page</h1>
 

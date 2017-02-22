@@ -1,8 +1,10 @@
 <?php require_once ("Includes/header.php"); ?>
+
+<?php require_once ("Includes/info.php"); ?>
 <?php
-    echo '<pre>';
-    var_dump($_SESSION);
-    echo '</pre>';
+//    echo '<pre>';
+//    var_dump($_SESSION);
+//    echo '</pre>';
 ?>
 
     <h1>Welcome to Ten Green Bottles</h1>

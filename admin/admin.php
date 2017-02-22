@@ -1,9 +1,9 @@
 <?php require_once ('Includes/header.php'); ?>
 
 <?php
-echo '<pre>';
-var_dump($_SESSION);
-echo '</pre>';
+//echo '<pre>';
+//var_dump($_SESSION);
+//echo '</pre>';
 ?>
 
 

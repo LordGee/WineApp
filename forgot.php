@@ -1,6 +1,6 @@
 <?php require_once ("Includes/header.php"); ?>
 <?php require_once ("Controllers/customer_controller.php"); ?>
-
+<?php require_once ("Includes/info.php"); ?>
 
 <h1>Request a Password Reset Link</h1>
 <p>Enter your email address and we will send you a password reset link to change your password.</p>

@@ -1,5 +1,6 @@
-<?php require_once ("Controllers/customer_controller.php"); ?>
 <?php require_once ("Includes/header.php"); ?>
+<?php require_once ("Controllers/customer_controller.php"); ?>
+<?php require_once ("Includes/info.php"); ?>
 
 <h1>Register for a new account today and receive a 25% discount code on your first order</h1>
 <form method="post" action="sign_up.php">
