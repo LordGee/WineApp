@@ -122,4 +122,20 @@
         $result = $statement->fetchAll(PDO::FETCH_CLASS, 'Customer');
         return $result;
     }
+
+    function getUserByAuthCode($_code) {
+        global $pdo;
+        $statement = $pdo->prepare('SELECT * FROM customer WHERE reset_code = ? AND reset_time >= DATE_SUB(NOW(), INTERVAL 1 DAY) LIMIT 1');
+        $statement->execute([$_code]);
+        $result = $statement->fetchAll(PDO::FETCH_CLASS, 'Customer');
+        return $result;
+    }
+
+    function getUserByEmail($_email) {
+        global $pdo;
+        $statement = $pdo->prepare('SELECT * FROM customer WHERE email_address = ? LIMIT 1');
+        $statement->execute([$_email]);
+        $result = $statement->fetchAll(PDO::FETCH_CLASS, 'Customer');
+        return $result;
+    }
 ?>

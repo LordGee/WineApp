@@ -34,7 +34,6 @@ if (isset($_POST['aCode'])) {
         } else {
             $error = "Unable to set the reset credentials, please try later";
         }
-        // setup user reset page
     }
 }
 if (isset($_GET["message"]) && $_GET['message'] = 1) {

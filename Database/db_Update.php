@@ -34,4 +34,18 @@
         $result = $statement->execute([$_auth, $_cId]);
         return $result;
     }
+
+    function removeAuthorisation($_cId) {
+        global $pdo;
+        $statement = $pdo->prepare("UPDATE customer SET reset_code = null, reset_time = null WHERE customer_id = ?");
+        $result = $statement->execute([$_cId]);
+        return $result;
+    }
+
+    function updatePassword($_p, $_auth, $_cId) {
+        global $pdo;
+        $statement = $pdo->prepare("UPDATE customer SET password = ? WHERE reset_code = ? AND customer_id = ?");
+        $result = $statement->execute([$_p, $_auth, $_cId]);
+        return $result;
+    }
 ?>

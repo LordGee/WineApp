@@ -3,7 +3,8 @@
 
     <h1>Login Page</h1>
     <p>Text goes here: </p>
-    <span id="error"><?= $error ?></span>
+    <span class="error"><?= $error ?></span>
+    <span class="message"><?= $message ?></span>
     <form method="post">
         <div>
             <label>Email Address : </label>
@@ -19,6 +20,7 @@
         </div>
         <div>
             <p>Not got an account? Register <a href="sign_up.php">HERE</a> </p>
+            <p>Forgotten your password <a href="forgot.php">Click HERE</a> to reset</p>
         </div>
     </form>
 
