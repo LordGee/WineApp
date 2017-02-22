@@ -31,7 +31,12 @@ echo '</pre>';
             <tr>
                 <th>Reset Password : </th>
                 <td>
-                    <form>
+                    <form method="post" action="aUser.php">
+                        <input type="hidden" name="aCode" value="email_reset">
+                        <input type="hidden" name="id" value="<?= $customer[0]->customer_id ?>">
+                        <input type="hidden" name="name" value="<?= $customer[0]->first_name ?> <?= $customer[0]->last_name ?>">
+                        <input type="hidden" name="email" value="<?= $customer[0]->email_address ?>">
+                        <input type="submit" value="Reset Password">
 <!--                        TODO: Button that send email link to user to change their password -->
                     </form>
                 </td>
@@ -39,7 +44,11 @@ echo '</pre>';
             <tr>
                 <th>Administrator : </th>
                 <td>
-                    <form>
+                    <form method="post" action="aUser.php">
+                        <input type="checkbox" name="admin" <?= ($customer[0]->access == 111078) ? "cheched" : "" ?>>
+                        <input type="hidden" name="aCode" value="set_admin">
+                        <input type="hidden" name="id" value="<?= $customer[0]->customer_id ?>">
+                        <input type="submit" value="Make Admin">
 <!--                        TODO: Checkbox to indicate if the user is an administrator or not-->
                     </form>
                 </td>

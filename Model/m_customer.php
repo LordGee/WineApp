@@ -89,6 +89,40 @@
         $sub = substr($_pCard, -4);
         return $result = "**** **** **** " . $sub;
     }
+
+    function createResetAuth($_id) {
+        $today = date("Y-m-d h:i:sa") . $_id;
+        $encryptDate = hash('sha256', $today, false);
+        $authCode = substr($encryptDate, 0, 20);
+        return $authCode;
+    }
+
+    function sendResetEmail($_auth, $_name, $_email) {
+        $to = $_email;
+        $subject = "Password Reset Request";
+        $message = "
+        <html>
+        <head>
+        <title>Password Reset Request</title>
+        </head>
+        <body>
+        <h2>You have requested to reset you password</h2>
+        <p>Hello $_name,  </p>
+        <p>As requested to reset your password please follow the link displayed below.</p>
+        <br>
+        <a href='www.wineapp.php/user/reset.php?auth=$_auth'>Reset Password Now!</a>
+        <br><br>
+        <p>All the best, From the</p>
+        <p>Ten Green Bottles Team</p>
+        </body>
+        </html>
+        ";
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        $headers .= 'From: <info@wineapp.co.uk>' . "\r\n";
+        mail($to,$subject,$message,$headers);
+        echo $message;
+    }
 ?>
 
 

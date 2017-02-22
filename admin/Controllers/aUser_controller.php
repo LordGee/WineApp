@@ -25,6 +25,16 @@ if (isset($_POST['aCode'])) {
     if ($_POST['aCode'] == 'details') {
         $customer = [];
         $customer = getUserById($_POST['customer']);
+    } elseif ($_POST['aCode'] == "email_reset") {
+        $auth = createResetAuth($_POST['id']);
+        $setup = addAuthorisation($_POST['id'], $auth);
+        if ($setup) {
+            sendResetEmail($auth, $_POST['name'], $_POST['email']);
+            $message = "An email has been sent to the customer with details on how to reset their password";
+        } else {
+            $error = "Unable to set the reset credentials, please try later";
+        }
+        // setup user reset page
     }
 }
 if (isset($_GET["message"]) && $_GET['message'] = 1) {
