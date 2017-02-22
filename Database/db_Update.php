@@ -48,4 +48,11 @@
         $result = $statement->execute([$_p, $_auth, $_cId]);
         return $result;
     }
+
+    function setUserAsAdmin($_m, $_cId) {
+        global $pdo;
+        $statement = $pdo->prepare("UPDATE customer SET access = ? WHERE customer_id = ?");
+        $result = $statement->execute([$_m, $_cId]);
+        return $result;
+    }
 ?>

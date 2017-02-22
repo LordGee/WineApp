@@ -38,6 +38,15 @@
     class StockHold {
         private $stock_hold_id;
         private $quantity;
+        private $wine_id_fk;
+
+        public function __get($name) {
+            return $this->$name;
+        }
+
+        public function __set($name, $value) {
+            $this->$name = $value;
+        }
     }
 
     function addBasket($_id, $_qty) {

@@ -138,4 +138,20 @@
         $result = $statement->fetchAll(PDO::FETCH_CLASS, 'Customer');
         return $result;
     }
+
+    function getAllOrdersByCustomerId($_cId) {
+        global $pdo;
+        $statement = $pdo->prepare('SELECT * FROM customer_order WHERE customer_id_fk = ?');
+        $statement->execute([$_cId]);
+        $result = $statement->fetchAll(PDO::FETCH_CLASS, 'customer_order');
+        return $result;
+    }
+
+    function getOrderLinesByOrderId($_oId) {
+        global $pdo;
+        $statement = $pdo->prepare('SELECT * FROM customer_order_line, customer_order, wine WHERE customer_order_line.customer_order_id_fk = customer_order.customer_order_id AND customer_order_line.wine_id_fk = wine.wine_id HAVING customer_order_line.customer_order_id_fk = ?');
+        $statement->execute([$_oId]);
+        $result = $statement->fetchAll(PDO::FETCH_CLASS, 'customer_order_line');
+        return $result;
+    }
 ?>
