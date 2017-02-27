@@ -20,7 +20,7 @@ We deliver direct, next day, to residential or business addresses anywhere in th
 
 We offer a price promise guarantee & tell you when your gift has been delivered! </p>
 </figure>
-<h4>Special Offer Below:</h4>
+<h4>Special Offers Below:</h4>
 <p>
   <img src="image/wine_day_brands.png" width="300px"
   alt="Managers Special"
