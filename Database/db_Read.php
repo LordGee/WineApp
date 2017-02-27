@@ -154,4 +154,17 @@
         $result = $statement->fetchAll(PDO::FETCH_CLASS, 'customer_order_line');
         return $result;
     }
+
+function getAllWinesByName($_wine) {
+    global $pdo;
+    $statement = $pdo->prepare('SELECT * FROM wine WHERE wine_name LIKE ? ORDER BY wine_name ASC');
+    $statement->execute([$_wine]);
+    $result = $statement->fetchAll(PDO::FETCH_CLASS, 'Wine');
+    return $result;
+}
+
+    function getWineByNameJson($_wine) {
+        $wine = getAllWinesByName($_wine);
+        return json_encode($wine);
+    }
 ?>

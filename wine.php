@@ -7,6 +7,7 @@
 //    var_dump($_SESSION["basket"]);
 //    echo '</pre>';
 ?>
+    <input type="text" name="wineSearch" id="wineSearch"><button onclick="search();">Search</button>
     <form method="get" action="wine.php">
         <select name="wine_type">
             <option name="wine_type" value="all">All Wines</option>
@@ -91,9 +92,6 @@
             </div>
         <?php endforeach; ?>
 
-
         <img src="image/2glass.jpg" alt="Enjoy a little sparkle" title="Click here to explore more." />
-
-
 
 <?php require_once ("Includes/footer.php"); ?>
