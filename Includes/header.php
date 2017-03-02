@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ten Green Bottles</title>
     <link rel="stylesheet" href="Style/main.css" type="text/css" />
     <link rel="stylesheet" href="Style/element.css" type="text/css" />
