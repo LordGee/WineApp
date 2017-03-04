@@ -42,7 +42,7 @@
                             <td><?= $thisWine->wine_name ?></td>
                             <?php foreach ($_SESSION["basketQty"] as $key => $q): ?>
                                 <?php if ($key == $thisWine->wine_id): ?>
-                                    <td><input type="number" value="<?= $q ?>" name="quantity" min="1" max="100"/></td>
+                                    <td><input type="number" value="<?= $q ?>" name="quantity" min="1" max="100" step="1"/></td>
                                     <?php $qty = $q ?>
                                 <?php endif; ?>
                             <?php endforeach; ?>
@@ -72,5 +72,3 @@
     </form>
 
 <?php require_once ("Includes/footer.php"); ?>
-
-

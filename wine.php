@@ -74,7 +74,7 @@
                         <input type="submit" value="Remove" />
                     <?php else: ?>
                         <label for="qty">Quantity</label>
-                        <input type="number" name="qty" min="0" max="<?= $thisWine->quantity ?>" />
+                        <input type="number" name="qty" min="0" max="<?= $thisWine->quantity ?>" step="1" />
                         <input type="hidden" name="iCode" value="addBasket"/>
                         <?php if ($thisWine->quantity < 50 && $thisWine->quantity > 0): ?>
                             <input type="submit" value="BUY QUICKLY" />
