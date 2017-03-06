@@ -1,6 +1,16 @@
 <?php require_once ("Includes/header.php"); ?>
 
 <?php require_once ("Includes/info.php"); ?>
+<html>
+<head>
+</head>
+  <body id="aboutimage">
+      background-image:url("image/theone.png"); 
+  </body>
+  </html>
+
+
+
 
     <h1>This is the About Page</h1>
     <h2>H2 Tag</h2>
