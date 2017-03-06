@@ -13,7 +13,7 @@
     margin-top: 25px;
     margin-left: auto;
     margin-right: auto;
-    overflow: auto;
+    overflow: none;
 }
 
 .wine_img_pos img {
@@ -24,8 +24,20 @@
 }
 
 .details {
-    width: 70%;
-    display: inline;
+
+}
+
+.boxShadows {
+  box-shadow: 0 0 20px #777777;
+  margin-bottom: 1%;
+}
+
+.margin p{
+  width: 200px;
+  border: 2px solid #0088dd;
+  padding: 10px;
+  p.example {
+    margin: 20px;}
 }
 
 .wine_img {

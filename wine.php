@@ -21,8 +21,10 @@
         <input type="hidden" name="iCode" value="filter"/>
         <input type="submit" value="Filter"/>
     </form>
+    <div class="row">
         <?php foreach ($accessWines as $thisWine): ?>
-            <div class="wine_rows">
+          <div class="col-offset-sm-1 col-sm-10 col-offset-md-1 col-md-5 col-offset-lg-1 col-lg-3 boxShadows margin">
+            <!--<div class="wine_rows">-->
                 <div class="wine_img_pos">
                     <img src="<?= $thisWine->asset_link ?>" alt="<?= $thisWine->wine_name ?>" />
                 </div>
@@ -89,9 +91,10 @@
                         <?php endif; ?>
                     <?php endif; ?>
                 </form>
-            </div>
+            <!--</div>-->
+          </div>
         <?php endforeach; ?>
-
+      </div>
         <img src="image/2glass.jpg" alt="Enjoy a little sparkle" title="Click here to explore more." />
 
 <?php require_once ("Includes/footer.php"); ?>

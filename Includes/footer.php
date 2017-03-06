@@ -1,7 +1,9 @@
-<div>
-<footer class="bottomArea">
 
-</footer>
-</div>
-</body>
+      </div>
+      <div>
+        <footer class="bottomArea">
+
+        </footer>
+      </div>
+    </body>
 </html>

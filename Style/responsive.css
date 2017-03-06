@@ -7,6 +7,7 @@
 [class*="col-"] {
     float: left;
     padding: 15px;
+    /*border: solid black 1px;*/
 }
 
 /* For mobile phones: */
