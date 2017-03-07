@@ -1,5 +1,5 @@
 <?php
-    class Wine {
+    class Wine implements JsonSerializable {
         private $wine_id;
         private $wine_name;
         private $country;
@@ -18,6 +18,11 @@
 
         function __set($name,$value) {
             $this->$name = $value;
+        }
+
+        public function jsonSerialize()
+        {
+            return get_object_vars($this);
         }
     }
 
