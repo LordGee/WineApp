@@ -5,60 +5,67 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-<style> 
+<style>
+body {
+    background-image: url("image/theone.png");
+}
 .article {
   float: left;
   margin: 5px;
   padding: 5px;
   width: 300px;
-  height: 300px;
+  height: 350px;
   border: 1px solid black;
+}
+h1 {
+    color: green;
+}
+h2 {
+  color: crimson;
 }
 </style>
 </head>
-<body>
-
-<h1>W3Schools</h1>
-<h2>Resize this responsive page!</h2>
+<h1>Ten Green Bottles</h1>
+<h2>About Us!</h2>
 
 <div class="article">
-  <h3>About W3Schools</h3>
-  <p>W3Schools is a web developer's site.
-  It provides tutorials and references covering
-  many aspects of web programming,
-  including HTML, CSS, JavaScript, XML, SQL, PHP, ASP, etc.</p>
-  <p>W3schools contains thousands of code examples.
-  By using an online editor,
-  readers can edit examples experimentally.</p>
+  <h3>About TGB</h3>
+  <p>
+Ten Green Bottles web store is dedicated to wine, spirits and champagne.
+We offer a full range of fine products for you to choose
+from. With numerous ways to search our catalogue;
+we hope you'll find exactly what you are looking for.</p>
+  <p>TGB started trading in the early 2000s. Since, the company has grown its
+    trade to carry an extensive range of fine non-alcohlic wines & popular,
+    pretigious spirits & champagnes from around the world, all of which can be
+    found right here! </p>
 </div>
 
 <div class="article">
-  <h3>Most Wanted Tutorials</h3>
-  <p>HTML5 Tutorial</p>
-  <p>How to build your web site with HTML5</p>
-  <p>CSS3 Tutorial</p>
-  <p>JavaScript Tutorial</p>
+  <h3>Before You Start</h3>
+  <p>There are a few things that you should know. You must be over 18 years of
+    age to buy from us and we only deliver to addresses in United Kingdom.
+    Delivery is FREE, but we have a minimum order value of £....
+    We offer non-alcohlic wine & champagne by the case and spirits, including liqueurs and
+    fortified wines are available in litre/bottle size.</p>
+    <p>Orders placed before 12 noon will be delivered the following day or you
+    can select a day that is convenient to you. However, we do not deliver on
+    Sundays or public holidays. Orders required for a Monday delivery should be
+    placed by noon on the previous Saturday.</p>
 </div>
 
 <div class="article">
-  <h3>About This Demo</h3>
-  <p>This demo is about responsive design.</p>
-  <p>Try to make the page smaller or wider,
-  to see responsive design in action.</p>
-  <img src ="image/theonee.png"width="400px left: 100px;"/>
+  <h3>Contact Us!</h3>
+  <p>Ten Green Bottles is located in the heart of London, close to the city of ......
+    We operate to a wide range of areas to all our customers through our online service
+    and hope to continue to strive to keep our customer satified with our excellent
+    choice of wines & online customer service. Our promise is to give our clients
+    an excellent service throughout!</p>
+      <li>Have a Question? Why not e-mail us today at:</li>
+      <a href="url">tgbcustomerservice@gmail.com</a>
 </div>
 
 </body>
 </html>
-
-
-
-    <h1>This is the About Page</h1>
-    <h2>H2 Tag</h2>
-    <h3>H3 Tag</h3>
-    <p>Paragraph tag</p>
-    <li>List Item Tags</li>
-    <a>Ancor Tag</a>
-
 
 <?php require_once ("Includes/footer.php"); ?>
