@@ -95,6 +95,5 @@
           </div>
         <?php endforeach; ?>
       </div>
-        <img src="image/2glass.jpg" alt="Enjoy a little sparkle" title="Click here to explore more." />
 
 <?php require_once ("Includes/footer.php"); ?>
