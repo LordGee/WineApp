@@ -2,26 +2,7 @@
 <?php require_once ("Controllers/customer_controller.php"); ?>
 <?php require_once ("Includes/info.php"); ?>
 
-<!DOCTYPE html>
-<html lang="en-US">
-<head>
 
-      <link rel="stylesheet" type="text/css" href="style/main.css">
-<style>
-body
-h1 {
-    color: midnightblue;
-    font-style: oblique;
-    text-align: center;;
-    font-size: 30px;
-}
-
-body{
-  text-align: center;
-}
-
-</style>
-</head>
 
 <h1>Register for a new account today & receive a 25% discount code on your first order!!!</h1>
 <form method="post" action="sign_up.php">

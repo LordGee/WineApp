@@ -7,59 +7,6 @@
 //    echo '</pre>';
 ?>
 
-<!DOCTYPE html>
-<html lang="en-US">
-<head>
-      <title>Image Slider CSS3</title>
-      <link rel="stylesheet" type="text/css" href="style/main.css">
-<style>
-body {
-    image: url("image/wine_clash.png");
-}
-h1 {
-    color: darkslategray;
-    font-style: oblique;
-    text-align: left;
-    font-size: 40px;
-}
-
-h2 {
-    color: darkblue;
-    font-size: 20px;
-}
-
-
-h4 {
-    color: crimson;
-}
-
-div.image {
-    margin: 5px;
-    border: 1px solid #ccc;
-    float: left;
-    width: 180px;
-}
-
-div.image:hover {
-    border: 1px solid #777;
-}
-
-div.image img {
-    width: 100%;
-    height: auto;
-}
-
-div.desc {
-    padding: 15px;
-    text-align: center;
-}
-
-.boxed {
-  border: 2px solid green; 
-}
-
-</style>
-</head>
 <h1>Welcome to Ten Green Bottles</h1>
 
   <h2> Enjoy our fine variety of luxury wines. We promise you won't be disappointed!!!</h2>
@@ -74,16 +21,16 @@ div.desc {
   </figure>
 </div>
 
-<figure>
-  <div class="boxed">
-Welcome to Ten Green Bottles, the UK's largest Internet retailer of top quality non-alcoholic Wines & Champagnes. We cater for anniversaries, birthdays, corporate gifts and other special occasions. 
 
-We deliver direct, next day, to residential or business addresses anywhere in the UK. All orders are beautifully packaged, register today to receive a 25% discount code on your first order. Call us today on 0845 600 1212 to discuss any special requirements.
-
-We offer a price promise guarantee & tell you when your gift has been delivered! 
-  </div>
-
-</figure>
+    <p> Welcome to Ten Green Bottles, the UK's largest Internet retailer of top
+       quality non-alcoholic Wines and Champagnes. We cater for anniversaries,
+       birthdays, corporate gifts and other special occasions.</p> 
+    <p>We deliver direct, next day, to residential or business addresses
+       anywhere in the UK. All orders are beautifully packaged, register today
+       to receive a 25% discount code on your first order. Call us today on 
+       0845 600 1212 to discuss any special requirements.</p>
+    <p>We offer a price promise guarantee and tell you when your gift has been
+      delivered!</p> 
 
 <h4>Special Offers Below:</h4>
 <div class="image">

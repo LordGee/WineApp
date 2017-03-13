@@ -10,10 +10,14 @@ body {
 }
 
 h1 {
+  color: midnightblue;
+  text-align: left;
+  font-style: bold;
   font-size: 32px;
 }
 
 h2 {
+  color: midnightblue;
   font-size: 24px;
 }
 
@@ -175,5 +179,30 @@ O% {
   text-align: left;
   font-size: 0;
   animation: 20s slider infinite;
+}
 
+
+h4 {
+    color: crimson;
+}
+
+div.image {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 180px;
+}
+
+div.image:hover {
+    border: 1px solid #777;
+}
+
+div.image img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
 }
