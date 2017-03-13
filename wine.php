@@ -2,6 +2,19 @@
 <?php require_once ("Controllers/wine_controller.php"); ?>
 <?php require_once ("Includes/info.php"); ?>
 
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+      <link rel="stylesheet" type="text/css" href="style/main.css">
+<style>
+
+body{
+  text-align: center;
+}
+
+</style>
+</head>
 <?php
 //    echo '<pre>';
 //    var_dump($_SESSION["basket"]);

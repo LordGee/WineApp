@@ -2,6 +2,26 @@
 <?php require_once ("Includes/header.php"); ?>
 <?php require_once ("Includes/info.php"); ?>
 
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+      <link rel="stylesheet" type="text/css" href="style/main.css">
+<style>
+body
+h1 {
+    color: midnightblue;
+    font-style: bold;
+    text-align: center;;
+    font-size: 35px;
+}
+
+body{
+  text-align: center;
+}
+
+</style>
+</head>
     <h1>Login Page</h1>
     <p>Text goes here: </p>
     <span class="error"><?= $error ?></span>
