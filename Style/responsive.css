@@ -11,11 +11,15 @@
 }
 
 /* For mobile phones: */
-@media only screen and (min-width: 0px) {
+@media only screen and (min-width: 0) {
     [class*="col-"] {
         width: 100%;
     }
+    #nav {
+      display:none;
+    }
 }
+
 @media only screen and (min-width: 640px) {
     /* For tablets: */
     .col-sm-1 { width: 8.3333333333%; }
@@ -71,9 +75,12 @@
     .col-offset-md-10{margin-left:83.3333333333%}
     .col-offset-md-11{margin-left:91.6666666667%}
     .col-offset-md-12{margin-left:100%}
-}
 
-@media only screen and (min-width: 1366px) {
+#nav  {
+      display: block;
+    }
+
+@media only screen and (min-width: 1280px) {
     /* For Large Resolution Displays, still looks good on 4k: */
     .col-lg-1 { width: 8.3333333333%; }
     .col-lg-2 { width: 16.6666666667%; }

@@ -8,9 +8,7 @@
 <?php endif; ?>
 </div>
 <header class="topArea">
-    <div id="logo">
-        <img src="image/10GreenBottles.png" />
-    </div>
+
 </header>
 <!-- TODO Add a search box here -->
 <div id="contentArea">
