@@ -18,6 +18,9 @@
     #nav {
       display:none;
     }
+    #hamburger {
+      display: block;
+    }
 }
 
 @media only screen and (min-width: 640px) {
@@ -76,9 +79,14 @@
     .col-offset-md-11{margin-left:91.6666666667%}
     .col-offset-md-12{margin-left:100%}
 
-#nav  {
+    #nav  {
       display: block;
     }
+
+    #hamburger {
+      display: none;
+    }
+  }
 
 @media only screen and (min-width: 1280px) {
     /* For Large Resolution Displays, still looks good on 4k: */

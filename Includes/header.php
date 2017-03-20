@@ -14,7 +14,7 @@
 <div class="mainArea">
   <div class="navArea">
     <div id="logo">
-        <img src="img/logo.png" />
+        <img src="img/logo.png"/>
     </div>
       <div id="nav">
           <ul id="rightNav">
@@ -32,25 +32,24 @@
               <?php endif; ?>
           </ul>
       </div>
-      <div class="mainArea">
-    <div class="mobNav">
       <div id="hamburger">
-          <img src="img/hamburger.png" />
+          <img src="img/hamburger.png" onclick="toggleMobNav();" />
       </div>
-<div id="mobNav">
-  <ul id="rightSide">
-      <li><a href="index.php">Home</a></li>
-      <li><a href="about.php">About Us</a></li>
-      <li><a href="wine.php">All Wines</a></li>
-      <?php if(isset($_SESSION["Customer"])): ?>
-          <?php if (isset($_SESSION["Admin"])): ?>
-              <li><a href="admin/admin.php">Admin</a></li>
-          <?php endif; ?>
-          <li><a href="sign_out.php">LOGOUT</a></li>
-      <?php else: ?>
-          <li><a href="sign_up.php">Register Now</a></li>
-          <li><a href="sign_in.php">LOGIN</a></li>
-      <?php endif; ?>
-  </ul>
-</div>
+      <script src="JavaScript/mobNav.js"></script>
+      <div class="mobNav">
+        <ul id="rightSide">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="about.php">About Us</a></li>
+            <li><a href="wine.php">All Wines</a></li>
+            <?php if(isset($_SESSION["Customer"])): ?>
+                <?php if (isset($_SESSION["Admin"])): ?>
+                    <li><a href="admin/admin.php">Admin</a></li>
+                <?php endif; ?>
+                <li><a href="sign_out.php">LOGOUT</a></li>
+            <?php else: ?>
+                <li><a href="sign_up.php">Register Now</a></li>
+                <li><a href="sign_in.php">LOGIN</a></li>
+            <?php endif; ?>
+        </ul>
+      </div>
   </div>

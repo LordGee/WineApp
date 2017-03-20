@@ -49,8 +49,9 @@ a {
 
 #logo img {
     position: absolute;
-    height: 50px;
     float:left;
+    width: 260px;
+    margin-top: 4px;
 }
 
 #contentArea {
@@ -94,11 +95,17 @@ h1#headTitle {
     padding: 10px 20px;
 }
 
-#mobNav {
-    position: absolute;
-    right: 0;
+.mobNav {
+    position: fixed;
+    right: -250px;
     top: 50px;
+    overflow: hidden;
 }
+
+.mobNavShow {
+    right: 0;
+}
+
 
 .navArea a:hover {
     border: solid 1px black ;
@@ -212,4 +219,19 @@ div.image img {
 div.desc {
     padding: 15px;
     text-align: center;
+}
+
+#hamburger {
+  border: solid black 2px;
+  width: 30px;
+  height: 30px;
+  float:right;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#hamburger img {
+  width: 30px;
+  height: 30px;
 }
