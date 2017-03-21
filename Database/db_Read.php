@@ -155,16 +155,20 @@
         return $result;
     }
 
-function getAllWinesByName($_wine) {
-    global $pdo;
-    $statement = $pdo->prepare('SELECT * FROM wine WHERE wine_name LIKE ? ORDER BY wine_name ASC');
-    $statement->execute([$_wine]);
-    $result = $statement->fetchAll(PDO::FETCH_CLASS, 'Wine');
-    return $result;
-}
+    function getAllWinesLikeName($_value) {
+        if ($_value == "") {
+            return getAllWines();
+        }
+        global $pdo;
+        $_value = "%$_value%";
+        $statement = $pdo->prepare('SELECT * FROM wine, category WHERE wine.wine_name LIKE ? OR wine.description LIKE ? OR category.wine_type LIKE ? OR category.wine_colour LIKE ? HAVING wine.category_id_fk = category.category_id ORDER BY wine_name ASC');
+        $statement->execute([$_value, $_value, $_value, $_value]);
+        $result = $statement->fetchAll(PDO::FETCH_CLASS, 'Wine');
+        return $result;
+    }
 
-    function getWineByNameJson($_wine) {
-        $wine = getAllWinesByName($_wine);
+    function getWineLikeNameJson($_wine) {
+        $wine = getAllWinesLikeName($_wine);
         return json_encode($wine);
     }
 ?>

@@ -35,7 +35,7 @@
       <div id="hamburger">
           <img src="img/hamburger.png" onclick="toggleMobNav();" />
       </div>
-      <script src="JavaScript/mobNav.js"></script>
+
       <div class="mobNav">
         <ul id="rightSide">
             <li><a href="index.php">Home</a></li>
