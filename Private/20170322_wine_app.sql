@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.15.8
--- https://www.phpmyadmin.net
+-- version 4.4.15.7
+-- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Feb 20, 2017 at 09:28 AM
+-- Host: 127.0.0.1
+-- Generation Time: Mar 22, 2017 at 03:42 PM
 -- Server version: 5.6.31
 -- PHP Version: 5.5.38
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `address` (
   `city` varchar(255) DEFAULT NULL,
   `county` varchar(255) DEFAULT NULL,
   `post_code` varchar(10) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `address`
@@ -56,7 +56,7 @@ INSERT INTO `address` (`address_id`, `door_number_name`, `street_name`, `city`, 
 CREATE TABLE IF NOT EXISTS `campaign` (
   `campaign_id` int(11) NOT NULL,
   `offer_name` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `campaign_line` (
   `finish_date` date NOT NULL,
   `campaign_id_fk` int(11) NOT NULL,
   `wine_id_fk` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `category` (
   `category_id` int(11) NOT NULL,
   `wine_colour` varchar(25) DEFAULT NULL,
   `wine_type` varchar(25) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `category`
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `password` varchar(255) NOT NULL,
   `access` int(11) NOT NULL DEFAULT '0',
   `address_id_fk` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `customer`
@@ -133,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `customer_order` (
   `payment_id_fk` int(11) NOT NULL,
   `address_id_fk` int(11) NOT NULL,
   `customer_id_fk` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `customer_order`
@@ -159,7 +159,7 @@ CREATE TABLE IF NOT EXISTS `customer_order_line` (
   `container` varchar(255) DEFAULT NULL,
   `wine_id_fk` int(11) NOT NULL,
   `customer_order_id_fk` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `customer_order_line`
@@ -189,7 +189,7 @@ CREATE TABLE IF NOT EXISTS `payment` (
   `card_number` varchar(16) DEFAULT NULL,
   `expiry_date` date DEFAULT NULL,
   `customer_id_fk` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `payment`
@@ -212,7 +212,7 @@ CREATE TABLE IF NOT EXISTS `stock_hold` (
   `stock_hold_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL DEFAULT '0',
   `wine_id_fk` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `stock_hold`
@@ -245,7 +245,7 @@ CREATE TABLE IF NOT EXISTS `wine` (
   `bottles_per_case` int(11) NOT NULL,
   `asset_link` varchar(255) DEFAULT NULL,
   `category_id_fk` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `wine`
@@ -258,8 +258,8 @@ INSERT INTO `wine` (`wine_id`, `wine_name`, `country`, `bottle_size`, `descripti
 (4, 'The Bend in the River', 'German', 75, 'Easy-drinking, floral medium white.  Perfect for parties, serves 12 glasses.', 4.74, 6, 'img/4.jpg', 2),
 (5, 'Robertson Cabernet Sauvignon', 'South African', 75, 'Smooth, full-bodied style with rich mulberry, plum and cassis supported by soft tannins. The wine is deep red in colour, smooth with good weight, made in a friendly new Cape style with no hard edges. Enjoy now with roast beef, stews, lamb, venison, pasta and steak.', 3.31, 12, 'img/5.jpg', 1),
 (6, 'Mouton-Cadet Blanc', 'French', 75, 'Party on down with this easy-drinking, fruity, medium sweet wine.  Serve well chilled.  Serves 8 glasses.', 5.69, 6, 'img/6.jpg', 1),
-(7, 'Ogio Pinot Grigio Rosé', 'Italy', 75, 'Pinot Grigio is the grape behind this wine and this juicy strawberry fruit-scented rose makes a really refreshing change to white PG.', 5.50, 6, 'img/7.jpg', 3),
-(8, 'Bollinger Rosé Champagne', 'France', 75, 'A subtle combination of structure, length and vivacity, with a tannic finish due to the addition of red wine; flavours of wild berried and bubbles like velvet.', 45.00, 6, 'img/8.jpg', 4),
+(7, 'Ogio Pinot Grigio Rose', 'Italy', 75, 'Pinot Grigio is the grape behind this wine and this juicy strawberry fruit-scented rose makes a really refreshing change to white PG.', 5.50, 6, 'img/7.jpg', 3),
+(8, 'Bollinger Rose Champagne', 'France', 75, 'A subtle combination of structure, length and vivacity, with a tannic finish flavours of wild berried and bubbles like velvet.', 45.00, 6, 'img/8.jpg', 4),
 (9, 'Plaza Centro Prosecco DOC', 'Italy', 75, 'Made in the north-eastern region of Veneto, in Italy, this is such a great style of Prosecco. Full of lively, little bubbles and lovely soft lemon fruit, its fantastically refreshing and works brilliantly as an aperitif. Add a dash of bitters (like Campari) and youve got a jewel-coloured gem of a cocktail.', 6.75, 6, 'img/9.jpg', 5);
 
 -- --------------------------------------------------------
@@ -274,7 +274,7 @@ CREATE TABLE IF NOT EXISTS `wish_list` (
   `last_modified` date DEFAULT NULL,
   `customer_id_fk` int(11) NOT NULL,
   `wine_id_fk` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `wish_list`
