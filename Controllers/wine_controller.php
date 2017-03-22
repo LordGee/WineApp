@@ -10,6 +10,9 @@
     } elseif (isset($_GET["iCode"]) && $_GET["iCode"] == "filter" && $_GET["wine_type"] == "showWish") {
         $accessWines = [];
         $accessWines = getAllWinesFromWishList($_SESSION["Customer"]);
+    } elseif (isset($_GET["iCode"]) && $_GET["iCode"] == "one") {
+        $accessWines = [];
+        $accessWines = getWineById($_GET["id"]);
     } else {
         $accessWines = [];
         $accessWines = getAllWines();

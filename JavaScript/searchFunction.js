@@ -12,7 +12,7 @@ function searchCallBack(result) {
 
     for (var i = 0; i < result.length; i++) {
         var newItem = $("<tr></tr>");
-        $(newItem).append("<td>" + result[i].wine_name + "</td>");
+        $(newItem).append("<td><a href='wine.php?iCode=one&id=" +  result[i].wine_id + "'>" + result[i].wine_name + "</a></td>");
         $('.searchResults #results').append(newItem);
     }
 }
