@@ -9,6 +9,16 @@
 
 <h1>Welcome to Ten Green Bottles</h1>
 
+<p> Welcome to Ten Green Bottles, the UK's largest Internet retailer of top
+   quality non-alcoholic Wines and Champagnes. We cater for anniversaries,
+   birthdays, corporate gifts and other special occasions.</p> 
+<p>We deliver direct, next day, to residential or business addresses
+   anywhere in the UK. All orders are beautifully packaged, register today
+   to receive a 25% discount code on your first order. Call us today on
+   0845 600 1212 to discuss any special requirements.</p>
+<p>We offer a price promise guarantee and tell you when your gift has been
+  delivered!</p> 
+
   <h2> Enjoy our fine variety of luxury wines. We promise you won't be disappointed!!!</h2>
 <body>
 <div id="slider">
@@ -21,16 +31,6 @@
   </figure>
 </div>
 
-
-    <p> Welcome to Ten Green Bottles, the UK's largest Internet retailer of top
-       quality non-alcoholic Wines and Champagnes. We cater for anniversaries,
-       birthdays, corporate gifts and other special occasions.</p> 
-    <p>We deliver direct, next day, to residential or business addresses
-       anywhere in the UK. All orders are beautifully packaged, register today
-       to receive a 25% discount code on your first order. Call us today on 
-       0845 600 1212 to discuss any special requirements.</p>
-    <p>We offer a price promise guarantee and tell you when your gift has been
-      delivered!</p> 
 
 <h4>Special Offers Below:</h4>
 <div class="image">
