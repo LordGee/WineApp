@@ -1,93 +1,80 @@
 <?php
-    function insertAddress($_p) {
+
+    function createQP($_q, array $_p) {
         global $pdo;
-        $statement = $pdo->prepare("INSERT INTO address (door_number_name, post_code) VALUES (? , ?)");
-        $statement->bindParam(1, $_p['door_number_name']);
-        $statement->bindParam(2, $_p['post_code']);
-        $result = $statement->execute();
+        $statement = $pdo->prepare($_q);
+        $result = $statement->execute($_p);
+        return $result;
+    }
+
+    function createQPlId($_q, array $_p) {
+        global $pdo;
+        $statement = $pdo->prepare("$_q");
+        $result = $statement->execute($_p);
         if ($result) {
             return $pdo->lastInsertId();
         } else {
             return false;
         }
+    }
 
+    function insertAddress($_p) {
+        $q = "INSERT INTO address (door_number_name, post_code) VALUES (? , ?)";
+        $p = [$_p['door_number_name'], $_p['post_code']];
+        return createQPlId($q, $p);
     }
 
     function insertFullAddress($_p) {
-        global $pdo;
-        $statement = $pdo->prepare("INSERT INTO address (door_number_name, street_name, city, county, post_code) VALUES (?, ?, ?, ?, ?)");
-        $result = $statement->execute([$_p['door_number_name'], $_p['street_name'], $_p['city'], $_p['county'], $_p['post_code']]);
-        if ($result) {
-            return $pdo->lastInsertId();
-        } else {
-            return false;
-        }
+        $q = "INSERT INTO address (door_number_name, street_name, city, county, post_code) VALUES (?, ?, ?, ?, ?)";
+        $p = [$_p['door_number_name'], $_p['street_name'], $_p['city'], $_p['county'], $_p['post_code']];
+        return createQPlId($q, $p);
     }
 
     function insertCustomer($_p, $_pw, $_aId) {
-        global $pdo;
-        $statement = $pdo->prepare("INSERT INTO customer (first_name, last_name, phone_number, email_address, password, address_id_fk) VALUES (?, ?, ?, ?, ?, ?)");
-        $statement->bindParam(1, $_p['first_name']);
-        $statement->bindParam(2, $_p['last_name']);
-        $statement->bindParam(3, $_p['phone_number']);
-        $statement->bindParam(4, $_p['email_address']);
-        $statement->bindParam(5, $_pw);
-        $statement->bindParam(6, $_aId);
-        $result = $statement->execute();
-        if ($result) {
-            return $pdo->lastInsertId();
-        } else {
-            return false;
-        }
+        $q = "INSERT INTO customer (first_name, last_name, phone_number, email_address, password, address_id_fk) VALUES (?, ?, ?, ?, ?, ?)";
+        $p = [$_p['first_name'], $_p['last_name'], $_p['phone_number'], $_p['email_address'], $_pw, $_aId];
+        return createQPlId($q, $p);
     }
 
     function addWineToWishList($_wId, $_cId) {
-        global $pdo;
-        $statement = $pdo->prepare("INSERT INTO wish_list (watch, last_modified, customer_id_fk, wine_id_fk) VALUES (1, CURRENT_DATE(), ?, ? )");
-        $result = $statement->execute([$_cId, $_wId]);
-        return $result;
+        $q = "INSERT INTO wish_list (watch, last_modified, customer_id_fk, wine_id_fk) VALUES (1, CURRENT_DATE(), ?, ? )";
+        $p = [$_cId, $_wId];
+        return createQP($q, $p);
     }
 
     function addPayment($_p) {
-        global $pdo;
-        $statement = $pdo->prepare("INSERT INTO payment (card_type, card_name, card_number, expiry_date, customer_id_fk) VALUES (?, ?, ?, ?, ?)");
-        $result = $statement->execute([$_p['new_card_type'], $_p['new_card_name'], $_p['new_card_number'], $_p['new_card_expiry'], $_SESSION["Customer"]]);
-        return $result;
+        $q = "INSERT INTO payment (card_type, card_name, card_number, expiry_date, customer_id_fk) VALUES (?, ?, ?, ?, ?)";
+        $p = [$_p['new_card_type'], $_p['new_card_name'], $_p['new_card_number'], $_p['new_card_expiry'], $_SESSION["Customer"]];
+        return createQP($q, $p);
     }
 
     function addNewOrder($_cId, $_total, $_pId, $_aId) {
-        global $pdo;
-        $statement = $pdo->prepare("INSERT INTO customer_order (order_date, total_value, payment_id_fk, address_id_fk, customer_id_fk) VALUES (CURRENT_DATE(), ?, ?, ?, ?)");
-        $result = $statement->execute([$_total, $_pId, $_aId, $_cId]);
-        if ($result) {
-            return $pdo->lastInsertId();
-        } else {
-            return false;
-        }
+        $q = "INSERT INTO customer_order (order_date, total_value, payment_id_fk, address_id_fk, customer_id_fk) VALUES (CURRENT_DATE(), ?, ?, ?, ?)";
+        $p = [$_total, $_pId, $_aId, $_cId];
+        return createQPlId($q, $p);
     }
 
     function addNewOrderLines($_oId, $_lVal, $_wId, $_qty) {
-        global $pdo;
-        $statement = $pdo->prepare("INSERT INTO customer_order_line (line_value, quantity, wine_id_fk, customer_order_id_fk) VALUES (?, ?, ?, ?)");
-        $result = $statement->execute([$_lVal, $_qty, $_wId, $_oId]);
-        return $result;
+        $q = "INSERT INTO customer_order_line (line_value, quantity, wine_id_fk, customer_order_id_fk) VALUES (?, ?, ?, ?)";
+        $p = [$_lVal, $_qty, $_wId, $_oId];
+        return createQP($q, $p);
     }
 
     function insertWine($_wName, $_wCoun, $_wSize, $_wDesc, $_wPric, $_wLink, $_wCat){
-        global $pdo;
-        $statement = $pdo->prepare("INSERT INTO wine (wine_name, country, bottle_size, description, price_per_bottle, asset_link, category_id_fk) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $result = $statement->execute([$_wName, $_wCoun, $_wSize, $_wDesc, $_wPric, $_wLink, $_wCat]);
-        if ($result) {
-            return $pdo->lastInsertId();
-        } else {
-            return false;
-        }
+        $q = "INSERT INTO wine (wine_name, country, bottle_size, description, price_per_bottle, asset_link, category_id_fk) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $p = [$_wName, $_wCoun, $_wSize, $_wDesc, $_wPric, $_wLink, $_wCat];
+        return createQPlId($q, $p);
     }
 
     function addStockRelationship($_wId) {
-        global $pdo;
-        $statement = $pdo->prepare("INSERT INTO stock_hold (wine_id_fk) VALUES (?)");
-        $result = $statement->execute([$_wId]);
-        return $result;
+        $q = "INSERT INTO stock_hold (wine_id_fk) VALUES (?)";
+        $p = [$_wId];
+        return createQP($q, $p);
+    }
+
+    function addNewCampaign($_name, $_link, $_desc) {
+        $q = "INSERT INTO campaign (offer_name, asset_link, alt_description) VALUES (?, ?, ?)";
+        $p = [ $_name, $_link, $_desc];
+        return createQPlId($q, $p);
     }
 ?>

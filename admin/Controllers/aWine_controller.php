@@ -47,7 +47,11 @@ if (isset($_POST['aCode'])) {
         if (isset($_POST['cancel']) && $_POST['cancel'] == "Cancel") {
             header("location: aWine.php");
         } elseif ($_POST['add'] == "Add Wine") {
-            $asset = uploadPicture();
+            if ($_FILES['asset_link'] != null) {
+                $asset = uploadPicture();
+            } else {
+                $asset = null;
+            }
             $result = insertWine($_POST["wine_name"], $_POST["country"], $_POST["bottle_size"], $_POST["description"], $_POST["price_per_bottle"], $asset, $_POST["category"]);
             if ($result) {
                 $addStock = addStockRelationship($result);

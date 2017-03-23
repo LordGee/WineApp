@@ -12,7 +12,7 @@ body {
 h1 {
   color: midnightblue;
   text-align: left;
-  font-style: bold;
+  font-weight: bold;
   font-size: 32px;
 }
 
@@ -136,43 +136,33 @@ input[type = button]{
 }
 
 @keyframes slider {
-
-O% {
-  left: 0;
-}
-
-2O% {
-  left: 0;
-}
-
-25% {
-  left: -100%;
-}
-
-45% {
-  left: -100%;
-}
-
-50% {
-  left: -200%;
-}
-
-70% {
-  left: -200%;
-}
-
-75% {
-  left: -300%;
-};
-
-95% {
-  left: -300%;
-}
-
-100% {
-  left: -400%
-}
-
+    0% {
+      left: 0;
+    }
+    20% {
+      left: 0;
+    }
+    25% {
+      left: -100%;
+    }
+    45% {
+      left: -100%;
+    }
+    50% {
+      left: -200%;
+    }
+    70% {
+      left: -200%;
+    }
+    75% {
+      left: -300%;
+    }
+    95% {
+      left: -300%;
+    }
+    100% {
+        left: -400%
+    }
 }
 
 #slider {
