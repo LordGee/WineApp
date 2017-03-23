@@ -88,4 +88,9 @@
         }
         return $result;
     }
+
+    function getWineLikeNameJson($_wine) {
+        $wine = getAllWinesLikeName($_wine);
+        return json_encode($wine);
+    }
 ?>
