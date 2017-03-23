@@ -77,4 +77,10 @@
         $p = [ $_name, $_link, $_desc];
         return createQPlId($q, $p);
     }
+
+    function addCampaignLine($_sd, $_fd, $_cId, $_wId) {
+        $q = "INSERT INTO campaign_line (start_date, finish_date, campaign_id_fk, wine_id_fk) VALUES (?,?,?,?)";
+        $p = [$_sd, $_fd, $_cId, $_wId];
+        return createQP($q, $p);
+    }
 ?>
