@@ -174,6 +174,18 @@
         return readQC($q, $c);
     }
 
+    function getCampaignIemsById($_id) {
+        $q = "SELECT * FROM campaign_line WHERE campaign_id_fk = ?";
+        $c = 'CampaignLine';
+        $p = [$_id];
+        return readQCP($q, $c, $p);
+    }
 
+    function getCampaignById($_id){
+        $q = "SELECT * FROM campaign WHERE campaign_id = ? LIMIT 1";
+        $c = 'Campaign';
+        $p = [$_id];
+        return readQCP($q, $c, $p);
+    }
 
 ?>

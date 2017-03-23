@@ -18,7 +18,12 @@ if (!isset($message)) {
     // Add new campaign
     if (isset($_GET['aCode'])) {
         if ($_GET['aCode'] == "addNew") {
-
+            /* Just in case */
+        } elseif ($_GET['aCode'] == "manageOne") {
+            $campaignItems = [];
+            $campaignItems = getCampaignIemsById($_GET['id']);
+            $selectedCampaign = [];
+            $selectedCampaign = getCampaignById($_GET['id']);
         }
     }
     if (isset($_POST['aCode'])) {
