@@ -1,5 +1,5 @@
 <?php require_once ("Includes/header.php"); ?>
-
+<?php require_once ("Controllers/home_controller.php"); ?>
 <?php require_once ("Includes/info.php"); ?>
 <?php
 //    echo '<pre>';
@@ -12,6 +12,24 @@
 <p> Welcome to Ten Green Bottles, the UK's largest Internet retailer of top
    quality non-alcoholic Wines and Champagnes. We cater for anniversaries,
    birthdays, corporate gifts and other special occasions.</p> 
+<div class="row">
+    <div class="col-offset-lg-2 col-lg-8 col-offset-md-1 col-md-10 col-sm-12">
+        <h2>Great Offers from Ten Green Bottles</h2>
+        <div class="row">
+            <?php foreach ($accessCampaigns as $offer): ?>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="offer">
+                    <a href="wine.php?iCode=offer&offerNo=<?= $offer->campaign_id ?>">
+                        <h3><?= $offer->offer_name ?></h3>
+                        <img src="<?= $offer->asset_link ?>" alt="<?= $offer->alt_description ?>">
+                    </a>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</div>
+
 <p>We deliver direct, next day, to residential or business addresses
    anywhere in the UK. All orders are beautifully packaged, register today
    to receive a 25% discount code on your first order. Call us today on
