@@ -2,12 +2,16 @@
 
 <?php require_once ("Includes/info.php"); ?>
 
-<!DOCTYPE html>
-<html lang="en-US">
-<head>
+<!--<!DOCTYPE html> we already have this -->
+<!--<html lang="en-US"> are we in the US now? -->
+<!--<head> Another head tag -->
+
+<!-- Why are you not using the Style Sheet Saira? -->
 <style>
 body {
     background-image: url("image/theone.png");
+    background-size: cover; /* Added this one for you, as it was starting to annoy me */
+    background-repeat: no-repeat; /* Prevents any duplication */
 }
 .article {
   float: left;
@@ -24,7 +28,7 @@ h2 {
   color: crimson;
 }
 </style>
-</head>
+<!--</head> Saira I'm sure you want to delete all of these? -->
 <h1>Ten Green Bottles</h1>
 <h2>About Us!</h2>
 
@@ -65,7 +69,7 @@ we hope you'll find exactly what you are looking for.</p>
       <a href="url">tgbcustomerservice@gmail.com</a>
 </div>
 
-</body>
-</html>
+<!--</body> I have lost count, how many extry body and head tags did you add! -->
+<!--</html> Every time you do this a FAIRY DIES but you don't care! -->
 
 <?php require_once ("Includes/footer.php"); ?>

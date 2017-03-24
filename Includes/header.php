@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="Style/responsive.css" type="text/css" />
     <link rel="stylesheet" href="danger.css" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <div class="mainArea">
@@ -19,17 +20,17 @@
     </div>
       <div id="nav">
           <ul id="rightNav">
-              <li><a href="index.php">Home</a></li>
-              <li><a href="about.php">About Us</a></li>
-              <li><a href="wine.php">All Wines</a></li>
+              <li><a href="index.php" title="Home Page">Home</a></li>
+              <li><a href="about.php" title="About Us Page">About Us</a></li>
+              <li><a href="wine.php" title="Buy Wine Page">All Wines</a></li>
               <?php if(isset($_SESSION["Customer"])): ?>
                   <?php if (isset($_SESSION["Admin"])): ?>
-                      <li><a href="admin/admin.php">Admin</a></li>
+                      <li><a href="admin/admin.php" title="Administration Page">Admin</a></li>
                   <?php endif; ?>
-                  <li><a href="sign_out.php">LOGOUT</a></li>
+                  <li><a href="sign_out.php" title="Goodbye">LOGOUT</a></li>
               <?php else: ?>
-                  <li><a href="sign_up.php">Register Now</a></li>
-                  <li><a href="sign_in.php">LOGIN</a></li>
+                  <li><a href="sign_up.php" title="Sign Up now for Great Offers">Register Now</a></li>
+                  <li><a href="sign_in.php" title="Login into your Account">LOGIN</a></li>
               <?php endif; ?>
           </ul>
       </div>
@@ -53,13 +54,13 @@
         </ul>
       </div>
   </div>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1"> this should ever be within the Head Tags -->
+
   <i class="fa fa-font"></i>
   <i class="fa fa-font" style="font-size:24px"></i>
   <i class="fa fa-font" style="font-size:36px;"></i>
   <i class="fa fa-font" style="font-size:48px;color:red"></i>
   <br>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1"> er you already did one, both time in the wrong place, plus we already have one! -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <i class="material-icons" style="font-size:36px">add_shopping_cart</i>
