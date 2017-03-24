@@ -23,15 +23,9 @@
     </div>
       <div id="nav">
           <ul id="rightNav">
-<<<<<<< HEAD
-              <li><a href="index.php">Home</a></li
-              <li><a href="about.php">About Us</a></li>
-              <li><a href="wine.php">All Wines</a></li>
-=======
               <li><a href="index.php" title="Home Page">Home</a></li>
               <li><a href="about.php" title="About Us Page">About Us</a></li>
               <li><a href="wine.php" title="Buy Wine Page">All Wines</a></li>
->>>>>>> origin/master
               <?php if(isset($_SESSION["Customer"])): ?>
                   <?php if (isset($_SESSION["Admin"])): ?>
                       <li><a href="admin/admin.php" title="Administration Page">Admin</a></li>
@@ -63,16 +57,3 @@
         </ul>
       </div>
   </div>
-<<<<<<< HEAD
-=======
-<!--  <meta name="viewport" content="width=device-width, initial-scale=1"> this should ever be within the Head Tags -->
-
-  <i class="fa fa-font"></i>
-  <i class="fa fa-font" style="font-size:24px"></i>
-  <i class="fa fa-font" style="font-size:36px;"></i>
-  <i class="fa fa-font" style="font-size:48px;color:red"></i>
-  <br>
-<!--  <meta name="viewport" content="width=device-width, initial-scale=1"> er you already did one, both time in the wrong place, plus we already have one! -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<i class="material-icons" style="font-size:36px">add_shopping_cart</i>
->>>>>>> origin/master
