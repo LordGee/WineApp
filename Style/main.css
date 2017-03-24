@@ -36,7 +36,7 @@ h5 {
 h6 {
   color: black;
   text-align: left;
-  font-size: 8px; 
+  font-size: 8px;
 }
 
 p, li, a {
@@ -237,4 +237,44 @@ div.desc {
 #hamburger img {
   width: 30px;
   height: 30px;
+}
+
+.nav-icon{
+  height:70px;
+  width:88px;
+  position:relative;
+
+  .span {
+    height:6px;
+    width:55px;
+    position:absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    margin:auto;
+    background:black;
+
+    &::before,&::after {
+      height:6px;
+      width:100%;
+      background:black;
+      position:absolute;
+      content:"";
+    }
+    &::after{
+      top:20px;
+    }
+    &::before {
+      top:20px;
+    }
+  }
+  &.active .span::after {
+    top:0;
+    transform:rotate(45deg);
+  }
+  &.active .span::before {
+    top:0;
+    transform:rotate(45deg);
+  }
+  &.active .span
 }

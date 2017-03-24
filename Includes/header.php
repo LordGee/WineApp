@@ -33,6 +33,13 @@
               <?php endif; ?>
           </ul>
       </div>
+
+      <div class="new-icon cross">
+          <div clas="span"></div>
+      </div>
+
+
+
       <div id="hamburger">
           <img src="img/hamburger.png" onclick="toggleMobNav();" />
       </div>
@@ -53,12 +60,13 @@
         </ul>
       </div>
   </div>
-  <title>Google Icons</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <i class="fa fa-font"></i>
+  <i class="fa fa-font" style="font-size:24px"></i>
+  <i class="fa fa-font" style="font-size:36px;"></i>
+  <i class="fa fa-font" style="font-size:48px;color:red"></i>
+  <br>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  </head>
-  <body>
-
-  <i class="material-icons">accessibility</i>
-  <i class="material-icons" style="font-size:36px">accessibility</i>
-  <i class="material-icons" style="font-size:48px;color:red">accessibility</i>
+<i class="material-icons" style="font-size:36px">add_shopping_cart</i>
