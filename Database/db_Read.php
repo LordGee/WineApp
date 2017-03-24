@@ -175,7 +175,7 @@
     }
 
     function getCampaignIemsById($_id) {
-        $q = "SELECT * FROM campaign_line, wine WHERE campaign_id_fk = ? AND wine.wine_id = campaign_line.wine_id_fk";
+        $q = "SELECT * FROM campaign_line, wine, stock_hold WHERE campaign_id_fk = ? AND stock_hold.wine_id_fk = wine.wine_id AND wine.wine_id = campaign_line.wine_id_fk";
         $c = 'CampaignLine';
         $p = [$_id];
         return readQCP($q, $c, $p);

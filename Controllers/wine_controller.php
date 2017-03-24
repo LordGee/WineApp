@@ -1,20 +1,20 @@
 <?php
     require_once ("Model/m_wine.php");
+    require_once ("Model/m_campaign.php");
 
     $accessCat = [];
     $accessCat = getAllCategories();
+    $accessWines = [];
 
     if (isset($_GET["iCode"]) && $_GET["iCode"] == "filter" && $_GET["wine_type"] != "all" && $_GET["wine_type"] != "showWish") {
-        $accessWines = [];
         $accessWines = getAllWinesByCategory($_GET["wine_type"]);
     } elseif (isset($_GET["iCode"]) && $_GET["iCode"] == "filter" && $_GET["wine_type"] == "showWish") {
-        $accessWines = [];
         $accessWines = getAllWinesFromWishList($_SESSION["Customer"]);
     } elseif (isset($_GET["iCode"]) && $_GET["iCode"] == "one") {
-        $accessWines = [];
         $accessWines = getWineById($_GET["id"]);
+    } elseif (isset($_GET["iCode"]) && $_GET["iCode"] == "offer") {
+        $accessWines = getCampaignIemsById($_GET['offerNo']);
     } else {
-        $accessWines = [];
         $accessWines = getAllWines();
     }
     if (isset($_POST['iCode'])) {
