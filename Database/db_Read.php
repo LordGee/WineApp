@@ -53,6 +53,12 @@
         return readQCP($q, $c, $p);
     }
 
+    function getTenWines() {
+        $q = "SELECT * FROM wine, category WHERE wine.category_id_fk = category.category_id ORDER BY wine.wine_id DESC LIMIT 10";
+        $c = 'Wine';
+        return readQC($q, $c);
+    }
+
     // Category
     function getAllCategories() {
         $q = "SELECT * FROM category";

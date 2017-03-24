@@ -93,4 +93,28 @@
         $wine = getAllWinesLikeName($_wine);
         return json_encode($wine);
     }
+
+    function updateRSS() {
+        $wines = getTenWines();
+        $datetime = new DateTime();
+        $rss = '<?xml version="1.0" encoding="utf-8"?>' . "\n";
+        $rss .= '<rss version="2.0">' . "\n";
+        $rss .= '<channel>' . "\n";
+        $rss .= '<title>Ten Green Bottles</title>' . "\n";
+        $rss .= '<link>http://localhost/wineapp/</link>' . "\n";
+        $rss .= '<description>Update information for the Ten Green Bottles Website</description>' . "\n";
+        foreach ($wines as $w) {
+            $rss .= '<item>' . "\n";
+            $rss .= '<title>' . $w->wine_name . ' from ' . $w->country . ' </title>' . "\n";
+            $rss .= '<description>' . $w->description . '</description>' . "\n";
+            $rss .= '<link>http://localhost/wineapp/wine.php?id=' . $w->wine_id . '</link>' . "\n";
+            $rss .= '<pubDate>' . $datetime->format('D, d M Y H:i:s O') . '</pubDate>' . "\n";
+            $rss .= '</item>' . "\n";
+        }
+        $rss .= '</channel>' . "\n";
+        $rss .= '</rss>' . "\n";
+        return $rss;
+    }
+
+
 ?>

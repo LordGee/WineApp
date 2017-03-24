@@ -7,12 +7,12 @@
 //    echo '</pre>';
 ?>
 
-
 <h1>Welcome to Ten Green Bottles</h1>
 
 <p> Welcome to Ten Green Bottles, the UK's largest Internet retailer of top
    quality non-alcoholic Wines and Champagnes. We cater for anniversaries,
    birthdays, corporate gifts and other special occasions.</p> 
+
 <div class="row">
     <div class="col-offset-lg-2 col-lg-8 col-offset-md-1 col-md-10 col-sm-12">
         <h2>Great Offers from Ten Green Bottles</h2>
@@ -38,8 +38,10 @@
 <p>We offer a price promise guarantee and tell you when your gift has been
   delivered!</p> 
 
-  <h2> Enjoy our fine variety of luxury wines. We promise you won't be disappointed!!!</h2>
-<body>
+<h2> Enjoy our fine variety of luxury wines. We promise you won't be disappointed!!!</h2>
+
+<!--<body> Second random body tag -->
+
 <div id="slider">
   <figure>
     <img src="image/slide1.jpg" alt= "wine poured in glass">
@@ -94,7 +96,7 @@
   <div class="desc">Register today! Receive 25% DiscountCode</div>
 </div>
 
-</body>
-</html>
+<!--</body> Saira WHY-->
+<!--</html> There is still more in this html document -->
 
 <?php require_once ("Includes/footer.php"); ?>
