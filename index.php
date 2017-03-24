@@ -23,8 +23,8 @@
 <body>
 <div id="slider">
   <figure>
-    <img src="image/slide1.jpg">
-    <img src="image/slide2.jpg">
+    <img src="image/slide1.jpg" alt= "wine poured in glass">
+    <img src="image/slide2.jpg" alt= >
     <img src="image/slide-3-barrels.jpg">
     <img src="image/slide12.jpg">
     <img src="image/slide11.jpg">
