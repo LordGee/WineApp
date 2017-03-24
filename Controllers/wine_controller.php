@@ -10,7 +10,9 @@
         $accessWines = getAllWinesByCategory($_GET["wine_type"]);
     } elseif (isset($_GET["iCode"]) && $_GET["iCode"] == "filter" && $_GET["wine_type"] == "showWish") {
         $accessWines = getAllWinesFromWishList($_SESSION["Customer"]);
-    } elseif (isset($_GET["iCode"]) && $_GET["iCode"] == "one") {
+    } elseif (isset($_GET["id"])) {
+        $accessWines = getWineById($_GET["id"]);
+    } elseif (isset($_GET["iCode"]) && $_GET['iCode'] == 'one') {
         $accessWines = getWineById($_GET["id"]);
     } elseif (isset($_GET["iCode"]) && $_GET["iCode"] == "offer") {
         $accessWines = getCampaignIemsById($_GET['offerNo']);
