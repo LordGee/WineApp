@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.15.7
--- http://www.phpmyadmin.net
+-- version 4.4.15.8
+-- https://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 22, 2017 at 03:42 PM
+-- Host: localhost
+-- Generation Time: Mar 24, 2017 at 08:06 AM
 -- Server version: 5.6.31
 -- PHP Version: 5.5.38
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `address` (
   `city` varchar(255) DEFAULT NULL,
   `county` varchar(255) DEFAULT NULL,
   `post_code` varchar(10) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `address`
@@ -45,7 +45,9 @@ INSERT INTO `address` (`address_id`, `door_number_name`, `street_name`, `city`, 
 (3, '5', 'Wibble Road', 'London', 'London', 'W1D N5Y'),
 (4, '23', NULL, NULL, NULL, 'gt58yh'),
 (8, '9', 'Hidden Gardens', 'Raynes Park', 'London', 'SW20'),
-(9, '55', 'Mayfair Street', 'London', 'London', 'W1D 5VE');
+(9, '55', 'Mayfair Street', 'London', 'London', 'W1D 5VE'),
+(10, '12', NULL, NULL, NULL, 'KT10 5GH'),
+(11, '55', NULL, NULL, NULL, 'KT10 4TH');
 
 -- --------------------------------------------------------
 
@@ -55,8 +57,17 @@ INSERT INTO `address` (`address_id`, `door_number_name`, `street_name`, `city`, 
 
 CREATE TABLE IF NOT EXISTS `campaign` (
   `campaign_id` int(11) NOT NULL,
-  `offer_name` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `offer_name` varchar(255) DEFAULT NULL,
+  `asset_link` varchar(255) DEFAULT NULL,
+  `alt_description` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `campaign`
+--
+
+INSERT INTO `campaign` (`campaign_id`, `offer_name`, `asset_link`, `alt_description`) VALUES
+(3, '10% off wine', 'img/offer10.png', 'Get 10% off selected wines now');
 
 -- --------------------------------------------------------
 
@@ -70,7 +81,15 @@ CREATE TABLE IF NOT EXISTS `campaign_line` (
   `finish_date` date NOT NULL,
   `campaign_id_fk` int(11) NOT NULL,
   `wine_id_fk` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `campaign_line`
+--
+
+INSERT INTO `campaign_line` (`campaign_line_id`, `start_date`, `finish_date`, `campaign_id_fk`, `wine_id_fk`) VALUES
+(2, '2017-03-24', '2017-04-05', 3, 8),
+(3, '2017-03-16', '2017-03-23', 3, 6);
 
 -- --------------------------------------------------------
 
@@ -110,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `password` varchar(255) NOT NULL,
   `access` int(11) NOT NULL DEFAULT '0',
   `address_id_fk` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `customer`
@@ -118,7 +137,9 @@ CREATE TABLE IF NOT EXISTS `customer` (
 
 INSERT INTO `customer` (`customer_id`, `first_name`, `last_name`, `phone_number`, `email_address`, `password`, `access`, `address_id_fk`) VALUES
 (2, 'Saira', 'Sarwar', '07123456789', 'k1653193@kingston.ac.uk', '456', 0, 2),
-(6, 'Gordon', 'Johnson', '07572077644', 'k1451760@kingston.ac.uk', '637199d01117096a83ab9b3f3fd9abdb2b3d070faf668fa980c2f86a13529657', 111078, 8);
+(6, 'Gordon', 'Johnson', '07572077644', 'k1451760@kingston.ac.uk', '637199d01117096a83ab9b3f3fd9abdb2b3d070faf668fa980c2f86a13529657', 111078, 8),
+(7, 'Customer', 'Customer', '123456789', 'customer@kingston.ac.uk', '48b552470d870498a1c463b3008963b6e8c69c3bcca5a81537f9dc22b611de51', 0, 10),
+(8, 'Admin', 'Admin', '1545464568', 'admin@kingston.ac.uk', 'c871a13ab4a4240ec574c6fe9f962d1a7f5814bb7daa2ee8eab36438a6caa2f5', 111078, 11);
 
 -- --------------------------------------------------------
 
@@ -274,7 +295,7 @@ CREATE TABLE IF NOT EXISTS `wish_list` (
   `last_modified` date DEFAULT NULL,
   `customer_id_fk` int(11) NOT NULL,
   `wine_id_fk` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `wish_list`
@@ -282,9 +303,7 @@ CREATE TABLE IF NOT EXISTS `wish_list` (
 
 INSERT INTO `wish_list` (`wish_list_id`, `watch`, `last_modified`, `customer_id_fk`, `wine_id_fk`) VALUES
 (5, 1, '2017-02-15', 6, 7),
-(9, 1, '2017-02-15', 6, 1),
-(10, 1, '2017-02-15', 6, 5),
-(11, 1, '2017-02-15', 6, 6);
+(12, 1, '2017-03-23', 6, 9);
 
 --
 -- Indexes for dumped tables
@@ -378,17 +397,17 @@ ALTER TABLE `wish_list`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `campaign`
 --
 ALTER TABLE `campaign`
-  MODIFY `campaign_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `campaign_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `campaign_line`
 --
 ALTER TABLE `campaign_line`
-  MODIFY `campaign_line_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `campaign_line_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `category`
 --
@@ -398,7 +417,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `customer_order`
 --
@@ -428,7 +447,7 @@ ALTER TABLE `wine`
 -- AUTO_INCREMENT for table `wish_list`
 --
 ALTER TABLE `wish_list`
-  MODIFY `wish_list_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+  MODIFY `wish_list_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- Constraints for dumped tables
 --
