@@ -7,7 +7,12 @@
 //    echo '</pre>';
 ?>
 
+
 <h1>Welcome to Ten Green Bottles</h1>
+
+<div class="nav-icon cross">
+    <div class="span"></div>
+</div>
 
 <p> Welcome to Ten Green Bottles, the UK's largest Internet retailer of top
    quality non-alcoholic Wines and Champagnes. We cater for anniversaries,

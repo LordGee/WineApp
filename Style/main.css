@@ -253,6 +253,7 @@ div.desc {
     right:0;
     margin:auto;
     background:black;
+    transition:all 0.3s;
 
     &::before,&::after {
       height:6px;
@@ -260,6 +261,7 @@ div.desc {
       background:black;
       position:absolute;
       content:"";
+      transition:all 0.3s;
     }
     &::after{
       top:20px;
@@ -274,7 +276,9 @@ div.desc {
   }
   &.active .span::before {
     top:0;
-    transform:rotate(45deg);
+    transform:rotate(-45deg);
   }
-  &.active .span
+  &.active .span{
+    background:none;
+  }
 }

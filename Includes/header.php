@@ -33,13 +33,6 @@
               <?php endif; ?>
           </ul>
       </div>
-
-      <div class="new-icon cross">
-          <div clas="span"></div>
-      </div>
-
-
-
       <div id="hamburger">
           <img src="img/hamburger.png" onclick="toggleMobNav();" />
       </div>
