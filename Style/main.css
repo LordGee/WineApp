@@ -35,7 +35,6 @@ h5 {
 
 h6 {
   color: black;
-  text-align: left;
   font-size: 8px;
 }
 
@@ -237,4 +236,20 @@ div.desc {
 #hamburger img {
   width: 30px;
   height: 30px;
+}
+
+#footer {
+  clear: both;
+}
+
+.Accessibility {
+    width: 90px;
+    height: 30px;
+    margin:auto;
+    position: absolute;
+    top: 10px;
+    left: 300px;
+    font-weight: bold;
+    color: white;
+    background-color: navy;
 }
