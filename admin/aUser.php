@@ -182,30 +182,30 @@
                 <input type="hidden" name="aCode" value="search"/>
                 <input type="submit" value="Find"/>
             </div>
-        </form>
-            <div class="buffer"></div>
-        <div class="tableData">
-        <table>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>See Details</th>
-            </tr>
-        <?php foreach ($customers as $user): ?>
-            <tr>
-                <td><?= $user->first_name ?></td>
-                <td><?= $user->last_name ?></td>
-                <td>
-                    <form method="post" action="aUser.php">
-                        <input type="hidden" name="aCode" value="details">
-                        <input type="hidden" name="customer" value="<?= $user->customer_id ?>">
-                        <input type="submit" value="Details">
-                    </form>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-        </table>
-        </div>
+            </form>
+            <br><br>
+            <div class="tableData">
+                <table>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>See Details</th>
+                    </tr>
+                <?php foreach ($customers as $user): ?>
+                    <tr>
+                        <td><?= $user->first_name ?></td>
+                        <td><?= $user->last_name ?></td>
+                        <td>
+                            <form method="post" action="aUser.php">
+                                <input type="hidden" name="aCode" value="details">
+                                <input type="hidden" name="customer" value="<?= $user->customer_id ?>">
+                                <input type="submit" value="Details">
+                            </form>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </table>
+            </div>
         </div>
     </div>
     <?php endif;?>
