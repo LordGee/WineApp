@@ -61,7 +61,11 @@ label {
     margin: 10px;
 }
 
-.formContent input[type=text], input[type=date], input[type=number], textarea, select {
+.formContent input[type=text],
+.formContent  input[type=date],
+.formContent input[type=number],
+.formContent textarea,
+.formContent select {
     width: 100%;
     height:50px;
     margin-top: 10px;
@@ -78,7 +82,7 @@ label {
     height: auto;
 }
 
-  .formContent input[type=submit], input[type=file] {
+.formContent input[type=submit], input[type=file] {
     float: none;
     margin: 5px;
     font-size: 20px;
@@ -140,4 +144,32 @@ label {
 
 .wineDetail {
     min-height: 500px;
+}
+
+.mobileNav {
+    background-color: lightgreen;
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    overflow: hidden;
+    margin-top: 55px;
+    right: -250px;
+    transition: right ease 1s;
+}
+
+.showMobileNav {
+    right: 0;
+    transition: right ease 1s;
+}
+
+#menuButton {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+#menuAction {
+    background-color: transparent;
+    border-radius: 3px;
+    color: white;
 }
