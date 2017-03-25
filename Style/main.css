@@ -293,3 +293,13 @@ div.desc {
     clear: both;
     height: 75px;
 }
+
+.boxed {
+  border: 5px solid green;
+  text-align: center; 
+  float: center;
+  margin: 5px;
+  padding: 5px;
+  width: 420px;
+  height: 220px;
+}
