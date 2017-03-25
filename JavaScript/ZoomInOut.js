@@ -1,3 +1,3 @@
 function zoomIn () {
-  alert("zoom in");
+  alert("Zoom In");
 }
