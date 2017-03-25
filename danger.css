@@ -1,7 +1,6 @@
 /* The following CSS will be added to the main css file by submission, or maybe not */
-/* This file is contributed by Gordon Johnson k1451760, who's bored of waiting for his partner to Style the site */
-/* This file will be used to completed styling from the backend then towards the front-end */
-/* other objects maybe styled along the way */
+/* This file is contributed by Gordon Johnson k1451760, will also help minimise conflicts */
+
 
 .offer {
     width: 100%;
@@ -45,4 +44,72 @@
     text-align: center;
     border: 2px solid lightgreen;
     border-radius: 5px;
+    height: 150px;
+    vertical-align: middle;
+}
+
+.listItems {
+    padding-left: 15px;
+}
+
+.listItems li {
+    list-style: disc;
+}
+
+label {
+    font-size: 20px;
+    margin: 10px;
+}
+
+.formContent input[type=text] {
+    width: 100%;
+    height:50px;
+    margin-top: 10px;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    -webkit-box-shadow: -1px -1px 24px 0px rgba(66,66,66,1);
+    -moz-box-shadow: -1px -1px 24px 0px rgba(66,66,66,1);
+    box-shadow: -1px -1px 24px 0px rgba(66,66,66,1);
+}
+
+.formContent input[type=submit] {
+    float: right;
+    margin: 10px;
+    font-size: 20px;
+    padding: 8px 20px;
+    background-color: #ddffe8;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.tableData table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    text-align: center;
+}
+
+.tableData td {
+    padding: 4px 20px;
+    width: auto;
+    border-top: 2px solid lightgreen;
+    border-bottom: 2px solid lightgreen;
+    margin: 10px 0px;
+}
+
+.tableData td:first-child {
+    border-left: 2px solid lightgreen;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.tableData td:last-child {
+    border-right: 2px solid lightgreen;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.tableData input[type=submit] {
+    float: none;
 }

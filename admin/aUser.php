@@ -10,6 +10,29 @@
     <span class="message"><?= $message ?></span>
     <span class="error"><?= $error ?></span>
 
+    <div class="row">
+        <div class="col-offset-lg-2 col-lg-8 col-offset-md-1 col-md-10 col-sm-12">
+            <h1>User Administration</h1>
+            <p>Search by first or last name to filter the users. Clicking the details button will retrieve the details
+                of the customer. These details show the the following details: </p>
+            <div class="col-lg-6 col-md-6 col-sm-12 listItems">
+                <ul>
+                    <li>Customer Details</li>
+                    <li>Reset Customer Password</li>
+                    <li>Allocate administrative privilege</li>
+                </ul>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 listItems">
+                <ul>
+                    <li>Customer Address Details</li>
+                    <li>Order History (Summary)</li>
+                    <li>Detailed Order Information</li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <?php if (isset($_POST['aCode']) && $_POST['aCode'] == 'details'): ?>
         <h2>Customer Details</h2>
         <table>
@@ -135,13 +158,19 @@
     </form>
 
     <?php else: ?>
+    <div class="row">
+        <div class="col-offset-lg-2 col-lg-8 col-offset-md-1 col-md-10 col-sm-12 formContent">
         <form method="get" action="aUser.php">
-            <label for="customer_name">Search by the customers first or last name</label>
-            <input type="text" name="customer_name" placeholder="Enter customers name" >
-            <input type="hidden" name="aCode" value="search"/>
-            <input type="submit" value="Find"/>
+            <div class="row">
+                <label for="customer_name">Search by the customers first or last name</label>
+            </div>
+            <div class="row">
+                <input type="text" name="customer_name" placeholder="Enter customers name" >
+                <input type="hidden" name="aCode" value="search"/>
+                <input type="submit" value="Find"/>
+            </div>
         </form>
-
+        <div class="tableData">
         <table>
             <tr>
                 <th>First Name</th>
@@ -162,6 +191,9 @@
             </tr>
         <?php endforeach; ?>
         </table>
+        </div>
+        </div>
+    </div>
     <?php endif;?>
 
 <?php require_once ('Includes/footer.php'); ?>
