@@ -1,5 +1,3 @@
-<!--  <body> why another body tag -->
-<!--      <div> don't just add tags without checking...  -->
         </div>
         <div class="bottomArea">
             <h3> Unit 1-2 North Point Business Centre, Horton Road, London SWL 8EQ </h3>
@@ -7,6 +5,6 @@
         </div>
     <script src="JavaScript/mobNav.js"></script>
     <script src="JavaScript/searchFunction.js"></script>
-    <script src="JavaScript/ZoomInOut.js"
+    <script src="JavaScript/ZoomInOut.js"></script> 
     </body>
 </html>
