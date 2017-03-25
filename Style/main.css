@@ -126,11 +126,12 @@ h1#headTitle {
     right: 0;
 }
 
-.navArea a:hover {
-    border: solid 1px black ;
+#nav a:hover {
+    border: solid 2px white;
     border-radius: 20px;
     color: #000;
     background-color: lightgreen;
+    font-weight: bolder;
 }
 
 #rightNav {
