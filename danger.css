@@ -71,16 +71,26 @@ label {
     -webkit-box-shadow: -1px -1px 24px 0px rgba(66,66,66,1);
     -moz-box-shadow: -1px -1px 24px 0px rgba(66,66,66,1);
     box-shadow: -1px -1px 24px 0px rgba(66,66,66,1);
+    border-radius: 8px;
 }
 
 .formContent input[type=submit] {
     float: right;
-    margin: 10px;
+    margin: 5px;
     font-size: 20px;
-    padding: 8px 20px;
+    padding: 5px 20px;
     background-color: #ddffe8;
     border: 2px solid black;
     border-radius: 5px;
+}
+
+.formContent input[type=submit]:hover {
+    background-color: darkgreen;
+    color: #fff;
+    -webkit-box-shadow: -1px -1px 24px 0px rgba(66,66,66,1);
+    -moz-box-shadow: -1px -1px 24px 0px rgba(66,66,66,1);
+    box-shadow: -1px -1px 24px 0px rgba(66,66,66,1);
+
 }
 
 .tableData table {
@@ -90,12 +100,18 @@ label {
     text-align: center;
 }
 
+.tableData th {
+    font-size: 22px;
+    font-weight: bolder;
+}
+
 .tableData td {
     padding: 4px 20px;
     width: auto;
     border-top: 2px solid lightgreen;
     border-bottom: 2px solid lightgreen;
     margin: 10px 0px;
+    font-size: 20px;
 }
 
 .tableData td:first-child {
@@ -112,4 +128,8 @@ label {
 
 .tableData input[type=submit] {
     float: none;
+}
+
+.firstCol td:first-child {
+    font-weight: bold;
 }
