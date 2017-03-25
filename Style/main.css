@@ -22,6 +22,12 @@ h2 {
 }
 
 h3 {
+  color: crimson;
+  font-size: 24px;
+}
+
+h4 {
+  color: blue; 
   font-size: 18px;
 }
 
@@ -37,6 +43,7 @@ h6 {
   color: black;
   font-size: 8px;
 }
+
 
 p, li, a {
   font-size: 14px;
@@ -197,9 +204,13 @@ input[type = button]{
   animation: 20s slider infinite;
 }
 
-
-h4 {
-    color: crimson;
+.article {
+  float: left;
+  margin: 5px;
+  padding: 5px;
+  width: 300px;
+  height: 350px;
+  border: 1px solid black;
 }
 
 div.image {

@@ -21,7 +21,7 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="offer">
                     <a href="wine.php?iCode=offer&offerNo=<?= $offer->campaign_id ?>">
-                        <h3><?= $offer->offer_name ?></h3>
+                        <h4><?= $offer->offer_name ?></h4>
                         <img src="<?= $offer->asset_link ?>" alt="<?= $offer->alt_description ?>">
                     </a>
                 </div>
@@ -53,7 +53,7 @@
 </div>
 
 
-<h4>Special Offers Below:</h4>
+<h3>Special Offers Below:</h3>
 <div class="image">
   <a target="_blank" href="wine_day_brands.png">
     <img src="image/wine_day_brands.png" alt="Manager Special" width="100" height="150">

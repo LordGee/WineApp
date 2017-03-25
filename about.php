@@ -2,43 +2,19 @@
 
 <?php require_once ("Includes/info.php"); ?>
 
-<!--<!DOCTYPE html> we already have this -->
-<!--<html lang="en-US"> are we in the US now? -->
-<!--<head> Another head tag -->
+<h1>Ten Green Bottles</h1>
+<h3>About Us!</h3>
 
-<!-- Why are you not using the Style Sheet Saira? -->
-<style>
 body {
     background-image: url("image/theone.png");
-    background-size: cover; /* Added this one for you, as it was starting to annoy me */
-    background-repeat: no-repeat; /* Prevents any duplication */
 }
-.article {
-  float: left;
-  margin: 5px;
-  padding: 5px;
-  width: 300px;
-  height: 350px;
-  border: 1px solid black;
-}
-h1 {
-    color: green;
-}
-h2 {
-  color: crimson;
-}
-</style>
-<!--</head> Saira I'm sure you want to delete all of these? -->
-<h1>Ten Green Bottles</h1>
-<h2>About Us!</h2>
 
 <div class="article">
-  <h3>About TGB</h3>
-  <p>
-Ten Green Bottles web store is dedicated to wine, spirits and champagne.
-We offer a full range of fine products for you to choose
-from. With numerous ways to search our catalogue;
-we hope you'll find exactly what you are looking for.</p>
+  <h2>About TGB</h2>
+  <p>Ten Green Bottles web store is dedicated to wine, spirits and champagne.
+     We offer a full range of fine products for you to choose
+     from. With numerous ways to search our catalogue;
+     we hope you'll find exactly what you are looking for.</p>
   <p>TGB started trading in the early 2000s. Since, the company has grown its
     trade to carry an extensive range of fine non-alcohlic wines & popular,
     pretigious spirits & champagnes from around the world, all of which can be
@@ -46,7 +22,7 @@ we hope you'll find exactly what you are looking for.</p>
 </div>
 
 <div class="article">
-  <h3>Before You Start</h3>
+  <h2>Before You Start</h2>
   <p>There are a few things that you should know. You must be over 18 years of
     age to buy from us and we only deliver to addresses in United Kingdom.
     Delivery is FREE, but we have a minimum order value of £....
@@ -59,7 +35,7 @@ we hope you'll find exactly what you are looking for.</p>
 </div>
 
 <div class="article">
-  <h3>Contact Us!</h3>
+  <h2>Contact Us!</h2>
   <p>Ten Green Bottles is located in the heart of London, close to the city of ......
     We operate to a wide range of areas to all our customers through our online service
     and hope to continue to strive to keep our customer satified with our excellent
@@ -68,6 +44,7 @@ we hope you'll find exactly what you are looking for.</p>
       <li>Have a Question? Why not e-mail us today at:</li>
       <a href="url">tgbcustomerservice@gmail.com</a>
 </div>
+
 
 <!--</body> I have lost count, how many extry body and head tags did you add! -->
 <!--</html> Every time you do this a FAIRY DIES but you don't care! -->
