@@ -4,7 +4,7 @@
 
 .offer {
     width: 100%;
-    min-height: 200px;
+    min-height: 250px;
     max-height: 250px;
     border:solid 5px darkgreen;
     border-radius: 10px;
@@ -44,7 +44,7 @@
     text-align: center;
     border: 2px solid lightgreen;
     border-radius: 5px;
-    height: 150px;
+    min-height: 150px;
     vertical-align: middle;
 }
 
@@ -61,7 +61,7 @@ label {
     margin: 10px;
 }
 
-.formContent input[type=text] {
+.formContent input[type=text], input[type=date], textarea{
     width: 100%;
     height:50px;
     margin-top: 10px;
@@ -74,8 +74,12 @@ label {
     border-radius: 8px;
 }
 
-.formContent input[type=submit] {
-    float: right;
+.formContent textarea {
+    height: auto;
+}
+
+  .formContent input[type=submit], input[type=file] {
+    float: none;
     margin: 5px;
     font-size: 20px;
     padding: 5px 20px;
@@ -132,4 +136,8 @@ label {
 
 .firstCol td:first-child {
     font-weight: bold;
+}
+
+.wineDetail {
+    min-height: 500px;
 }
