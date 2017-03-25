@@ -45,8 +45,4 @@ body {
       <a href="url">tgbcustomerservice@gmail.com</a>
 </div>
 
-
-<!--</body> I have lost count, how many extry body and head tags did you add! -->
-<!--</html> Every time you do this a FAIRY DIES but you don't care! -->
-
 <?php require_once ("Includes/footer.php"); ?>
