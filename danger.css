@@ -30,7 +30,9 @@
 .bottomArea h3 {
     float: left;
     color: #fff;
+    margin:12px;
     padding-left: 12px;
+
 }
 
 .bottomArea a {
