@@ -9,6 +9,10 @@ body {
     padding: 0px;
 }
 
+h1, h2, h3,h4,h5,h6,p,span,li,a, label, td, th {
+    font-family: 'Muli', sans-serif;
+}
+
 h1 {
       color: midnightblue;
       text-align: left;
