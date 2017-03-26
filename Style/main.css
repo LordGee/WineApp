@@ -231,8 +231,9 @@ input[type = button] {
   float: left;
   margin: 5px;
   padding: 5px;
+  position: relative;
   width: 300px;
-  height: 350px;
+  height: 480px;
   border: 1px solid black;
 }
 
@@ -296,10 +297,10 @@ div.desc {
 
 .boxed {
   border: 5px solid green;
-  text-align: center; 
+  text-align: center;
   float: none;
   margin: 5px;
   padding: 5px;
   width: 420px;
-  height: 220px;
+  height: 300px;
 }
