@@ -64,6 +64,8 @@ label {
 .formContent input[type=text],
 .formContent  input[type=date],
 .formContent input[type=number],
+.formContent input[type=email],
+.formContent input[type=password],
 .formContent textarea,
 .formContent select {
     width: 100%;
