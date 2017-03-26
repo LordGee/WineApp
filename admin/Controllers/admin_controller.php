@@ -14,7 +14,7 @@ if (!isset($message)) {
 if (isset($_SESSION["Admin"])) {
     if (isset($_SESSION["Customer"])) {
         $currentUser = [];
-        $currentUser = getUserById($_SESSION["Customer"]);
+        $currentUser = $readObject->getUserById($_SESSION["Customer"]);
     } else {
         header("location: ../index.php");
         die();

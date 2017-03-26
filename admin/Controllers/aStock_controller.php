@@ -11,19 +11,19 @@ if (!isset($message)) {
 }
 
 $accessCat = [];
-$accessCat = getAllCategories();
+$accessCat = $readObject->getAllCategories();
 
 if (isset($_GET["aCode"]) && $_GET["aCode"] == "filter" && $_GET["wine_type"] != "all") {
     $accessWines = [];
-    $accessWines = getAllWinesByCategory($_GET["wine_type"]);
+    $accessWines = $readObject->getAllWinesByCategory($_GET["wine_type"]);
     $message = "You selection has now been filtered.";
 } else {
     $accessWines = [];
-    $accessWines = getAllWines();
+    $accessWines = $readObject->getAllWines();
 }
 if (isset($_POST['aCode'])) {
     if ($_POST['aCode'] == "add_stock") {
-        $result = addNewStock($_POST['wine'], $_POST['quantity']);
+        $result = $updateObject->setNewStock($_POST['wine'], $_POST['quantity']);
         if ($result) {
             $message = "This delivery of stock has successfully been added to this product";
             unset($_POST);

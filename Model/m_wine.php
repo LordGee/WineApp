@@ -7,10 +7,13 @@
         private $price_per_bottle;
         private $bottles_per_case;
         private $asset_link;
+        private $lvl;
+        private $date_added;
         private $category_id_fk;
         private $category_id;
         private $wine_colour;
         private $wine_type;
+
 
         function __get($name) {
             return $this->$name;
@@ -77,9 +80,10 @@
     }
 
     function getTotalValue() {
+        global $readObject;
         $result = 0.00;
         foreach ($_SESSION["basket"] as $key => $value) {
-            $wineList = getWineById($value);
+            $wineList = $readObject->getWineById($value);
             foreach ($_SESSION["basketQty"] as $qKey => $qValue) {
                 if ($value == $qKey) {
                     $result += ($wineList[0]->price_per_bottle * $qValue);
@@ -90,13 +94,14 @@
     }
 
     function getWineLikeNameJson($_wine) {
-        $wine = getAllWinesLikeName($_wine);
+        global $readObject;
+        $wine = $readObject->getAllWinesLikeName($_wine);
         return json_encode($wine);
     }
 
     function updateRSS() {
-        $wines = getTenWines();
-        $datetime = new DateTime();
+        global $readObject;
+        $wines = $readObject->getTenWines();
         $rss = '<?xml version="1.0" encoding="utf-8"?>' . "\n";
         $rss .= '<rss version="2.0">' . "\n";
         $rss .= '<channel>' . "\n";
@@ -108,13 +113,12 @@
             $rss .= '<title>' . $w->wine_name . ' from ' . $w->country . ' </title>' . "\n";
             $rss .= '<description>' . $w->description . '</description>' . "\n";
             $rss .= '<link>http://localhost/wineapp/wine.php?id=' . $w->wine_id . '</link>' . "\n";
-            $rss .= '<pubDate>' . $datetime->format('D, d M Y H:i:s O') . '</pubDate>' . "\n";
+            $date = strtotime($w->date_added);
+            $rss .= '<pubDate>' . date('D, d M Y H:i:s O', $date) . '</pubDate>' . "\n";
             $rss .= '</item>' . "\n";
         }
         $rss .= '</channel>' . "\n";
         $rss .= '</rss>' . "\n";
         return $rss;
     }
-
-
 ?>

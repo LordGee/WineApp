@@ -11,7 +11,7 @@ if (!isset($message)) {
 }
 
 if (isset($_GET["auth"])) {
-    $customer = getUserByAuthCode($_GET['auth']);
+    $customer = $readObject->getUserByAuthCode($_GET['auth']);
     if ($customer) {
         $_SESSION['auth'] = $_GET['auth'];
         $message = "You may change your password here {$customer[0]->first_name}";
@@ -20,14 +20,14 @@ if (isset($_GET["auth"])) {
         die();
     }
 } elseif (isset($_POST['iCode']) && $_POST['iCode'] == 'change') {
-    $check = checkPasswordsMatch ($_POST['pass1'], $_POST['pass2']);
+    $check = checkPasswordsMatch($_POST['pass1'], $_POST['pass2']);
     if ($check) {
-        $customer = getUserByAuthCode($_SESSION['auth']);
+        $customer = $readObject->getUserByAuthCode($_SESSION['auth']);
         if ($customer) {
             $encryptPass = encryption($customer[0]->email_address, $_POST['pass1']);
-            $change = updatePassword($encryptPass, $_SESSION['auth'], $customer[0]->customer_id);
+            $change = $updateObject->updatePassword($encryptPass, $_SESSION['auth'], $customer[0]->customer_id);
             if ($change) {
-                removeAuthorisation($customer[0]->customer_id);
+                $updateObject->unsetAuthorisation($customer[0]->customer_id);
                 unset($_SESSION['auth']);
                 header("location: sign_in.php?message=1");
             } else {

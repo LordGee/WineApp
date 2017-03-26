@@ -14,9 +14,9 @@ if (!isset($message)) {
 
 if (isset($_SESSION["Customer"])) {
     $currentUser = [];
-    $currentUser = getUserById($_SESSION["Customer"]);
+    $currentUser = $readObject->getUserById($_SESSION["Customer"]);
     $userWishList = [];
-    $userWishList = getAllWishListById($_SESSION["Customer"]);
+    $userWishList = $readObject->getAllWishListById($_SESSION["Customer"]);
 }
 ?>
 

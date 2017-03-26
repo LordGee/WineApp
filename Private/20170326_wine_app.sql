@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 24, 2017 at 08:06 AM
+-- Generation Time: Mar 26, 2017 at 07:19 PM
 -- Server version: 5.6.31
 -- PHP Version: 5.5.38
 
@@ -60,14 +60,15 @@ CREATE TABLE IF NOT EXISTS `campaign` (
   `offer_name` varchar(255) DEFAULT NULL,
   `asset_link` varchar(255) DEFAULT NULL,
   `alt_description` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `campaign`
 --
 
 INSERT INTO `campaign` (`campaign_id`, `offer_name`, `asset_link`, `alt_description`) VALUES
-(3, '10% off wine', 'img/offer10.png', 'Get 10% off selected wines now');
+(3, '10% off wine', 'img/offer10.png', 'Get 10% off selected wines now'),
+(4, 'Buy 5 Get 1 FREE', 'img/buy5.jpg', 'Buy 5 Selected Wines and Get 1 FREE');
 
 -- --------------------------------------------------------
 
@@ -81,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `campaign_line` (
   `finish_date` date NOT NULL,
   `campaign_id_fk` int(11) NOT NULL,
   `wine_id_fk` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `campaign_line`
@@ -89,7 +90,12 @@ CREATE TABLE IF NOT EXISTS `campaign_line` (
 
 INSERT INTO `campaign_line` (`campaign_line_id`, `start_date`, `finish_date`, `campaign_id_fk`, `wine_id_fk`) VALUES
 (2, '2017-03-24', '2017-04-05', 3, 8),
-(3, '2017-03-16', '2017-03-23', 3, 6);
+(3, '2017-03-16', '2017-03-23', 3, 6),
+(4, '2017-03-27', '2017-05-11', 3, 7),
+(5, '2017-03-25', '2017-08-17', 3, 3),
+(6, '2017-03-23', '2017-09-16', 4, 4),
+(11, '2017-03-28', '2017-04-01', 4, 8),
+(12, '2017-03-18', '2017-03-27', 4, 7);
 
 -- --------------------------------------------------------
 
@@ -154,18 +160,17 @@ CREATE TABLE IF NOT EXISTS `customer_order` (
   `payment_id_fk` int(11) NOT NULL,
   `address_id_fk` int(11) NOT NULL,
   `customer_id_fk` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `customer_order`
 --
 
 INSERT INTO `customer_order` (`customer_order_id`, `order_date`, `total_value`, `payment_id_fk`, `address_id_fk`, `customer_id_fk`) VALUES
-(1, '2017-02-01', 55.23, 1, 4, 6),
-(2, '2017-02-10', 100.09, 2, 2, 6),
 (3, '2017-02-18', 147.99, 1, 9, 6),
 (4, '2017-02-18', 217.24, 2, 9, 6),
-(5, '2017-02-18', 46.09, 4, 2, 6);
+(5, '2017-02-18', 46.09, 4, 2, 6),
+(6, '2017-03-26', 445.28, 1, 8, 6);
 
 -- --------------------------------------------------------
 
@@ -180,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `customer_order_line` (
   `container` varchar(255) DEFAULT NULL,
   `wine_id_fk` int(11) NOT NULL,
   `customer_order_id_fk` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `customer_order_line`
@@ -195,7 +200,12 @@ INSERT INTO `customer_order_line` (`customer_order_line_id`, `line_value`, `quan
 (6, 180.00, 4, NULL, 8, 4),
 (7, 27.00, 4, NULL, 9, 5),
 (8, 16.55, 5, NULL, 5, 5),
-(9, 2.54, 1, NULL, 1, 5);
+(9, 2.54, 1, NULL, 1, 5),
+(10, 7.62, 3, NULL, 1, 6),
+(11, 315.00, 7, NULL, 8, 6),
+(12, 16.98, 6, NULL, 2, 6),
+(13, 5.69, 1, NULL, 6, 6),
+(14, 99.99, 1, NULL, 17, 6);
 
 -- --------------------------------------------------------
 
@@ -233,22 +243,24 @@ CREATE TABLE IF NOT EXISTS `stock_hold` (
   `stock_hold_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL DEFAULT '0',
   `wine_id_fk` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `stock_hold`
 --
 
 INSERT INTO `stock_hold` (`stock_hold_id`, `quantity`, `wine_id_fk`) VALUES
-(1, 993, 1),
-(2, 5000, 2),
+(1, 990, 1),
+(2, 4994, 2),
 (3, 200, 3),
 (4, 0, 4),
 (5, 7, 5),
-(6, 6, 6),
+(6, 5, 6),
 (7, 317, 7),
-(8, 539, 8),
-(9, 837, 9);
+(8, 532, 8),
+(9, 837, 9),
+(10, 0, 10),
+(17, 2, 17);
 
 -- --------------------------------------------------------
 
@@ -265,23 +277,27 @@ CREATE TABLE IF NOT EXISTS `wine` (
   `price_per_bottle` double(10,2) NOT NULL,
   `bottles_per_case` int(11) NOT NULL,
   `asset_link` varchar(255) DEFAULT NULL,
+  `lvl` enum('Sweet Wine','Dry Wine','Light Bodied Wine','Full Bodied Wine') DEFAULT NULL,
+  `date_added` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `category_id_fk` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `wine`
 --
 
-INSERT INTO `wine` (`wine_id`, `wine_name`, `country`, `bottle_size`, `description`, `price_per_bottle`, `bottles_per_case`, `asset_link`, `category_id_fk`) VALUES
-(1, 'Bereich Nierstein Qba', 'German', 75, 'Easy drinking, medium-dry white with passion fruit flavour. Ideal for Chinese or Thai dishes', 2.54, 6, 'img/1.jpg', 2),
-(2, 'Liebfraumilch', 'German', 100, 'Party on down with this easy-drinking, fruity, medium sweet wine.  Serve well chilled.  Serves 8 glasses.', 2.83, 6, 'img/2.jpg', 2),
-(3, 'Piersporter Michelsberg', 'German', 150, 'Easy-drinking, floral medium white.  Perfect for parties, serves 12 glasses.', 4.70, 12, 'img/3.jpg', 2),
-(4, 'The Bend in the River', 'German', 75, 'Easy-drinking, floral medium white.  Perfect for parties, serves 12 glasses.', 4.74, 6, 'img/4.jpg', 2),
-(5, 'Robertson Cabernet Sauvignon', 'South African', 75, 'Smooth, full-bodied style with rich mulberry, plum and cassis supported by soft tannins. The wine is deep red in colour, smooth with good weight, made in a friendly new Cape style with no hard edges. Enjoy now with roast beef, stews, lamb, venison, pasta and steak.', 3.31, 12, 'img/5.jpg', 1),
-(6, 'Mouton-Cadet Blanc', 'French', 75, 'Party on down with this easy-drinking, fruity, medium sweet wine.  Serve well chilled.  Serves 8 glasses.', 5.69, 6, 'img/6.jpg', 1),
-(7, 'Ogio Pinot Grigio Rose', 'Italy', 75, 'Pinot Grigio is the grape behind this wine and this juicy strawberry fruit-scented rose makes a really refreshing change to white PG.', 5.50, 6, 'img/7.jpg', 3),
-(8, 'Bollinger Rose Champagne', 'France', 75, 'A subtle combination of structure, length and vivacity, with a tannic finish flavours of wild berried and bubbles like velvet.', 45.00, 6, 'img/8.jpg', 4),
-(9, 'Plaza Centro Prosecco DOC', 'Italy', 75, 'Made in the north-eastern region of Veneto, in Italy, this is such a great style of Prosecco. Full of lively, little bubbles and lovely soft lemon fruit, its fantastically refreshing and works brilliantly as an aperitif. Add a dash of bitters (like Campari) and youve got a jewel-coloured gem of a cocktail.', 6.75, 6, 'img/9.jpg', 5);
+INSERT INTO `wine` (`wine_id`, `wine_name`, `country`, `bottle_size`, `description`, `price_per_bottle`, `bottles_per_case`, `asset_link`, `lvl`, `date_added`, `category_id_fk`) VALUES
+(1, 'Bereich Nierstein Qba', 'German', 75, 'Easy drinking, medium-dry white with passion fruit flavour. Ideal for Chinese or Thai dishes', 2.54, 6, 'img/1.jpg', 'Dry Wine', '2017-03-26 15:29:53', 2),
+(2, 'Liebfraumilch', 'German', 100, 'Party on down with this easy-drinking, fruity, medium sweet wine.  Serve well chilled.  Serves 8 glasses.', 2.83, 6, 'img/2.jpg', 'Sweet Wine', '2017-03-26 15:29:53', 2),
+(3, 'Piersporter Michelsberg', 'German', 150, 'Easy-drinking, floral dry medium white.  Perfect for parties, serves 12 glasses.', 4.70, 12, 'img/3.jpg', 'Dry Wine', '2017-03-26 15:29:53', 2),
+(4, 'The Bend in the River', 'German', 75, 'Easy-drinking, floral medium white.  Perfect for parties, serves 12 glasses.', 4.74, 6, 'img/4.jpg', 'Dry Wine', '2017-03-26 15:29:53', 2),
+(5, 'Robertson Cabernet Sauvignon', 'South African', 75, 'Smooth, full-bodied style with rich mulberry, plum and cassis supported by soft tannins. The wine is deep red in colour, smooth with good weight, made in a friendly new Cape style with no hard edges. Enjoy now with roast beef, stews, lamb, venison, pasta and steak.', 3.31, 12, 'img/5.jpg', 'Full Bodied Wine', '2017-03-26 15:29:53', 1),
+(6, 'Mouton-Cadet Blanc', 'French', 75, 'Party on down with this easy-drinking, fruity, light body wine.  Serve well chilled.  Serves 8 glasses.', 5.69, 6, 'img/6.jpg', 'Light Bodied Wine', '2017-03-26 15:29:53', 1),
+(7, 'Ogio Pinot Grigio Rose', 'Italy', 75, 'Pinot Grigio is the grape behind this wine and this juicy strawberry fruit-scented rose makes a really refreshing change to white PG.', 5.50, 6, 'img/7.jpg', '', '2017-03-26 15:29:53', 3),
+(8, 'Bollinger Rose Champagne', 'France', 75, 'A subtle combination of structure, length and vivacity, with a tannic finish flavours of wild berried and bubbles like velvet.', 45.00, 6, 'img/8.jpg', '', '2017-03-26 15:29:53', 4),
+(9, 'Plaza Centro Prosecco DOC', 'Italy', 75, 'Made in the north-eastern region of Veneto, in Italy, this is such a great style of Prosecco. Full of lively, little bubbles and lovely soft lemon fruit, its fantastically refreshing and works brilliantly as an aperitif. Add a dash of bitters (like Campari) and youve got a jewel-coloured gem of a cocktail.', 6.75, 6, 'img/9.jpg', '', '2017-03-26 15:29:53', 5),
+(10, 'Super Wine', 'Germany', 250, 'This wine is so super that it will make you fly like superman.', 15.52, 0, 'img/anothernewwinejpg.jpg', 'Sweet Wine', '2017-03-26 15:29:53', 2),
+(17, 'The End Of The World', 'No Longer Exists ', 150, 'This destroyed the country of origin, it is in limited supply', 99.99, 0, 'img/anothernewwinejpg.jpg', 'Dry Wine', '2017-03-26 15:29:53', 2);
 
 -- --------------------------------------------------------
 
@@ -302,7 +318,6 @@ CREATE TABLE IF NOT EXISTS `wish_list` (
 --
 
 INSERT INTO `wish_list` (`wish_list_id`, `watch`, `last_modified`, `customer_id_fk`, `wine_id_fk`) VALUES
-(5, 1, '2017-02-15', 6, 7),
 (12, 1, '2017-03-23', 6, 9);
 
 --
@@ -402,12 +417,12 @@ ALTER TABLE `address`
 -- AUTO_INCREMENT for table `campaign`
 --
 ALTER TABLE `campaign`
-  MODIFY `campaign_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `campaign_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `campaign_line`
 --
 ALTER TABLE `campaign_line`
-  MODIFY `campaign_line_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `campaign_line_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `category`
 --
@@ -422,12 +437,12 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `customer_order`
 --
 ALTER TABLE `customer_order`
-  MODIFY `customer_order_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `customer_order_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `customer_order_line`
 --
 ALTER TABLE `customer_order_line`
-  MODIFY `customer_order_line_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `customer_order_line_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `payment`
 --
@@ -437,12 +452,12 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `stock_hold`
 --
 ALTER TABLE `stock_hold`
-  MODIFY `stock_hold_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `stock_hold_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `wine`
 --
 ALTER TABLE `wine`
-  MODIFY `wine_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `wine_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `wish_list`
 --

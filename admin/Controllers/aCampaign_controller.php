@@ -13,7 +13,7 @@ if (!isset($message)) {
 }
 
     $accessCamp = [];
-    $accessCamp = getAllCampaigns();
+    $accessCamp = $readObject->getAllCampaigns();
 
     // Add new campaign
     if (isset($_GET['aCode'])) {
@@ -21,11 +21,11 @@ if (!isset($message)) {
             /* Just in case */
         } elseif ($_GET['aCode'] == "manageOne") {
             $campaignItems = [];
-            $campaignItems = getCampaignIemsById($_GET['id']);
+            $campaignItems = $readObject->getAllCampaignItemsById($_GET['id']);
             $selectedCampaign = [];
-            $selectedCampaign = getCampaignById($_GET['id']);
+            $selectedCampaign = $readObject->getCampaignById($_GET['id']);
             $wines = [];
-            $wines = getAllWines();
+            $wines = $readObject->getAllWines();
         }
     }
     if (isset($_POST['aCode'])) {
@@ -35,19 +35,19 @@ if (!isset($message)) {
             } else {
                 $asset = null;
             }
-            $result = addNewCampaign($_POST['offer_name'], $asset, $_POST['alt_description']);
+            $result = $createObject->addNewCampaign($_POST['offer_name'], $asset, $_POST['alt_description']);
         } elseif ($_POST['aCode'] == "updateOffer") {
             if ($_POST['updateFunction'] == "Update") {
-                $result = updateCampaignLine($_POST['clId'], $_POST['start_date'], $_POST['finish_date']);
+                $result = $updateObject->updateCampaignLine($_POST['clId'], $_POST['start_date'], $_POST['finish_date']);
             } elseif ($_POST['updateFunction'] == "Remove") {
-                $result = removeCampaignLine($_POST['clId']);
+                $result = $deleteObject->removeCampaignLine($_POST['clId']);
             }
             header("Location: aCampaign.php?aCode=manageOne&id={$_POST['id']}");
         } elseif ($_POST['aCode'] == "addOffer") {
             if ($_POST['updateFunction'] == "Add") {
-                $result = addCampaignLine($_POST['start_date'], $_POST['finish_date'], $_POST['cId'], $_POST['wId']);
+                $result = $createObject->addCampaignLine($_POST['start_date'], $_POST['finish_date'], $_POST['cId'], $_POST['wId']);
             } elseif ($_POST['updateFunction'] == "Remove") {
-                $result = removeCampaignLineByIds($_POST['cId'], $_POST['wId']);
+                $result = $deleteObject->removeCampaignLineByIds($_POST['cId'], $_POST['wId']);
             }
             header("Location: aCampaign.php?aCode=manageOne&id={$_POST['cId']}");
         }
@@ -61,10 +61,4 @@ if (!isset($message)) {
         }
         return false;
     }
-
-
-
-    //  List current Campaigns & modify
-
-
 ?>

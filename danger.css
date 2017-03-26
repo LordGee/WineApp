@@ -64,6 +64,8 @@ label {
 .formContent input[type=text],
 .formContent  input[type=date],
 .formContent input[type=number],
+.formContent input[type=email],
+.formContent input[type=password],
 .formContent textarea,
 .formContent select {
     width: 100%;
@@ -82,7 +84,7 @@ label {
     height: auto;
 }
 
-.formContent input[type=submit], input[type=file] {
+.formContent input[type=submit], .formContent input[type=file], .formContent button {
     float: none;
     margin: 5px;
     font-size: 20px;
@@ -92,13 +94,31 @@ label {
     border-radius: 5px;
 }
 
-.formContent input[type=submit]:hover {
+.warning input[type=submit], .warning input[type=button] {
+    background-color: #ffa3a6;
+    border: 2px solid red;
+    padding: 2px 8px;
+}
+
+.formContent input[type=submit]:hover, .formContent button:hover {
     background-color: darkgreen;
     color: #fff;
     -webkit-box-shadow: -1px -1px 24px 0px rgba(66,66,66,1);
     -moz-box-shadow: -1px -1px 24px 0px rgba(66,66,66,1);
     box-shadow: -1px -1px 24px 0px rgba(66,66,66,1);
+}
 
+.warning input[type=submit]:hover, .warning input[type=button]:hover {
+    background-color: darkred;
+    color: #fff;
+    -webkit-box-shadow: -1px -1px 24px 0px rgba(66,66,66,1);
+    -moz-box-shadow: -1px -1px 24px 0px rgba(66,66,66,1);
+    box-shadow: -1px -1px 24px 0px rgba(66,66,66,1);
+
+}
+
+.warning {
+    float: right;
 }
 
 .tableData table {
@@ -172,4 +192,31 @@ label {
     background-color: transparent;
     border-radius: 3px;
     color: white;
+}
+
+.mobileNav ul li {
+    display:table;
+}
+
+.mobileNav a {
+    text-align: center;
+    font-weight: bolder;
+    width: 180px;
+    font-size: 20px;
+    color: black;
+    float: left;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.mobileNav a:hover {
+    background-color: darkgreen;
+    color: #fff;
+    -webkit-box-shadow: -1px -1px 24px 0px rgba(66,66,66,1);
+    -moz-box-shadow: -1px -1px 24px 0px rgba(66,66,66,1);
+    box-shadow: -1px -1px 24px 0px rgba(66,66,66,1);
 }

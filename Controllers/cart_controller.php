@@ -20,13 +20,13 @@ if (isset($_POST["btn"]) && $_POST["btn"] == "Update") {
 if (isset($_SESSION["Customer"])) {
     $userAddress = [];
     if (isset($_SESSION["address"])) {
-        $userAddress = getAddressById($_SESSION['address']);
+        $userAddress = $readObject->getAddressById($_SESSION['address']);
         unset($_SESSION["address"]);
     } else {
-        $userAddress = getAddressById($currentUser[0]->address_id_fk);
+        $userAddress = $readObject->getAddressById($currentUser[0]->address_id_fk);
     }
     $accessWines = [];
-    $accessWines = getAllWines();
+    $accessWines = $readObject->getAllWines();
     $_SESSION["total"] = getTotalValue();
 } else {
     header('Location: sign_in.php?cart=1');
