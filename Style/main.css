@@ -9,6 +9,10 @@ body {
     padding: 0px;
 }
 
+h1, h2, h3,h4,h5,h6,p,span,li,a, label, td, th {
+    font-family: 'Muli', sans-serif;
+}
+
 h1 {
       color: midnightblue;
       text-align: left;
@@ -245,7 +249,7 @@ input[type = button] {
   margin: 5px;
   padding: 5px;
   position: relative;
-  width: 300px;
+  width: auto;
   height: 500px;
   border: 2px solid green;
   border-radius: 8px;

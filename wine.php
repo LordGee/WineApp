@@ -8,6 +8,7 @@ include 'accessibility.php';
 //    var_dump($_SESSION["basket"]);
 //    echo '</pre>';
 ?>
+    <div class="searchResults"></div>
     <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-12 formContent">
             <form method="get" action="wine.php">
@@ -44,11 +45,12 @@ include 'accessibility.php';
             </form>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 formContent">
-            <input type="text" name="wineSearch" id="wineSearch"><button onclick="search();">Search</button>
-            <div class="searchResults"></div>
+            <label for="wineSearch">Search Wines : </label>
+            <input type="text" name="wineSearch" placeholder="Search for a Wine" id="wineSearch"><button onclick="search();">Search</button>
         </div>
     </div>
-    <div class="row">
+    </div>
+    <div class="row details">
         <?php foreach ($accessWines as $thisWine): ?>
             <div class="col-sm-12 col-md-6 col-lg-4 boxShadows margin">
                 <div class="wine_img_pos">

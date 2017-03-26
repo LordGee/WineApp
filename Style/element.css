@@ -1,8 +1,14 @@
 #userInfo {
-    float: right;
+    position: fixed;
+    background-color: lightgreen;
+    right: 0;
+    bottom: 60px;
     Padding: 10px;
     font-size: 14px;
     border: 1px solid black;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    z-index: 1;
 }
 
 .wine_rows {
@@ -17,14 +23,16 @@
 }
 
 .wine_img_pos img {
-    border: 1px dashed black;
+    border: 1px solid black;
     height: 120px;
     float: left;
     margin: 15px;
 }
 
 .details {
-
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .boxShadows {

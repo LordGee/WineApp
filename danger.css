@@ -220,3 +220,22 @@ label {
     -moz-box-shadow: -1px -1px 24px 0px rgba(66,66,66,1);
     box-shadow: -1px -1px 24px 0px rgba(66,66,66,1);
 }
+
+.searchResults {
+    background-color: lightgreen;
+    position: fixed;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    top: 60px;
+    right: -500px;
+    transition: right ease 1s;
+}
+
+.showSearchResults {
+    right: 0;
+    transition: right ease 1s;
+}

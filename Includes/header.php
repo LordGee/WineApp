@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ten Green Bottles</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli" />
     <link rel="stylesheet" href="Style/main.css" type="text/css" />
     <link rel="stylesheet" href="Style/element.css" type="text/css" />
     <link rel="stylesheet" href="Style/responsive.css" type="text/css" />
@@ -34,11 +35,11 @@
                 <?php endif; ?>
             </ul>
         </div>
-        <div id="hamburger">
-            <img src="img/hamburger.png" onclick="toggleMobNav();" />
+        <div id="menuButton">
+            <button id="menuAction" onclick="toggleMobileNav();" ><i class="fa fa-navicon fa-3x" aria-hidden="true"></i></button>
         </div>
-        <div class="mobNav">
-            <ul id="rightSide">
+        <div class="mobileNav">
+            <ul id="mobileNav">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="about.php">About Us</a></li>
                 <li><a href="wine.php">All Wines</a></li>
