@@ -2,7 +2,7 @@ function zoomIn () {
   alert("Zoom In");
 }
 
-$(document).ready(function ()) {
+$(document).ready(function () {
   $('#linkIncrease').click(function() {modifyFontSize('Increase'); });
   $('#linkDecrease').click(function() {modifyFontSize('Decrease'); });
   $('#linkReset').click(function() {modifyFontSize('Reset'); })

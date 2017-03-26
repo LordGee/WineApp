@@ -84,7 +84,7 @@ label {
     height: auto;
 }
 
-.formContent input[type=submit], .formContent input[type=file] {
+.formContent input[type=submit], .formContent input[type=file], .formContent button {
     float: none;
     margin: 5px;
     font-size: 20px;
@@ -100,7 +100,7 @@ label {
     padding: 2px 8px;
 }
 
-.formContent input[type=submit]:hover {
+.formContent input[type=submit]:hover, .formContent button:hover {
     background-color: darkgreen;
     color: #fff;
     -webkit-box-shadow: -1px -1px 24px 0px rgba(66,66,66,1);
