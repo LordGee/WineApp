@@ -5,9 +5,8 @@
 <h1>Ten Green Bottles</h1>
 <h3>About Us!</h3>
 
-body {
-    background-image: url("image/theone.png");
-}
+
+<background="image/theone.png";
 
 <div class="article">
   <h2>About TGB</h2>
