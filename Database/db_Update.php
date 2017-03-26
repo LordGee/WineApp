@@ -33,7 +33,6 @@
         function updateWine($_wId, $_wName, $_wCoun, $_wSize, $_wDesc, $_wPric, $_wLink, $_wCat, $_lvl) {
             $q = "UPDATE wine SET wine_name = ?, country = ?, bottle_size = ?, description = ?, price_per_bottle = ?, asset_link = ?, category_id_fk = ?, lvl = ? WHERE wine_id = ?";
             $p = [$_wName, $_wCoun, $_wSize, $_wDesc, $_wPric, $_wLink, $_wCat, $_lvl, $_wId];
-            echo $_wLink;
             return $this->updateQP($q, $p);
         }
 

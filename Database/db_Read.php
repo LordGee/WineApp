@@ -90,7 +90,6 @@
         }
 
         function getWineInWishList($_wId, $_cId) {
-            global $pdo;
             $statement = $this->pdo->prepare('SELECT * FROM wish_list WHERE customer_id_fk = ? AND wine_id_fk = ?');
             $statement->execute([$_cId, $_wId]);
             if ($statement->rowCount() == 0) {

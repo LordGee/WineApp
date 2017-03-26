@@ -21,7 +21,7 @@
       display:none;
     }
 
-    #mobileNav {
+    .mobileNav {
         display: block;
     }
 
@@ -95,7 +95,7 @@
       display: block;
     }
 
-    #mobileNav {
+    .mobileNav {
         display: none;
     }
 
