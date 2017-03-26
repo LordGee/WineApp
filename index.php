@@ -5,9 +5,12 @@
 //    echo '<pre>';
 //    var_dump($_SESSION);
 //    echo '</pre>';
+
+include 'accessibility.php';
 ?>
 
 <h1>Welcome to Ten Green Bottles</h1>
+
 
 <p> Welcome to Ten Green Bottles, the UK's largest Internet retailer of top
    quality non-alcoholic Wines and Champagnes. We cater for anniversaries,
@@ -40,7 +43,8 @@
 
 <h2> Enjoy our fine variety of luxury wines. We promise you won't be disappointed!!!</h2>
 
-<!--<body> Second random body tag -->
+
+</div>
 
 <div id="slider">
   <figure>

@@ -5,9 +5,6 @@
 <h1>Ten Green Bottles</h1>
 <h3>About Us!</h3>
 
-
-<background="image/theone.png";
-
 <div class="article">
   <h2>About TGB</h2>
   <p>Ten Green Bottles web store is dedicated to wine, spirits and champagne.
