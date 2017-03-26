@@ -245,7 +245,7 @@ input[type = button] {
   margin: 5px;
   padding: 5px;
   position: relative;
-  width: 300px;
+  width: auto;
   height: 500px;
   border: 2px solid green;
   border-radius: 8px;

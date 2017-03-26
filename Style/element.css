@@ -17,14 +17,16 @@
 }
 
 .wine_img_pos img {
-    border: 1px dashed black;
+    border: 1px solid black;
     height: 120px;
     float: left;
     margin: 15px;
 }
 
 .details {
-
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .boxShadows {
