@@ -3,13 +3,13 @@ function zoomIn () {
 }
 
 $(document).ready(function ()) {
-  $('#linkIncrease').click(function() {modifyFontSize('Increase'); });
-  $('#linkDecrease').click(function() {modifyFontSize('Decrease'); });
-  $('#linkReset').click(function() {modifyFontSize('Reset'); })
+  $('#linkIncrease').click(function() { modifyFontSize('Increase'); });
+  $('#linkDecrease').click(function() { modifyFontSize('Decrease');});
+  $('#linkReset').click(function() { modifyFontSize('Reset');});
 
   function modifyFontSize (flag) {
-    var divElement = $('#divContent');
-    var currentFontSize = parseInt(main.css('font-size'));
+    var divElement.css = $('.divContent');
+    var currentFontSize = parseInt(divElement.css('font-size'));
 
     if (flag == 'Increase')
         currentFontSize += 3;
@@ -17,6 +17,6 @@ $(document).ready(function ()) {
         currentFontSize -= 3;
     else
         currentFontSize = 16;
-    main.css('font-size', currentFontSize);
+    divElement.css('font-size', currentFontSize);
   }
 });
