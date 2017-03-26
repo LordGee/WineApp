@@ -16,6 +16,7 @@
 <div class="navArea">
     <div id="nav">
         <ul id="leftNav">
+            <li><a href="../index.php" title="Customer Home Page">Home</a></li>
             <li><a href="admin.php" title="Admin Home Page">Admin Home</a></li>
             <li><a href="aWine.php" title="Wine Management">Wine</a></li>
             <li><a href="aStock.php" title="Stock Control">Stock</a></li>
@@ -35,7 +36,8 @@
         <button id="menuAction" onclick="toggleMobileNav();" ><i class="fa fa-navicon fa-3x" aria-hidden="true"></i></button>
     </div>
     <div class="mobileNav">
-        <ul id="leftNav">
+        <ul id="mobileNav">
+            <li><a href="../index.php" title="Customer Home Page">Home</a></li>
             <li><a href="admin.php" title="Admin Home Page">Admin Home</a></li>
             <li><a href="aWine.php" title="Wine Management">Wine</a></li>
             <li><a href="aStock.php" title="Stock Control">Stock</a></li>

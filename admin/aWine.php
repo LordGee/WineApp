@@ -54,11 +54,15 @@
                         <option name="category" value="<?= $cat->category_id ?>" <?= ($cat->category_id == $accessWines[0]->category_id_fk) ? "selected" : "" ?> ><?= $cat->wine_colour ?> <?= $cat->wine_type ?></option>
                     <?php endforeach; ?>
                 </select>
+                <div class="categoryU"></div>
                 <input type="hidden" name="aCode" value="update">
                 <input type="hidden" name="wine" value="<?= $accessWines[0]->wine_id ?>">
                 <br><br>
                 <input type="submit" name="update" value="Update">
                 <input type="submit" name="cancel" value="Cancel">
+                <div class="warning">
+                    <input type="button" name="remove" value="Remove">
+                </div>
             </form>
         </div>
     </div>
@@ -87,10 +91,18 @@
                 <br><br>
                 <label for="category">Category : </label>
                 <select name="category" id="category">
+                    <option name="category" disabled selected>Choose a Category</option>
                     <?php foreach ($accessCat as $cat): ?>
                         <option name="category" value="<?= $cat->category_id ?>"><?= $cat->wine_colour ?> <?= $cat->wine_type ?></option>
                     <?php endforeach; ?>
                 </select>
+                <div class="category">
+                    <br><br>
+                    <select name="lvl" id="level">
+                        <label for="level">Level Indicator : </label>
+                        <option name="lvl" value="" >Select a Category First</option>
+                    </select>
+                </div>
                 <br><br>
                 <input type="hidden" name="aCode" value="add">
                 <input type="submit" name="add" value="Add Wine">
@@ -147,5 +159,6 @@
         </div>
     </div>
     <?php endif; ?>
-
+    <script src="../JavaScript/WineLevel.js"></script>
+    <script src="../JavaScript/warning.js"></script>
 <?php require_once ('Includes/footer.php'); ?>

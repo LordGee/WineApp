@@ -3,27 +3,29 @@
     require_once ("Model/m_campaign.php");
 
     $accessCat = [];
-    $accessCat = getAllCategories();
+    $accessCat = $readObject->getAllCategories();
     $accessWines = [];
 
     if (isset($_GET["iCode"]) && $_GET["iCode"] == "filter" && $_GET["wine_type"] != "all" && $_GET["wine_type"] != "showWish") {
-        $accessWines = getAllWinesByCategory($_GET["wine_type"]);
+        $accessWines = $readObject->getAllWinesByCategory($_GET["wine_type"]);
     } elseif (isset($_GET["iCode"]) && $_GET["iCode"] == "filter" && $_GET["wine_type"] == "showWish") {
-        $accessWines = getAllWinesFromWishList($_SESSION["Customer"]);
+        $accessWines = $readObject->getAllWinesFromWishList($_SESSION["Customer"]);
     } elseif (isset($_GET["id"])) {
-        $accessWines = getWineById($_GET["id"]);
+        $accessWines = $readObject->getWineById($_GET["id"]);
     } elseif (isset($_GET["iCode"]) && $_GET['iCode'] == 'one') {
-        $accessWines = getWineById($_GET["id"]);
+        $accessWines = $readObject->getWineById($_GET["id"]);
     } elseif (isset($_GET["iCode"]) && $_GET["iCode"] == "offer") {
-        $accessWines = getCampaignIemsById($_GET['offerNo']);
+        $accessWines = $readObject->getCampaignItemsById($_GET['offerNo']);
+    } elseif (isset($_GET["iCode"]) && $_GET['iCode'] == "filterLvl") {
+        $accessWines = $readObject->getWineByTaste($_GET['lvl']);
     } else {
-        $accessWines = getAllWines();
+        $accessWines = $readObject->getAllWines();
     }
     if (isset($_POST['iCode'])) {
         if ($_POST["iCode"] == "wish") {
-            $check = checkWineInWishList($_POST["wId"], $_SESSION["Customer"]);
+            $check = $readObject->getWineInWishList($_POST["wId"], $_SESSION["Customer"]);
             if ($check) {
-                $success = addWineToWishList($_POST["wId"], $_SESSION["Customer"]);
+                $success = $createObject->addWineToWishList($_POST["wId"], $_SESSION["Customer"]);
                 if ($success) {
                     $message = "This wine has successfully been ADDED to your Wish-List";
                 } else {
@@ -33,7 +35,7 @@
                 $error = " This wine is already in your Wish-List";
             }
         } elseif ($_POST['iCode'] == "removeWish") {
-            $result = removeWineFromWishList($_POST["wId"], $_SESSION["Customer"]);
+            $result = $deleteObject->removeWineFromWishList($_POST["wId"], $_SESSION["Customer"]);
             if ($result) {
                 $message = "This wine has successfully REMOVED from your Wish-List";
             } else {

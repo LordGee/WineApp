@@ -9,7 +9,8 @@
     <input type="text" name="wineSearch" id="wineSearch"><button onclick="search();">Search</button>
     <div class="searchResults"></div>
     <form method="get" action="wine.php">
-        <select name="wine_type">
+        <label for="wine_type">Wine Type : </label>
+        <select name="wine_type" id="wine_type">
             <option name="wine_type" value="all">All Wines</option>
             <?php foreach ($accessCat as $cat): ?>
                 <option name="wine_type" value="<?= $cat->category_id ?>" <?= (isset($_GET['wine_type']) &&
@@ -23,6 +24,18 @@
             <?php endif; ?>
         </select>
         <input type="hidden" name="iCode" value="filter"/>
+        <input type="submit" value="Filter"/>
+    </form>
+    <form method="get" action="wine.php">
+        <label for="lvl">Wine Taste : </label>
+        <select name="lvl" id="lvl">
+            <option name="lvl" value="all" <?= (isset($_GET['lvl']) && $_GET['lvl'] == 'all') ? "selected" : "" ?> >All Wines</option>
+            <option name="lvl" value="Dry Wine" <?= (isset($_GET['lvl']) && $_GET['lvl'] == 'Dry Wine') ? "selected" : "" ?> >Dry Wines</option>
+            <option name="lvl" value="Sweet Wine" <?= (isset($_GET['lvl']) && $_GET['lvl'] == 'Sweet Wine') ? "selected" : "" ?> >Sweet Wines</option>
+            <option name="lvl" value="Light Bodied Wine" <?= (isset($_GET['lvl']) && $_GET['lvl'] == 'Light Bodied Wine') ? "selected" : "" ?> >Light Bodied Wines</option>
+            <option name="lvl" value="Full Bodied Wine" <?= (isset($_GET['lvl']) && $_GET['lvl'] == 'Full Bodied Wine') ? "selected" : "" ?> >Full Bodied Wines</option>
+        </select>
+        <input type="hidden" name="iCode" value="filterLvl"/>
         <input type="submit" value="Filter"/>
     </form>
     <div class="row">

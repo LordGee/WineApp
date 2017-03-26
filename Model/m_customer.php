@@ -64,10 +64,10 @@
     }
 
     function getUserByEmailAndPassword($_email, $_pass) {
+        global $readObject;
         $_pass = encryption($_email, $_pass);
-        $success = loginUser($_email, $_pass);
-
-       return $success;
+        $success = $readObject->loginUser($_email, $_pass);
+        return $success;
     }
 
     function encryption($_email, $_pass) {

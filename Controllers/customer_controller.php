@@ -42,12 +42,12 @@ if (isset($_SESSION["Customer"])) {
         $error = "The login details supplied do not match any valid user.";
     }
 } else if (isset($_POST["iCode"]) && $_POST["iCode"] == "register") {
-    $addressId = insertAddress($_POST);
+    $addressId = $createObject->insertAddress($_POST);
     if (!$addressId) {
         $error = "Unable to insert new address";
     } else {
         $passEncrypt = encryption($_POST['email_address'], $_POST['password']);
-        $customerId = insertCustomer($_POST, $passEncrypt, $addressId);
+        $customerId = $createObject->insertCustomer($_POST, $passEncrypt, $addressId);
         if ($customerId) {
             $_SESSION["Us"] = $customerId;
             header('Location: sign_in.php');
@@ -58,11 +58,11 @@ if (isset($_SESSION["Customer"])) {
     }
     return $error;
 }  elseif (isset($_POST['iCode']) && $_POST['iCode'] == "forgotten") {
-    $customer = getUserByEmail($_POST['email']);
+    $customer = $readObject->getUserByEmail($_POST['email']);
     if ($customer) {
         $name = $customer[0]->first_name . " " . $customer[0]->last_name;
         $auth = createResetAuth($customer[0]->customer_id);
-        $setup = addAuthorisation($customer[0]->customer_id, $auth);
+        $setup = $updateObject->setAuthorisation($customer[0]->customer_id, $auth);
         if ($setup) {
             sendResetEmail($auth, $name, $customer[0]->email_address);
             header('Location: sign_in.php?message=2');
@@ -74,5 +74,6 @@ if (isset($_SESSION["Customer"])) {
         header('Location: sign_in.php?message=3');
     }
 }
+
 
 ?>

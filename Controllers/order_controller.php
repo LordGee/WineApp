@@ -12,12 +12,12 @@ if (!isset($message)) {
 
 if (isset($_SESSION["Customer"]) && $_SESSION["total"]) {
     $userPayment = [];
-    $userPayment = getPaymentsById($_SESSION["Customer"]);
+    $userPayment = $readObject->getPaymentsById($_SESSION["Customer"]);
     if (isset($_POST['iCode'])) {
         if ($_POST['iCode'] == "order") {
             $_SESSION['address'] = $_POST['address'];
         } elseif ($_POST['iCode'] == "addCard") {
-            $result = addPayment($_POST);
+            $result = $createObject->addPayment($_POST);
             if ($result) {
                 $message = "New card haas successfully been added";
                 unset($_POST);
