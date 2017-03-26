@@ -1,4 +1,6 @@
-<?php require_once ("Includes/header.php"); ?>
+<?php require_once ("Includes/header.php");
+include 'accessibility.php';
+?>
 <?php require_once ("Controllers/wine_controller.php"); ?>
 <?php require_once ("Includes/info.php"); ?>
 <?php

@@ -1,6 +1,8 @@
 <?php require_once ("Controllers/customer_controller.php"); ?>
-<?php require_once ("Includes/header.php"); ?>
-<?php require_once ("Includes/info.php"); ?>
+<?php require_once ("Includes/header.php");
+include 'accessibility.php';
+?>
+<?php require_once ("Includes/info.php");?>
 
     <div class="row">
         <div class="col-offset-lg-2 col-lg-8 col-offset-md-1 col-md-10 col-sm-12 formContent">

@@ -2,28 +2,36 @@ function zoomIn () {
   alert("Zoom In");
 }
 
-<<<<<<< HEAD
-$(document).ready(function ()) {
-  $('#linkIncrease').click(function() { modifyFontSize('Increase'); });
-  $('#linkDecrease').click(function() { modifyFontSize('Decrease');});
-  $('#linkReset').click(function() { modifyFontSize('Reset');});
-=======
-$(document).ready(function () {
-  $('#linkIncrease').click(function() {modifyFontSize('Increase'); });
-  $('#linkDecrease').click(function() {modifyFontSize('Decrease'); });
-  $('#linkReset').click(function() {modifyFontSize('Reset'); })
->>>>>>> origin/master
+$(document).ready(function(){
 
-  function modifyFontSize (flag) {
-    var divElement.css = $('.divContent');
-    var currentFontSize = parseInt(divElement.css('font-size'));
+  $("#small").click(function(event){
+    event.preventDefault();
+    $("h1").animate({"font-size":"24px"});
+    $("h2").animate({"font-size":"16px"});
+    $("p").animate({"font-size":"12px", "line-height":"16px"});
 
-    if (flag == 'Increase')
-        currentFontSize += 3;
-    else if (flag == 'Decrease')
-        currentFontSize -= 3;
-    else
-        currentFontSize = 16;
-    divElement.css('font-size', currentFontSize);
-  }
+  });
+
+  $("#medium").click(function(event){
+    event.preventDefault();
+    $("h1").animate({"font-size":"36px"});
+    $("h2").animate({"font-size":"24px"});
+    $("p").animate({"font-size":"14px", "line-height":"20px"});
+
+  });
+
+  $("#large").click(function(event){
+    event.preventDefault();
+    $("h1").animate({"font-size":"48px"});
+    $("h2").animate({"font-size":"30px"});
+    $("p").animate({"font-size":"16px", "line-height":"20px"});
+
+  });
+
+  $( "a" ).click(function() {
+    $("a").removeClass("selected");
+  $(this).addClass("selected");
+
+});
+
 });

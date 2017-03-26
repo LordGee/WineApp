@@ -1,6 +1,9 @@
-<?php require_once ("Includes/header.php"); ?>
+<?php require_once ("Includes/header.php");
+Include 'accessibility.php';
+?>
 
 <?php require_once ("Includes/info.php"); ?>
+
 
 <h1>Ten Green Bottles</h1>
 <h3>About Us!</h3>
