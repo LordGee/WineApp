@@ -11,28 +11,29 @@
 <span class="error"><?= $error ?></span>
 <span class="message"><?= $message ?></span>
 
-<div id="old">
-    <h3>Payment Details</h3>
-    <form method="post" action="confirmation.php">
-        <label for="card">Select Payment Method : </label>
-        <select name="card">
-            <?php foreach ($userPayment as $pay): ?>
-                <?php $pCard = payConvert($pay->card_number); ?>
-                <option name="card" value="<?= $pay->payment_id ?>"><?= $pCard ?></option>
-            <?php endforeach; ?>
-        </select>
-        <br/>
-        <h4>Total Value = £<?= $_SESSION["total"] ?></h4>
-        <input type="hidden" name="iCode" value="complete"/>
-        <input type="submit" value="Confirm Payment" />
-    </form>
-</div>
-<div>
-    <form method="post" action="order.php">
-        <input type="hidden" name="iCode" value="add">
-        <input type="submit" value="Add New Card">
-    </form>
-</div>
+    <div class="row">
+        <div class="col-offset-lg-2 col-lg-8 col-offset-md-1 col-md-10 col-sm-12 formContent">
+            <h1>Payment Details</h1>
+            <form method="post" action="confirmation.php">
+                <label for="card">Select Payment Method : </label>
+                <select name="card">
+                    <?php foreach ($userPayment as $pay): ?>
+                        <?php $pCard = payConvert($pay->card_number); ?>
+                        <option name="card" value="<?= $pay->payment_id ?>"><?= $pCard ?></option>
+                    <?php endforeach; ?>
+                </select>
+                <br/>
+                <h3>Total Value = £<?= number_format((float)$_SESSION["total"], 2, '.', ',') ?></h3>
+                <input type="hidden" name="iCode" value="complete"/>
+                <input type="submit" value="Confirm Payment" />
+            </form>
+            <br><br>
+            <form method="post" action="order.php">
+                <input type="hidden" name="iCode" value="add">
+                <input type="submit" value="Add New Card">
+            </form>
+        </div>
+    </div>
 <?php if (isset($_POST["iCode"]) && $_POST["iCode"] == "add"): ?>
 <div id="new">
     <h3>Add New Card</h3>
