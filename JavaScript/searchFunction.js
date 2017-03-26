@@ -4,15 +4,12 @@ function search() {
 }
 
 function searchCallBack(result) {
-    $('.searchResults').find("table").remove();
-    var newTab = $("<table id='results'></table>");
-    $(newTab).append("<tr></tr>");
-    $(newTab).append("<th>Name</th>");
-    $('.searchResults').append(newTab);
-
+    $('.searchResults').empty();
+    var newItem = $(".searchResults");
+    $(newItem).append("<h3>Search Results</h3>");
     for (var i = 0; i < result.length; i++) {
-        var newItem = $("<tr></tr>");
-        $(newItem).append("<td><a href='wine.php?iCode=one&id=" +  result[i].wine_id + "'>" + result[i].wine_name + "</a></td>");
+        $(newItem).append("<p><a href='wine.php?iCode=one&id=" +  result[i].wine_id + "'>" + result[i].wine_name + "</a></p>");
         $('.searchResults #results').append(newItem);
     }
+    $('.searchResults').toggleClass('showSearchResults');
 }
