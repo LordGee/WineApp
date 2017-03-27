@@ -5,16 +5,16 @@
 
     class DbConnection {
         // LocalHost Connection Variables
-        private $db_host = "localhost";
-        private $db_user = "wine_user";
-        private $db_name = "wine_app";
-        private $db_pass = "paulNeve";
+//        private $db_host = "localhost";
+//        private $db_user = "wine_user";
+//        private $db_name = "wine_app";
+//        private $db_pass = "paulNeve";
 
         // Live Connection Variables
-        //    private $db_host = "localhost";
-        //    private $db_user = "mychaosc_wine";
-        //    private $db_name = "mychaosc_awad";
-        //    private $db_pass = "p4ulN3v32017";
+            private $db_host = "localhost";
+            private $db_user = "mychaosc_wine";
+            private $db_name = "mychaosc_awad";
+            private $db_pass = "p4ulN3v32017";
 
         protected $dbConn;
 

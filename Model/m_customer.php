@@ -118,7 +118,7 @@
         <p>Hello $_name,  </p>
         <p>As requested to reset your password please follow the link displayed below. This link will be valid for 24 hours from the time of this email.</p>
         <br>
-        <a href='www.wineapp.com/reset.php?auth=$_auth'>Reset Password Now!</a>
+        <a href='www.mychaos.co.uk/awad/reset.php?auth=$_auth'>Reset Password Now!</a>
         <br><br>
         <p>All the best, From the</p>
         <p>Ten Green Bottles Team</p>

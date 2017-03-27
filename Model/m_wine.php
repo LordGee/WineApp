@@ -112,7 +112,7 @@
             $rss .= '<item>' . "\n";
             $rss .= '<title>' . $w->wine_name . ' from ' . $w->country . ' </title>' . "\n";
             $rss .= '<description>' . $w->description . '</description>' . "\n";
-            $rss .= '<link>http://localhost/wineapp/wine.php?id=' . $w->wine_id . '</link>' . "\n";
+            $rss .= '<link>http://mychaos.co.uk/awad/wine.php?id=' . $w->wine_id . '</link>' . "\n";
             $date = strtotime($w->date_added);
             $rss .= '<pubDate>' . date('D, d M Y H:i:s O', $date) . '</pubDate>' . "\n";
             $rss .= '</item>' . "\n";
