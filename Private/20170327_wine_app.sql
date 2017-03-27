@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 26, 2017 at 07:19 PM
+-- Generation Time: Mar 27, 2017 at 07:21 AM
 -- Server version: 5.6.31
 -- PHP Version: 5.5.38
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `address` (
   `city` varchar(255) DEFAULT NULL,
   `county` varchar(255) DEFAULT NULL,
   `post_code` varchar(10) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `address`
@@ -47,7 +47,9 @@ INSERT INTO `address` (`address_id`, `door_number_name`, `street_name`, `city`, 
 (8, '9', 'Hidden Gardens', 'Raynes Park', 'London', 'SW20'),
 (9, '55', 'Mayfair Street', 'London', 'London', 'W1D 5VE'),
 (10, '12', NULL, NULL, NULL, 'KT10 5GH'),
-(11, '55', NULL, NULL, NULL, 'KT10 4TH');
+(11, '55', NULL, NULL, NULL, 'KT10 4TH'),
+(12, '78', 'Somewhere Street', 'Kingston', 'Surrey', 'KT1 5HY'),
+(13, '14', 'Somewhere Street', 'Kingston', 'Surrey', 'KT1 5HY');
 
 -- --------------------------------------------------------
 
@@ -160,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `customer_order` (
   `payment_id_fk` int(11) NOT NULL,
   `address_id_fk` int(11) NOT NULL,
   `customer_id_fk` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `customer_order`
@@ -170,7 +172,9 @@ INSERT INTO `customer_order` (`customer_order_id`, `order_date`, `total_value`, 
 (3, '2017-02-18', 147.99, 1, 9, 6),
 (4, '2017-02-18', 217.24, 2, 9, 6),
 (5, '2017-02-18', 46.09, 4, 2, 6),
-(6, '2017-03-26', 445.28, 1, 8, 6);
+(6, '2017-03-26', 445.28, 1, 8, 6),
+(7, '2017-03-26', 5.50, 12, 10, 7),
+(8, '2017-03-26', 52.94, 12, 10, 7);
 
 -- --------------------------------------------------------
 
@@ -185,7 +189,7 @@ CREATE TABLE IF NOT EXISTS `customer_order_line` (
   `container` varchar(255) DEFAULT NULL,
   `wine_id_fk` int(11) NOT NULL,
   `customer_order_id_fk` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `customer_order_line`
@@ -205,7 +209,10 @@ INSERT INTO `customer_order_line` (`customer_order_line_id`, `line_value`, `quan
 (11, 315.00, 7, NULL, 8, 6),
 (12, 16.98, 6, NULL, 2, 6),
 (13, 5.69, 1, NULL, 6, 6),
-(14, 99.99, 1, NULL, 17, 6);
+(14, 99.99, 1, NULL, 17, 6),
+(15, 5.50, 1, NULL, 7, 7),
+(16, 5.69, 1, NULL, 6, 8),
+(17, 47.25, 7, NULL, 9, 8);
 
 -- --------------------------------------------------------
 
@@ -220,7 +227,7 @@ CREATE TABLE IF NOT EXISTS `payment` (
   `card_number` varchar(16) DEFAULT NULL,
   `expiry_date` date DEFAULT NULL,
   `customer_id_fk` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `payment`
@@ -231,7 +238,8 @@ INSERT INTO `payment` (`payment_id`, `card_type`, `card_name`, `card_number`, `e
 (2, 'Master Card', 'Gordon Johnson', '4567894525896322', '2017-07-22', 6),
 (3, 'VISA', 'Saira Sawar', '1234567891234567', '2017-03-23', 2),
 (4, 'Visa', 'Gordon Johnson', '4561234567894561', '2017-06-17', 6),
-(11, 'Visa', '', '', '0000-00-00', 6);
+(11, 'Visa', '', '', '0000-00-00', 6),
+(12, 'Visa', 'Mr Customer', '4561234567891234', '2018-08-31', 7);
 
 -- --------------------------------------------------------
 
@@ -243,7 +251,7 @@ CREATE TABLE IF NOT EXISTS `stock_hold` (
   `stock_hold_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL DEFAULT '0',
   `wine_id_fk` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `stock_hold`
@@ -255,11 +263,11 @@ INSERT INTO `stock_hold` (`stock_hold_id`, `quantity`, `wine_id_fk`) VALUES
 (3, 200, 3),
 (4, 0, 4),
 (5, 7, 5),
-(6, 5, 6),
-(7, 317, 7),
+(6, 4, 6),
+(7, 316, 7),
 (8, 532, 8),
-(9, 837, 9),
-(10, 0, 10),
+(9, 830, 9),
+(10, 3, 10),
 (17, 2, 17);
 
 -- --------------------------------------------------------
@@ -280,7 +288,7 @@ CREATE TABLE IF NOT EXISTS `wine` (
   `lvl` enum('Sweet Wine','Dry Wine','Light Bodied Wine','Full Bodied Wine') DEFAULT NULL,
   `date_added` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `category_id_fk` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `wine`
@@ -311,14 +319,15 @@ CREATE TABLE IF NOT EXISTS `wish_list` (
   `last_modified` date DEFAULT NULL,
   `customer_id_fk` int(11) NOT NULL,
   `wine_id_fk` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `wish_list`
 --
 
 INSERT INTO `wish_list` (`wish_list_id`, `watch`, `last_modified`, `customer_id_fk`, `wine_id_fk`) VALUES
-(12, 1, '2017-03-23', 6, 9);
+(12, 1, '2017-03-23', 6, 9),
+(14, 1, '2017-03-26', 7, 2);
 
 --
 -- Indexes for dumped tables
@@ -412,7 +421,7 @@ ALTER TABLE `wish_list`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `campaign`
 --
@@ -437,32 +446,32 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `customer_order`
 --
 ALTER TABLE `customer_order`
-  MODIFY `customer_order_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `customer_order_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `customer_order_line`
 --
 ALTER TABLE `customer_order_line`
-  MODIFY `customer_order_line_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+  MODIFY `customer_order_line_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `stock_hold`
 --
 ALTER TABLE `stock_hold`
-  MODIFY `stock_hold_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+  MODIFY `stock_hold_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `wine`
 --
 ALTER TABLE `wine`
-  MODIFY `wine_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+  MODIFY `wine_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `wish_list`
 --
 ALTER TABLE `wish_list`
-  MODIFY `wish_list_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `wish_list_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- Constraints for dumped tables
 --
