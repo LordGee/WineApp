@@ -5,8 +5,6 @@
 //    echo '<pre>';
 //    var_dump($_SESSION);
 //    echo '</pre>';
-
-include 'accessibility.php';
 ?>
     <div class="row">
         <div class="col-offset-lg-2 col-lg-8 col-offset-md-1 col-md-10 col-sm-12">

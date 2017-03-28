@@ -7,5 +7,6 @@
             <a href="cart.php"><p>Shopping Cart ( <?= count($_SESSION["basket"]) ?> )</p></a>
         <?php endif; ?>
     </div>
-    <!-- TODO Add a search box here -->
+    <?php include 'accessibility.php';?>
+
 

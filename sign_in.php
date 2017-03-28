@@ -1,6 +1,5 @@
 <?php require_once ("Controllers/customer_controller.php"); ?>
 <?php require_once ("Includes/header.php");
-include 'accessibility.php';
 ?>
 <?php require_once ("Includes/info.php");?>
 

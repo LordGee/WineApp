@@ -19,7 +19,6 @@
             <img src="img/logo.png"/>
         </div>
         <div id="nav">
-            <button class="Accessibility" onclick="zoomIn()">Accessibility</button>
             <ul id="rightNav">
                 <li><a href="index.php" title="Home Page">Home</a></li>
                 <li><a href="about.php" title="About Us Page">About Us</a></li>

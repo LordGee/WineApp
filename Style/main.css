@@ -329,3 +329,15 @@ div.desc {
   width:auto;
   padding: 5px;
 }
+
+a#small {
+    font-size: 12px;
+}
+
+a#medium {
+    font-size: 18px;
+}
+
+a#large  {
+    font-size: 24px;
+}

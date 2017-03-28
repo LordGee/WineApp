@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-offset-lg-2 col-lg-8 col-offset-md-1 col-md-10 col-sm-12 formContent">
             <h1>Product Management</h1>
-            <form method="get" action="awine.php">
+            <form method="get" action="aWine.php">
                 <label for="addWine">Add a new wine</label>
                 <input type="hidden" name="aCode" value="add_wine">
                 <input type="submit" id="addWine" value="Add Wine">
